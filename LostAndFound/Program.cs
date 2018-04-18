@@ -10,94 +10,221 @@ namespace LostAndFound
     {
         static void Main(string[] args)
         {
-            List<string> ruts_totales;
-            List<Objeto> objetos;
-            List<Ubicacion> ubicaciones;
-            List<Usuario> usuarios;
-            List<string> rut_usuarios;
+            List<string> ruts_totales = new List<string>();
+            List<Objeto> objetos = new List<Objeto>();
+            List<Ubicacion> ubicaciones = new List<Ubicacion>();
+            List<Usuario> usuarios = new List<Usuario>();
+            List<string> rut_usuarios = new List<string>();
+            List<string> appelidos = new List<string>();
+            List<string> nombres = new List<string>();
+            List<Usuario> usuarios_no_iguales = new List<Usuario>();
+            List<Objeto> objeto_perdido = new List<Objeto>();
+            List<Objeto> objeto_encontrado = new List<Objeto>();
+            List<Objeto> objeto_totales = new List<Objeto>();
+            List<Objeto> muestral = new List<Objeto>();
+            List<string> tallas = new List<string>();
+            List<string> tipoderopa = new List<string>();
+            nombres.Add("Carlos");
+            nombres.Add("Raimundo");
+            nombres.Add("Isidora");
+            nombres.Add("juan");
+            nombres.Add("Esteban");
+            nombres.Add("Alan");
+            nombres.Add("Juanita");
+            nombres.Add("Zacarias");
+            nombres.Add("Matias");
+            appelidos.Add("Brito");
+            appelidos.Add("Quito");
+            appelidos.Add("Santiago");
+            appelidos.Add("E MANUEL");
+            appelidos.Add("Del pilar");
+            appelidos.Add("De La fuente");
+            appelidos.Add("Rosas");
+            appelidos.Add("Rojas");
+            appelidos.Add("del fuego");
+            appelidos.Add("Un Perno");
+            appelidos.Add("Un Troncho");
+            appelidos.Add("Piña");
+            appelidos.Add("Jaguar");
+            appelidos.Add("Peña");
+            tallas.Add("XXl");
+            tallas.Add("XL");
+            tallas.Add("L");
+            tallas.Add("M");
+            tallas.Add("S");
+            tallas.Add("XS");
+            tipoderopa.Add("pantalones");
+            tipoderopa.Add("shorts");
+            tipoderopa.Add("zapatillas");
+            tipoderopa.Add("Caño");
+            tipoderopa.Add("polera");
+            tipoderopa.Add("poleron");
+            tipoderopa.Add("calzon");
+            Ubicacion ubicacion1 = new Ubicacion("biblioteca","edificio central superior");
+            Ubicacion ubicacion2 = new Ubicacion("ciencias", "De ladrillos, con anfiteatro");
+            Ubicacion ubicacion3 = new Ubicacion("humanidades","de ladrillo, sin anfiteatro y cuadrado");
+            Ubicacion ubicacion4 = new Ubicacion("Cen","edificio central similar al loubre");
+            Ubicacion ubicacion5 = new Ubicacion("canchas superiores","antes de la clinica");
+            Ubicacion ubicacion6 = new Ubicacion("cancha nivel u","entremedio del muro de escalada");
+            Ubicacion ubicacion7 = new Ubicacion("cancha inferior oficial","cancha niver san carlos");
+            Ubicacion ubicacion8 = new Ubicacion("camarin hombres", "a la derecha del muro de escalada");
+            ubicaciones.Add(ubicacion1);
+            ubicaciones.Add(ubicacion2);
+            ubicaciones.Add(ubicacion3);
+            ubicaciones.Add(ubicacion4);
+            ubicaciones.Add(ubicacion5);
+            ubicaciones.Add(ubicacion6);
+            ubicaciones.Add(ubicacion7);
+            ubicaciones.Add(ubicacion8);
 
-            void Registrarse()
+            Random random = new Random();
+            List<string> noiguales = new List<string>();
+            List<string> cleanlist = new List<string>();
+
+            for (int i = 0; i < 200; i++)
             {
-                Console.WriteLine("Bienvenido al Lost & Found Uandes, para comenzar debes registrarte\n" +
-                    "Ingresa tu rut:\n");
-                string rut = Console.ReadLine();
-                if (ruts_totales.Contains(rut))
+                int ruto = i + 1000;
+                string name = nombres[random.Next(nombres.Count())];
+                int suma = 1 + 200;
+                string appellido1 = appelidos[random.Next(appelidos.Count())];
+                string apelidos2 = appelidos[random.Next(appelidos.Count())];
+                string password = suma.ToString();
+                string fullname = name + " " + apelidos2 + " " + appellido1;
+                noiguales.Add(fullname);
+                string mail = name+appellido1 + apelidos2 + "@miuandes.cl";
+                bool admin;
+                if (random.Next(5) == 3)
                 {
-                    Console.WriteLine("--------REGISTRARSE---------\n" +
-                        "Ingrese el tipo de usuario\n" +
-                        "1. Usuario Comun \n" +
-                        "2. Administrador\n");
-                    string opcion_usuario = Console.ReadLine();
-                    if(opcion_usuario == "1")
-                    {
-                        rut_usuarios.Add(rut);
-                        Console.WriteLine("Ingrese su nombre de usuario: \n");
-                        string nombre_usuario = Console.ReadLine();
-                        Console.WriteLine("Ingrese una contraseña:\n");
-                        string password = Console.ReadLine();
-                        Console.WriteLine("Ingresa tu mail: \n");
-                        string mail = Console.ReadLine();
-                        double calificacion = 0.0;
-                        Usuario_comun usuario_comun = new Usuario_comun(rut, password, nombre_usuario, mail, calificacion);
-                        usuarios.Add(usuario_comun);
-                        Console.WriteLine(nombre_usuario + " Te has registrado con exito!\n");
-                    }
-                    else if(opcion_usuario == "2")
-                    {
-                        rut_usuarios.Add(rut);
-                        Console.WriteLine("Ingrese su id de administrados: \n");
-                        string id_admin = Console.ReadLine();
-                        Console.WriteLine("Ingrese una contraseña:\n");
-                        string password_admin = Console.ReadLine();
-                        Console.WriteLine("Ingresa tu mail: \n");
-                        string mail_admin = Console.ReadLine();
-                        Administrador administrador = new Administrador(rut, password_admin, id_admin, mail_admin );
-                        usuarios.Add(administrador);
-                        Console.WriteLine("Administrador" + id_admin + "te has registrado con exito!\n");
-                    }
-                    else { Console.WriteLine("Usted no pertenece a la UANDES\n"); }
+                    admin = true;
+                
                 }
-                void Iniciar_sesion()
+                else
                 {
-                    IC:
-                    Console.WriteLine("-------INICIAR SESION--------" +
-                        "Selecciona tu tipo de usuario\n" +
-                        "1. Usuario Comun\n" +
-                        "2. Administrador");
-                    string opcion = Console.ReadLine();
-                    if (opcion == "1")
+                    admin = false;
+                }
+
+                Usuario usuario = new Usuario(ruto, password, fullname, mail, admin, random.Next(0, 100));
+                usuarios.Add(usuario);
+            }
+            usuarios_no_iguales = usuarios.Distinct().ToList();
+         
+            foreach (Usuario ni in usuarios_no_iguales)
+            {
+                Console.WriteLine(ni.nombre_usuario);
+            }
+            int contador = 0;
+            int contadorinbox = 0;
+            for (int i = 0; i < 13; i++)
+            {
+                for (int p = 0; p < 24; p++)
+                {
+                    for (int t = 0; t < random.Next(10); t++)
                     {
-                        Console.WriteLine("Ingresa tu RUT: \n");
-                        string rut_i = Console.ReadLine();
-                        if (rut_usuarios.Contains(rut_i))
+                        contador = contador + 1;
+                        string nombreobjeto = tipoderopa[random.Next(tipoderopa.Count())] + " " + tallas[random.Next(tallas.Count())];
+                        int marin = random.Next(4);
+                        if (marin == 3)
                         {
-                            Console.WriteLine("Ingresa tu clave: \n");
-                            string pass_i = Console.ReadLine();
+                            contadorinbox++;
+                            Usuario u = usuarios_no_iguales[random.Next(usuarios.Count())];
+                            Usuario po = usuarios_no_iguales[random.Next(usuarios.Count())];
+                            Objeto objetiño = new Objeto(contador, nombreobjeto, true, ubicaciones[random.Next(ubicaciones.Count())], u, po);
+                            Inbox inbos = new Inbox(po, u, contadorinbox);
+                            objeto_encontrado.Add(objetiño);
+                            objeto_totales.Add(objetiño);
+                        }
+                        if (marin == 0 || marin == 1 || marin == 2 || marin == 4)
+                        {
+                            Usuario ti = usuarios_no_iguales[random.Next(usuarios.Count())];
+                            Objeto objetiño = new Objeto(contador, nombreobjeto, false, ubicaciones[random.Next(ubicaciones.Count())],null,ti);
+                            objeto_perdido.Add(objetiño);
+                            objeto_totales.Add(objetiño);
+                        }
+
+
+                    }
+                }
+            }
+            
+            string opcion = "inicio";
+            Console.WriteLine("Hola, bienvenido a lost & found uandes");
+            Console.WriteLine("ingrese a su rut sin puntos ni guion ej: \n" +
+                " 19.309.333-7 = 193093337");
+            string rut = Console.ReadLine();
+            int mirut = Convert.ToInt32(rut);
+           
+            bool keeplooping =true;
+            while (keeplooping)
+            {
+                Console.WriteLine("¿desea iniciar sesion o crear cuenta? \n 1 = iniciar sesion \n 2 = crear cuenta");
+                string opcion1 = Console.ReadLine();
+                if (opcion1 == "1")
+                {
+                    Console.WriteLine("ingrese contraseña aca :");
+                    string pass = Console.ReadLine();
+                    Console.WriteLine("Ooops! el programa se olvido de su nombre, ingreselo a continuacion");
+                    string nombre = Console.ReadLine();
+                    Console.WriteLine("Ooops! el programa se olvido de su email, ingreselo a continuacion");
+                    string elmail = Console.ReadLine();
+                    Usuario yo1 = new Usuario(mirut, pass, nombre, elmail, true, 0);
+                    usuarios_no_iguales.Add(yo1);
+                    keeplooping = false;
+
+
+                }
+                if (opcion1 == "2")
+                {
+                    while (true)
+                    {
+                        Console.WriteLine("ingrese contraseña nueva");
+                        string mipass1 = Console.ReadLine();
+                        Console.WriteLine("repita su contraseña");
+                        string pass2 = Console.ReadLine();
+                        if (mipass1 == pass2)
+                        {
+                            Console.WriteLine("contraseña aceptada!");
+                            Console.WriteLine("ingrese su nombre");
+                            string minombre = Console.ReadLine();
+                            Console.WriteLine("ingrese su mail Uandes a continuacion");
+                            string mimail = Console.ReadLine();
+                            Usuario yo1 = new Usuario(mirut, mipass1,minombre,mimail,true,0);
+                            Console.WriteLine("Usuario creado con exito");
+                            usuarios_no_iguales.Add(yo1);
+                            keeplooping = false;
+                            break;
                         }
                         else
                         {
-                            Console.WriteLine("No se encuentra registrado");
+                            Console.WriteLine("las contraseñas no coinsiden");
                         }
                     }
-                    else if(opcion == "2")
+                }
+                if (opcion1 != "1" && opcion1 != "2")               
+                {
+                    Console.WriteLine("opcion ingresada no valida");
+                    continue;
+                }
+            }
+            while (opcion != "4")
+            {
+                Console.WriteLine(" \nIngrese opcion : \n opcion 1 = ver usuarios(solo administradores) \n opcion 2 = ver objetos perdidos \n opcion 3 = ver objetos encontrados(solo administradores) \n" +
+                    " opcion 4 = salir \n opcion 5 = agregar perdida de objeto");
+                opcion = Console.ReadLine();
+                if (opcion == "1")
+                {
+                    foreach (Usuario item in usuarios_no_iguales)
                     {
-                        Console.WriteLine("Ingresa tu RUT: \n");
-                        string rut_i = Console.ReadLine();
-                        if (rut_usuarios.Contains(rut_i))
+                        if (mirut == item.rut)
                         {
-                            Console.WriteLine("Ingresa tu clave: \n");
-                            string pass_i = Console.ReadLine();
-                        }
-                        else
-                        {
-                            Console.WriteLine("No se encuentra registrado");
+                            if (item.administrador)
+                            {
+                                item.mostrar(usuarios_no_iguales);
+                            }
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("Ingresa una opcion valida.\n");
-                        goto IC;
-                    }
+                }
+                if (opcion == "2")
+                {
 
                 }
             }

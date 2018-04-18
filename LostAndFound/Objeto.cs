@@ -6,21 +6,29 @@ using System.Threading.Tasks;
 
 namespace LostAndFound
 {
-    class Objeto
+    public class Objeto
     {
-        int codigo, perdido_encontrado;
-        List<string> categorias;
-        string descripcion, lugar_destino;
-        Ubicacion ubicacion;
-        public Objeto(int codigo, List<string> categorias, string descripcion, int perdido_encontrado, Ubicacion ubicacion, string lugar_destino)
+        //perdido_encontrado = false => perdido
+        //perdido_encontrado = true => encontrado
+        private int codigo;
+        public bool perdido_encontrado;
+        public string descripcion;
+        public Ubicacion ubicacion;
+        public Usuario usuarioencontro, usuarioperdio;
+
+        public int Codigo { get => codigo; set => codigo = value; }
+
+        public Objeto(int codigo, string descripcion, bool perdido_encontrado, Ubicacion ubicacion,Usuario usuarioencontro, Usuario usuarioperdido)
         {
-            this.codigo = codigo;
-            this.categorias = categorias;
+            this.Codigo = codigo;
             this.descripcion = descripcion;
             this.perdido_encontrado = perdido_encontrado;
             this.ubicacion = ubicacion;
-            this.lugar_destino = lugar_destino;
+            this.usuarioencontro = usuarioencontro;
+            this.usuarioperdio = usuarioperdido;
         }
+        // public void mostrarobj { }
 
+        
     }
 }

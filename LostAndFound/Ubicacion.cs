@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LostAndFound
 {
-    class Ubicacion
+    public class Ubicacion
     {
-        string nombre_lugar, indicacion;
+        public string nombre_lugar, indicacion;
         public Ubicacion(string nombre_lugar, string indicacion)
         {
             this.nombre_lugar = nombre_lugar;
@@ -16,5 +16,6 @@ namespace LostAndFound
         }
         public string Nombre_lugar { get => nombre_lugar; }
         public string Indicacion { get => indicacion; }
+        
     }
 }
