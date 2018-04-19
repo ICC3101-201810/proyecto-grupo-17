@@ -25,6 +25,8 @@ namespace LostAndFound
             List<string> tallas = new List<string>();
             List<string> tipoderopa = new List<string>();
             nombres.Add("Carlos");
+            nombres.Add("Gonzalo");
+            nombres.Add("Gabriela");
             nombres.Add("Raimundo");
             nombres.Add("Isidora");
             nombres.Add("juan");
@@ -81,7 +83,7 @@ namespace LostAndFound
             List<string> noiguales = new List<string>();
             List<string> cleanlist = new List<string>();
 
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 300; i++)
             {
                 int ruto = i + 1000;
                 string name = nombres[random.Next(nombres.Count())];
@@ -107,11 +109,6 @@ namespace LostAndFound
                 usuarios.Add(usuario);
             }
             usuarios_no_iguales = usuarios.Distinct().ToList();
-         
-            foreach (Usuario ni in usuarios_no_iguales)
-            {
-                Console.WriteLine(ni.nombre_usuario);
-            }
             int contador = 0;
             int contadorinbox = 0;
             for (int i = 0; i < 13; i++)
@@ -147,7 +144,8 @@ namespace LostAndFound
             }
             
             string opcion = "inicio";
-            Console.WriteLine("Hola, bienvenido a lost & found uandes");
+            Console.WriteLine("\n" +
+                "Hola, bienvenido a lost & found uandes");
             Console.WriteLine("ingrese a su rut sin puntos ni guion ej: \n" +
                 " 19.309.333-7 = 193093337");
             string rut = Console.ReadLine();
@@ -225,7 +223,174 @@ namespace LostAndFound
                 }
                 if (opcion == "2")
                 {
+                    foreach (Objeto objeto in objeto_perdido ) 
+                    {
+                        Console.WriteLine(objeto.descripcion);
+                    }
+                }
+                if (opcion =="3")
+                {
+                    foreach (Objeto  item in objeto_encontrado)
+                    {
+                        Console.WriteLine(item.descripcion);
+                    }
+                }
+                if (opcion =="5")
+                {
+                    Console.WriteLine("ingrese lugar donde lo encontro");
+                    Console.WriteLine("ingrese tipo del objeto ej :");
+                    foreach (string item in tipoderopa)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    bool hugeloop = true;
+                    while (hugeloop)
+                    {
+                        Console.WriteLine("desea usar un tipo de ropa determinado o ingresar uno nuevo? \n" +
+                        "opcion 1 = usar determinado \n" +
+                        "opcion 2 = crear tipo de objeto nuevo");
+                        string opcionn = Console.ReadLine();
+                        if (opcionn == "1")
+                        {
+                            Console.WriteLine("ingrese su tipo de ropa");
+                            string tipoo = Console.ReadLine();
+                            Console.WriteLine("ingrese talla, en caso de no necesitar presione ENTER");
+                            string tallaaa = Console.ReadLine();
+                            string nombrenuevoo = tipoo + " " + tallaaa;
+                            bool keeploopingg = true;
+                            while (keeploopingg)
+                            {
+                                Console.WriteLine("ingrese ubicacion existente o nueva");
+                                foreach (Ubicacion item in ubicaciones)
+                                {
+                                    Console.WriteLine(item.nombre_lugar);
+                                }
+                                Console.WriteLine("si desea ingresar ubicacion nueva presione 1, en caso de querer usar ubicacion predeterminada presione 2");
+                                string opcionnn = Console.ReadLine();
+                                if (opcionnn == "2" )
+                                {
+                                    Console.WriteLine("ingrese ubicacion existente");
+                                    string ubicacionaingresar = Console.ReadLine();
+                                    foreach (Ubicacion u in ubicaciones)
+                                    {
+                                        if (ubicacionaingresar == u.nombre_lugar)
+                                        {
+                                            foreach (Usuario a in usuarios_no_iguales)
+                                            {
+                                                if (a.rut == mirut)
+                                                {
+                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1),nombrenuevoo,false, u,a, null);
+                                                    keeploopingg = false;
+                                                    hugeloop = false;
+                                                    break;
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                                if (opcionnn == "1")
+                                {
+                                    Console.WriteLine("ingrese nombre de ubicacion nueva");
+                                    string nombreubi = Console.ReadLine();
+                                    Console.WriteLine("ingresar descripcion breve de lugar");
+                                    string descrip = Console.ReadLine();
+                                    Ubicacion ubiii = new Ubicacion(nombreubi, descrip);
+                                    foreach (Usuario usu in usuarios_no_iguales)
+                                    {
+                                        if (usu.rut == mirut)
+                                        {
+                                            Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, ubiii, usu, null);
+                                            objeto_perdido.Add(nuevop);
+                                            Console.WriteLine("se ha añadido objeto perdido");
+                                            keeploopingg = false;
+                                            hugeloop = false;
+                                        }
+                                    }
 
+
+
+
+                                }
+                            }
+                            
+
+                        }
+                        if (opcionn == "2")
+                        {
+                            Console.WriteLine("ingresar tipo de ropa nuevo");
+                            string nuevatipo = Console.ReadLine();
+                            Console.WriteLine("ingrese talla si es que quiere, en el caso de no necesitar precione ENTER");
+                            string talllaa = Console.ReadLine();
+                            tipoderopa.Add(nuevatipo);
+                            string nombrenuevoo = nuevatipo + " " + talllaa;
+                            bool keeploopingggg = true;
+                            while (keeploopingggg)
+                            {
+                                Console.WriteLine("ingrese ubicacion existente o nueva");
+                                foreach (Ubicacion item in ubicaciones)
+                                {
+                                    Console.WriteLine(item.nombre_lugar);
+                                }
+                                Console.WriteLine("si desea ingresar ubicacion nueva presione 1, en caso de querer usar ubicacion predeterminada presione 2");
+                                string opcionnn = Console.ReadLine();
+                                if (opcionnn == "2")
+                                {
+                                    Console.WriteLine("ingrese ubicacion existente");
+                                    string ubicacionaingresar = Console.ReadLine();
+                                    foreach (Ubicacion u in ubicaciones)
+                                    {
+                                        if (ubicacionaingresar == u.nombre_lugar)
+                                        {
+                                            foreach (Usuario a in usuarios_no_iguales)
+                                            {
+                                                if (a.rut == mirut)
+                                                {
+                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, u, a, null);
+                                                    keeploopingggg = false;
+                                                    hugeloop = false;
+                                                    break;
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                                if (opcionnn == "1")
+                                {
+                                    Console.WriteLine("ingrese nombre de ubicacion nueva");
+                                    string nombreubi = Console.ReadLine();
+                                    Console.WriteLine("ingresar descripcion breve de lugar");
+                                    string descrip = Console.ReadLine();
+                                    Ubicacion ubiii = new Ubicacion(nombreubi, descrip);
+                                    foreach (Usuario usu in usuarios_no_iguales)
+                                    {
+                                        if (usu.rut == mirut)
+                                        {
+                                            Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, ubiii, usu, null);
+                                            objeto_perdido.Add(nuevop);
+                                            Console.WriteLine("se ha añadido objeto perdido");
+                                            keeploopingggg = false;
+                                            hugeloop = false;
+                                        }
+                                    }
+
+
+
+
+                                }
+                            }
+
+
+
+                        }
+                        if (opcionn != "1" && opcionn != "2")
+                        {
+                            Console.WriteLine("opcion ingresada no valida, regresando...");
+                        }
+                    }
+                    
+                     
                 }
             }
 

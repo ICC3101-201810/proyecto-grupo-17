@@ -27,7 +27,8 @@ namespace LostAndFound
             this.usuarioencontro = usuarioencontro;
             this.usuarioperdio = usuarioperdido;
         }
-        // public void mostrarobj { }
+        
+        
 
         
     }
