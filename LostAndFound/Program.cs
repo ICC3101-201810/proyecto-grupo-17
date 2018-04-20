@@ -249,10 +249,11 @@ namespace LostAndFound
                     continue;
                 }
             }
-            while (opcion != "4")
+            while (opcion != "8")
             {
-                Console.WriteLine(" \nIngrese opcion : \n opcion 1 = ver usuarios(SOLO ADMINISTRADORES) \n " +
-                    "opcion 2 = ver objetos perdidos \n " +
+                Console.WriteLine(" \nIngrese opcion : \n" +
+                    "opcion 1 = ver usuarios(SOLO ADMINISTRADORES) \n" +
+                    "opcion 2 = ver objetos perdidos \n" +
                     "opcion 3 = ver objetos encontrados(SOLO ADMINISTRADORES) \n" +       
                     "opcion 4 = agregar perdida de objeto \n" +
                     "opcion 5 = añadir ususario(SOLO ADMINISTRADOR) \n" +
@@ -371,9 +372,11 @@ namespace LostAndFound
                                                 {
                                                     Objeto nuevop = new Objeto((objeto_perdido.Count() + 1),nombrenuevoo,false, u,a, null);
                                                     objeto_perdido.Add(nuevop);
+                                                    Console.WriteLine("objeto ingresado con exito!");
                                                     keeploopingg = false;
                                                     hugeloop = false;
                                                     break;
+                                                    
                                                 }
                                             }
                                             
@@ -578,6 +581,7 @@ namespace LostAndFound
                 }
                 if (opcion == "7")
                 {
+                    List<Usuario> usuariossss = new List<Usuario>();
                     foreach (Usuario item1 in usuarios_no_iguales)
                     {
                         if (mirut == item1.rut && item1.administrador)
@@ -590,21 +594,33 @@ namespace LostAndFound
                             }
                             Console.WriteLine("rut de usurario que quiera eliminar");
                             int rutt= Int32.Parse(Console.ReadLine());
+                            
                             foreach (Usuario usu in usuarios_no_iguales)
                             {
                                 if (rutt==usu.rut)
                                 {
-                                    usuarios_no_iguales.Remove(usu);
+
+                                    usuariossss.Add(usu);
                                 }
                             }
+                            
 
-                        }
+                        }      
+                    }
+                    foreach (Usuario u in usuariossss)
+                    {
+                        usuarios_no_iguales.Remove(u);
+                        Console.WriteLine("usuario removido con exito!");
                     }
                     continue;
                 }
                 if (opcion == "8")
                 {
                     break;
+                }
+                if (opcion != "1" && opcion != "2" && opcion != "3" && opcion != "4" && opcion != "5" && opcion != "6" && opcion != "7" && opcion != "8")
+                {
+                    Console.WriteLine("opcion ingresada no valida regresando al menu prinicpal...");
                 }
             }
 
