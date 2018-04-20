@@ -82,8 +82,10 @@ namespace LostAndFound
             Random random = new Random();
             List<string> noiguales = new List<string>();
             List<string> cleanlist = new List<string>();
-
-            for (int i = 0; i < 300; i++)
+            Console.WriteLine("Hola antes de iniciar el programa haremos unas pocas preguntas de simulacion \n" +
+                "ingrese numero de usuarios max 300");
+            int numero_de_usuarios = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < numero_de_usuarios; i++)
             {
                 int ruto = i + 1000;
                 string name = nombres[random.Next(nombres.Count())];
@@ -109,11 +111,15 @@ namespace LostAndFound
                 usuarios.Add(usuario);
             }
             usuarios_no_iguales = usuarios.Distinct().ToList();
+            Console.WriteLine("Ingrese numero de dias a simular");
+            int dias = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese horas por dia a simular");
+            int horas = Convert.ToInt32(Console.ReadLine());
             int contador = 0;
             int contadorinbox = 0;
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < dias; i++)
             {
-                for (int p = 0; p < 24; p++)
+                for (int p = 0; p < horas; p++)
                 {
                     for (int t = 0; t < random.Next(10); t++)
                     {
@@ -566,17 +572,15 @@ namespace LostAndFound
                 
                 if (opcion == "6")
                 {
-                    foreach (Usuario item1 in usuarios_no_iguales)
-                    {
-                        if (mirut == item1.rut && item1.administrador)
-                        {
-                            foreach (Usuario itemm in usuarios_no_iguales)
-                            {
-                                itemm.vercalificacion();
 
-                            }
+                    foreach (Usuario u in usuarios_no_iguales)
+                    {
+                        if (mirut == u.rut)
+                        {
+                            u.vercalificacion(usuarios_no_iguales);
                         }
                     }
+                    
                     continue;
                 }
                 if (opcion == "7")
@@ -588,9 +592,20 @@ namespace LostAndFound
                         {
                             Console.WriteLine("USUSARIOS                  RUT  \n");
                             Console.WriteLine("-------------------------------------------");
+
                             foreach (Usuario usu in usuarios_no_iguales)
-                            {
-                                Console.WriteLine(usu.nombre_usuario+"             "+usu.rut);
+                            { 
+                                List<string> listt = new List<string>();
+
+                                int contadorrrr = 0;
+                                while (contadorrrr <= usu.nombre_usuario.Count())
+                                {
+                                    contador += 1;
+                                }
+                                int totalespacio = 105 - contadorrrr;
+                                
+                            
+                            Console.WriteLine(usu.nombre_usuario+" "+usu.rut);
                             }
                             Console.WriteLine("rut de usurario que quiera eliminar");
                             int rutt= Int32.Parse(Console.ReadLine());

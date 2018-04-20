@@ -38,6 +38,29 @@ namespace LostAndFound
         {
             Console.WriteLine("nombre de ususario: "+this.nombre_usuario+" calificacion: "+this.calificacion+"\n");
         }
+        public void vercalificacion(List<Usuario> usuarios_no_iguales)
+        {
+            if (this.administrador)
+            {
+                foreach (Usuario itemm in usuarios_no_iguales)
+                {
+                    itemm.vercalificacion();
+
+                }
+            }
+        }
+        public Usuario reconocerusuario(List<Usuario> usuarios_no_iguales,int rut)
+        {
+            foreach (Usuario usuario in usuarios_no_iguales)
+            {
+                if (usuario.rut == rut)
+                {
+                    return usuario;
+                }
+            }
+            Usuario usuario1 = new Usuario(0, " ", " ", " ", false, 0);
+            return usuario1;
+        }
 
     }
 
