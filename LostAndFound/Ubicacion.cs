@@ -16,6 +16,16 @@ namespace LostAndFound
         }
         public string Nombre_lugar { get => nombre_lugar; }
         public string Indicacion { get => indicacion; }
-        
+        public bool reconocer(List<Ubicacion>ubicaciones)
+        {
+            foreach (Ubicacion item in ubicaciones)
+            {
+                if (this.nombre_lugar == item.nombre_lugar)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

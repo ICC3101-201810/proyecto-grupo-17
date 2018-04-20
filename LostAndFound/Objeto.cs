@@ -10,7 +10,7 @@ namespace LostAndFound
     {
         //perdido_encontrado = false => perdido
         //perdido_encontrado = true => encontrado
-        private int codigo;
+        public int codigo;
         public bool perdido_encontrado;
         public string descripcion;
         public Ubicacion ubicacion;
@@ -27,7 +27,27 @@ namespace LostAndFound
             this.usuarioencontro = usuarioencontro;
             this.usuarioperdio = usuarioperdido;
         }
+        public void InfoO()
+        {
+            if (this.perdido_encontrado)
+            {
+                Console.WriteLine("nombre de objeto: " + this.descripcion +"" +
+               " objeto perdido por:"+ this.usuarioperdio+
+               "en el lugar " + this.ubicacion+
+               "encontrado por: "+ this.usuarioencontro+
+               "\n");
+            }
+            else 
+            {
+                Console.WriteLine("nombre de objeto: " + this.descripcion +
+                " objeto perdido por:" + this.usuarioperdio +
+               "en el lugar " + this.ubicacion +
+               "\n"); 
+            }
+            
+        }
         
+
         
 
         

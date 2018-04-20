@@ -15,19 +15,19 @@ namespace LostAndFound
            
         }
     }
-     //public void Confirmation(string message)
-     //{
-       // Console.BackgroundColor = ConsoleColor.White;
-        //Console.ForegroundColor = ConsoleColor.Blue;
-        //Console.WriteLine(message);
-        //Console.ResetColor();
-     //}
+ /*    public void confirmat(string message)
+     {
+         Console.BackgroundColor = ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine(message);
+        Console.ResetColor();
+     }
 
-     //public void Warning(string message)
-     //{
-       // Console.BackgroundColor = ConsoleColor.Red;
-        //Console.ForegroundColor = ConsoleColor.White;
-        //Console.WriteLine(message);
-        //Console.ResetColor();
-     //} 
+     public void Warning(string message)
+     {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine(message);
+        Console.ResetColor();
+     } */
 }

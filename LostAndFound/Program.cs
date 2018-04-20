@@ -105,7 +105,7 @@ namespace LostAndFound
                     admin = false;
                 }
 
-                Usuario usuario = new Usuario(ruto, password, fullname, mail, admin, random.Next(0, 100));
+                Usuario usuario = new Usuario(ruto, password, fullname, mail, admin,0 );
                 usuarios.Add(usuario);
             }
             usuarios_no_iguales = usuarios.Distinct().ToList();
@@ -127,6 +127,7 @@ namespace LostAndFound
                             Usuario po = usuarios_no_iguales[random.Next(usuarios.Count())];
                             Objeto objetiño = new Objeto(contador, nombreobjeto, true, ubicaciones[random.Next(ubicaciones.Count())], u, po);
                             Inbox inbos = new Inbox(po, u, contadorinbox);
+                            po.calificacion = po.calificacion + random.Next(5);
                             objeto_encontrado.Add(objetiño);
                             objeto_totales.Add(objetiño);
                         }
@@ -164,7 +165,29 @@ namespace LostAndFound
                     string nombre = Console.ReadLine();
                     Console.WriteLine("Ooops! el programa se olvido de su email, ingreselo a continuacion");
                     string elmail = Console.ReadLine();
-                    Usuario yo1 = new Usuario(mirut, pass, nombre, elmail, true, 0);
+                    bool maringo = true;
+                    bool admin = false;
+                    while (maringo)
+                    {
+                        Console.WriteLine("Ooops! el programa se olvido de su condicion ,  es usetd administrador? \n" +
+                            "presione 1 si lo es, en caso de no serlo preciones 2");
+                        string decicision = Console.ReadLine();
+                        if (decicision == "1")
+                        {
+                            admin = true;
+                            maringo = false;
+                        }
+                        if (decicision == "2")
+                        {
+                            admin = false;
+                            maringo = false;
+                        }
+                        if (decicision != "1"&&decicision !="2")
+                        {
+                            Console.WriteLine("opcion ingresada no valida");
+                        }
+                    }
+                    Usuario yo1 = new Usuario(mirut, pass, nombre, elmail, admin, 0);
                     usuarios_no_iguales.Add(yo1);
                     keeplooping = false;
 
@@ -185,7 +208,30 @@ namespace LostAndFound
                             string minombre = Console.ReadLine();
                             Console.WriteLine("ingrese su mail Uandes a continuacion");
                             string mimail = Console.ReadLine();
-                            Usuario yo1 = new Usuario(mirut, mipass1,minombre,mimail,true,0);
+                            bool flamingo = true;
+                            bool admin1 = false;
+                            while (flamingo)
+                            {
+                                Console.WriteLine("Es usted administrador? \n" +
+                                    "1 = si \n" +
+                                    "2 = no");
+                                string decicision = Console.ReadLine();
+                                if (decicision == "1")
+                                {
+                                    admin1 = true;
+                                    flamingo = false;
+                                }
+                                if (decicision == "2")
+                                {
+                                    admin1 = false;
+                                    flamingo = false;
+                                }
+                                if (decicision != "1" && decicision != "2")
+                                {
+                                    Console.WriteLine("opcion ingresada no valida");
+                                }
+                            }
+                            Usuario yo1 = new Usuario(mirut, mipass1,minombre,mimail,admin1,0);
                             Console.WriteLine("Usuario creado con exito");
                             usuarios_no_iguales.Add(yo1);
                             keeplooping = false;
@@ -205,8 +251,14 @@ namespace LostAndFound
             }
             while (opcion != "4")
             {
-                Console.WriteLine(" \nIngrese opcion : \n opcion 1 = ver usuarios(solo administradores) \n opcion 2 = ver objetos perdidos \n opcion 3 = ver objetos encontrados(solo administradores) \n" +
-                    " opcion 4 = salir \n opcion 5 = agregar perdida de objeto");
+                Console.WriteLine(" \nIngrese opcion : \n opcion 1 = ver usuarios(SOLO ADMINISTRADORES) \n " +
+                    "opcion 2 = ver objetos perdidos \n " +
+                    "opcion 3 = ver objetos encontrados(SOLO ADMINISTRADORES) \n" +       
+                    "opcion 4 = agregar perdida de objeto \n" +
+                    "opcion 5 = añadir ususario(SOLO ADMINISTRADOR) \n" +
+                    "opcion 6 = ver calificaciones(SOLO ADMINISTRADOR) \n" +
+                    "opcion 7 = eliminar usuario(SOLO ADMINISTRADOR)\n"+
+                    "opcion 8 = salir \n " );
                 opcion = Console.ReadLine();
                 if (opcion == "1")
                 {
@@ -223,35 +275,73 @@ namespace LostAndFound
                 }
                 if (opcion == "2")
                 {
+                    Console.WriteLine("NOMBRE OBJETO                   CODIGO             UBICACION");
                     foreach (Objeto objeto in objeto_perdido ) 
                     {
-                        Console.WriteLine(objeto.descripcion);
+                        Console.WriteLine(objeto.descripcion +"                 "+ objeto.codigo+"                 "+objeto.ubicacion);
+                    }
+                    Console.WriteLine("Encontro un Objeto perdido\n (1)SI\n (2)NO\n");
+                    string opc = Console.ReadLine();
+                    
+                    if (opc=="1")
+                    {
+                        Console.WriteLine("escriba el codigo del objeto que encontro");
+                        int codigoo = Int32.Parse(Console.ReadLine());
+                        foreach (Objeto obj in objeto_perdido)
+                        {
+                            if (codigoo ==obj.codigo)
+                            {
+                                obj.perdido_encontrado = true;
+                                foreach (Usuario usu1 in usuarios_no_iguales)
+                                {
+                                    if (mirut==usu1.rut)
+                                    {
+                                        obj.usuarioencontro = usu1;
+                                        Console.WriteLine("Objeto encontrado con exito");
+                                        contadorinbox++;
+                                        Inbox inob= new Inbox(obj.usuarioperdio, usu1, contadorinbox);
+                                        
+                                    }
+                                }
+                               
+                            }
+                        }
+                        
                     }
                 }
-                if (opcion =="3")
+                if (opcion == "3")
                 {
-                    foreach (Objeto  item in objeto_encontrado)
+                    foreach (Usuario item in usuarios_no_iguales)
                     {
-                        Console.WriteLine(item.descripcion);
+                        if (mirut == item.rut && item.administrador)
+                        {
+                            foreach (Objeto itemm in objeto_encontrado)
+                            {
+                                itemm.InfoO();
+
+                            }
+                        }
                     }
+                    continue;
                 }
-                if (opcion =="5")
+                if (opcion =="4")
                 {
-                    Console.WriteLine("ingrese lugar donde lo encontro");
-                    Console.WriteLine("ingrese tipo del objeto ej :");
-                    foreach (string item in tipoderopa)
-                    {
-                        Console.WriteLine(item);
-                    }
+                    
                     bool hugeloop = true;
                     while (hugeloop)
                     {
                         Console.WriteLine("desea usar un tipo de ropa determinado o ingresar uno nuevo? \n" +
                         "opcion 1 = usar determinado \n" +
-                        "opcion 2 = crear tipo de objeto nuevo");
+                        "opcion 2 = crear tipo de objeto nuevo \n" +
+                        "opcion 3 = volver al menu principal");
                         string opcionn = Console.ReadLine();
                         if (opcionn == "1")
                         {
+                            foreach  (string i in tipoderopa)
+                            {
+                                Console.WriteLine(i);
+                            }
+                            
                             Console.WriteLine("ingrese su tipo de ropa");
                             string tipoo = Console.ReadLine();
                             Console.WriteLine("ingrese talla, en caso de no necesitar presione ENTER");
@@ -280,6 +370,7 @@ namespace LostAndFound
                                                 if (a.rut == mirut)
                                                 {
                                                     Objeto nuevop = new Objeto((objeto_perdido.Count() + 1),nombrenuevoo,false, u,a, null);
+                                                    objeto_perdido.Add(nuevop);
                                                     keeploopingg = false;
                                                     hugeloop = false;
                                                     break;
@@ -296,17 +387,28 @@ namespace LostAndFound
                                     Console.WriteLine("ingresar descripcion breve de lugar");
                                     string descrip = Console.ReadLine();
                                     Ubicacion ubiii = new Ubicacion(nombreubi, descrip);
-                                    foreach (Usuario usu in usuarios_no_iguales)
+                                    if (ubiii.reconocer(ubicaciones))
                                     {
-                                        if (usu.rut == mirut)
+                                        ubicaciones.Add(ubiii);
+                                    }
+                                    foreach (Ubicacion item in ubicaciones)
+                                    {
+                                        if (item.nombre_lugar == nombreubi)
                                         {
-                                            Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, ubiii, usu, null);
-                                            objeto_perdido.Add(nuevop);
-                                            Console.WriteLine("se ha añadido objeto perdido");
-                                            keeploopingg = false;
-                                            hugeloop = false;
+                                            foreach (Usuario usu in usuarios_no_iguales)
+                                            {
+                                                if (usu.rut == mirut)
+                                                {
+                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, item, usu, null);
+                                                    objeto_perdido.Add(nuevop);
+                                                    Console.WriteLine("se ha añadido objeto perdido");
+                                                    keeploopingg = false;
+                                                    hugeloop = false;
+                                                }
+                                            }
                                         }
                                     }
+                                    
 
 
 
@@ -379,18 +481,130 @@ namespace LostAndFound
 
 
                                 }
+                                if (opcionnn=="3")
+                                {
+                                    break;
+                                }
                             }
 
 
 
                         }
-                        if (opcionn != "1" && opcionn != "2")
+                        if (opcionn=="3")
+                        {
+                            break;
+                        }
+                        if (opcionn != "1" && opcionn != "2"&& opcionn != "3" )
                         {
                             Console.WriteLine("opcion ingresada no valida, regresando...");
                         }
+                        
                     }
                     
                      
+                }
+                if (opcion == "5")
+                {
+                    foreach (Usuario item in usuarios_no_iguales)
+                    {
+                        if (mirut == item.rut && item.administrador)
+                        {
+                            Console.WriteLine("ingrese rut  de un Nuevo Usuario sin puntos ni guion ej: \n" +
+                             " 19.309.333-7 = 193093337");
+                            string rut1 = Console.ReadLine();
+                            int mirut1 = Convert.ToInt32(rut1);
+                            while (true)
+                            {
+                                Console.WriteLine("ingrese contraseña nueva para el nuevo Usuario");
+                                string mipass1 = Console.ReadLine();
+                                Console.WriteLine("repita su contraseña");
+                                string pass2 = Console.ReadLine();
+                                if (mipass1 == pass2)
+                                {
+                                    Console.WriteLine("contraseña aceptada!");
+                                    Console.WriteLine("ingrese  nombre de Usuario");
+                                    string minombre = Console.ReadLine();
+                                    Console.WriteLine("ingrese  mail Uandes a continuacion de Usuario");
+                                    string mimail = Console.ReadLine();
+                                    bool flamingo = true;
+                                    bool admin1 = false;
+                                    while (flamingo)
+                                    {
+                                        Console.WriteLine("Este Usuario es administrador? \n" +
+                                            "1 = si \n" +
+                                            "2 = no");
+                                        string decicision = Console.ReadLine();
+                                        if (decicision == "1")
+                                        {
+                                            admin1 = true;
+                                            flamingo = false;
+                                        }
+                                        if (decicision == "2")
+                                        {
+                                            admin1 = false;
+                                            flamingo = false;
+                                        }
+                                        if (decicision != "1" && decicision != "2")
+                                        {
+                                            Console.WriteLine("opcion ingresada no valida");
+                                        }
+                                    }
+                                    Usuario yo1 = new Usuario(mirut1, mipass1, minombre, mimail, admin1, 0);
+                                    Console.WriteLine("Usuario creado con exito");
+                                    usuarios_no_iguales.Add(yo1);
+                                    keeplooping = false;
+                                    break;
+
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                if (opcion == "6")
+                {
+                    foreach (Usuario item1 in usuarios_no_iguales)
+                    {
+                        if (mirut == item1.rut && item1.administrador)
+                        {
+                            foreach (Usuario itemm in usuarios_no_iguales)
+                            {
+                                itemm.vercalificacion();
+
+                            }
+                        }
+                    }
+                    continue;
+                }
+                if (opcion == "7")
+                {
+                    foreach (Usuario item1 in usuarios_no_iguales)
+                    {
+                        if (mirut == item1.rut && item1.administrador)
+                        {
+                            Console.WriteLine("USUSARIOS                  RUT  \n");
+                            Console.WriteLine("-------------------------------------------");
+                            foreach (Usuario usu in usuarios_no_iguales)
+                            {
+                                Console.WriteLine(usu.nombre_usuario+"             "+usu.rut);
+                            }
+                            Console.WriteLine("rut de usurario que quiera eliminar");
+                            int rutt= Int32.Parse(Console.ReadLine());
+                            foreach (Usuario usu in usuarios_no_iguales)
+                            {
+                                if (rutt==usu.rut)
+                                {
+                                    usuarios_no_iguales.Remove(usu);
+                                }
+                            }
+
+                        }
+                    }
+                    continue;
+                }
+                if (opcion == "8")
+                {
+                    break;
                 }
             }
 

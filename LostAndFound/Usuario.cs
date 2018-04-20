@@ -34,6 +34,10 @@ namespace LostAndFound
                 Console.WriteLine(usuario.nombre_usuario);
             }
         }
+        public void vercalificacion()
+        {
+            Console.WriteLine("nombre de ususario: "+this.nombre_usuario+" calificacion: "+this.calificacion+"\n");
+        }
 
     }
 

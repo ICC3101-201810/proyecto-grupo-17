@@ -16,5 +16,6 @@ namespace LostAndFound
             this.usuario_e = usuario_e;
             this.contador = contador;
         }
+
     }
 }
