@@ -1,0 +1,7 @@
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\bin\Debug\LostAndFound.exe.config
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\bin\Debug\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\bin\Debug\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\obj\Debug\LostAndFound.csprojResolveAssemblyReference.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\obj\Debug\LostAndFound.csproj.CoreCompileInputs.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\obj\Debug\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17-master\LostAndFound\obj\Debug\LostAndFound.pdb
