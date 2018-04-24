@@ -31,17 +31,17 @@ namespace LostAndFound
         {
             if (this.perdido_encontrado)
             {
-                Console.WriteLine("nombre de objeto: " + this.descripcion +"" +
-               " objeto perdido por:"+ this.usuarioperdio+
-               "en el lugar " + this.ubicacion+
-               "encontrado por: "+ this.usuarioencontro+
+                Console.WriteLine("nombre de objeto: " + this.descripcion + "" +
+               " objeto perdido por:" + this.usuarioperdio.nombre_usuario +
+               "en el lugar " + this.ubicacion.nombre_lugar + this.ubicacion.indicacion +
+               "encontrado por: " + this.usuarioencontro.nombre_usuario +
                "\n");
             }
-            else 
+            else
             {
                 Console.WriteLine("nombre de objeto: " + this.descripcion +
-                " objeto perdido por:" + this.usuarioperdio +
-               "en el lugar " + this.ubicacion +
+                " objeto perdido por:" + this.usuarioperdio.nombre_usuario +
+               "en el lugar " + this.ubicacion.nombre_lugar +this.ubicacion.indicacion +
                "\n"); 
             }
             

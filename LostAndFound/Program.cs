@@ -85,6 +85,12 @@ namespace LostAndFound
             Console.WriteLine("Hola antes de iniciar el programa haremos unas pocas preguntas de simulacion \n" +
                 "ingrese numero de usuarios max 300");
             int numero_de_usuarios = Convert.ToInt32(Console.ReadLine());
+            while (numero_de_usuarios>300)
+            {
+                Console.WriteLine("numero ingresado incorrecto porfavor ingrese nuevamente el numero");
+                numero_de_usuarios = Convert.ToInt32(Console.ReadLine());
+
+            }
             for (int i = 0; i < numero_de_usuarios; i++)
             {
                 int ruto = i + 1000;
@@ -278,6 +284,8 @@ namespace LostAndFound
                                 item.mostrar(usuarios_no_iguales);
                             }
                         }
+                       
+
                     }
                 }
                 if (opcion == "2")
@@ -285,7 +293,7 @@ namespace LostAndFound
                     Console.WriteLine("NOMBRE OBJETO                   CODIGO             UBICACION");
                     foreach (Objeto objeto in objeto_perdido ) 
                     {
-                        Console.WriteLine(objeto.descripcion +"                 "+ objeto.codigo+"                 "+objeto.ubicacion);
+                        Console.WriteLine(objeto.descripcion +"                 "+ objeto.codigo+"                 "+objeto.ubicacion.nombre_lugar);
                     }
                     Console.WriteLine("Encontro un Objeto perdido\n (1)SI\n (2)NO\n");
                     string opc = Console.ReadLine();
@@ -303,17 +311,25 @@ namespace LostAndFound
                                 {
                                     if (mirut==usu1.rut)
                                     {
+                                        Objeto obj1 = obj;
                                         obj.usuarioencontro = usu1;
+                                        Console.WriteLine("Inbox creado!! " +obj.usuarioperdio.nombre_usuario+ " con "+obj.usuarioencontro.nombre_usuario);
                                         Console.WriteLine("Objeto encontrado con exito");
                                         contadorinbox++;
                                         Inbox inob= new Inbox(obj.usuarioperdio, usu1, contadorinbox);
-                                        
+                                        objeto_perdido.Remove(obj1);
+                                        objeto_encontrado.Add(obj1);
+
                                     }
                                 }
-                               
+                                break;
                             }
+                            
+
                         }
-                        
+                       
+
+
                     }
                 }
                 if (opcion == "3")
@@ -328,6 +344,7 @@ namespace LostAndFound
 
                             }
                         }
+                       
                     }
                     continue;
                 }
@@ -522,7 +539,8 @@ namespace LostAndFound
                              " 19.309.333-7 = 193093337");
                             string rut1 = Console.ReadLine();
                             int mirut1 = Convert.ToInt32(rut1);
-                            while (true)
+                            bool keeplooping1 = true;
+                            while (keeplooping1)
                             {
                                 Console.WriteLine("ingrese contraseña nueva para el nuevo Usuario");
                                 string mipass1 = Console.ReadLine();
@@ -561,12 +579,15 @@ namespace LostAndFound
                                     Usuario yo1 = new Usuario(mirut1, mipass1, minombre, mimail, admin1, 0);
                                     Console.WriteLine("Usuario creado con exito");
                                     usuarios_no_iguales.Add(yo1);
-                                    keeplooping = false;
-                                    break;
+                                    keeplooping1 = false;
+                                    
 
                                 }
                             }
+                            break;
                         }
+                      
+
                     }
                 }
                 
@@ -579,6 +600,7 @@ namespace LostAndFound
                         {
                             u.vercalificacion(usuarios_no_iguales);
                         }
+                       
                     }
                     
                     continue;
@@ -594,18 +616,8 @@ namespace LostAndFound
                             Console.WriteLine("-------------------------------------------");
 
                             foreach (Usuario usu in usuarios_no_iguales)
-                            { 
-                                List<string> listt = new List<string>();
-
-                                int contadorrrr = 0;
-                                while (contadorrrr <= usu.nombre_usuario.Count())
-                                {
-                                    contador += 1;
-                                }
-                                int totalespacio = 105 - contadorrrr;
-                                
-                            
-                            Console.WriteLine(usu.nombre_usuario+" "+usu.rut);
+                            {                   
+                                Console.WriteLine(usu.nombre_usuario+" "+usu.rut);
                             }
                             Console.WriteLine("rut de usurario que quiera eliminar");
                             int rutt= Int32.Parse(Console.ReadLine());
@@ -620,7 +632,8 @@ namespace LostAndFound
                             }
                             
 
-                        }      
+                        }
+                       
                     }
                     foreach (Usuario u in usuariossss)
                     {
