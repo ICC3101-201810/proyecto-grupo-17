@@ -126,6 +126,17 @@ namespace LostAndFound
 
 
         }
+        public void visibleVerUsu()
+        {
+            panelVerUsu.Visible = true;
+            VerUsu.Visible = true;
+            labelverusu.Visible = true;
+            buttonagregarusu.Visible = true;
+            buttoneliminarusu.Visible = true;
+            botonvolvermenu.Visible = true;
+
+        }
+        
 
         private void boton_login_Click(object sender, EventArgs e)
         {
@@ -137,11 +148,14 @@ namespace LostAndFound
                 {
                     if (u.administrador)
                     {
-
+                        NOvisiblelogin();
+                        panelAdmin.Visible = true;
                            //menu admin
                     }
                     else
                     {
+                        NOvisiblelogin();
+                        panelUsuario.Visible = true;
                         //menu usuario
                     }
                 
@@ -262,11 +276,13 @@ namespace LostAndFound
                 usuarios_no_iguales.Add(yo1);
                 if (admin1)
                 {
-                    //menu admin
+                    panelCuentaNueva.Visible = false;
+                    panelAdmin.Visible = true;
                 }
                 else
                 {
-                    //menu cabrochico
+                    panelCuentaNueva.Visible = false;
+                    panelUsuario.Visible = true;
                 }
 
             }
@@ -278,20 +294,37 @@ namespace LostAndFound
 
         private void buttonverUsuarios_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
-            ListBox listBox = new ListBox();
+            panelAdmin.Visible = false;
+            visibleVerUsu();
+            //hacer visible panelverusuario
             foreach (Usuario item in usuarios_no_iguales)
-            {  
-                listBox.Select(item.nombre_usuario);
+            {
+                VerUsu.Items.Add(item.nombre_usuario);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
+        private void botonvolvermenu_Click(object sender, EventArgs e)
+        {
+            panelVerUsu.Visible = false;
+           
         }
 
-        
+        private void buttonagregarusu_Click(object sender, EventArgs e)
+        {
+            panelVerUsu.Visible = false;
+            panelCuentaNueva.Visible = true;
+        }
+
+        private void buttoneliminarusu_Click(object sender, EventArgs e)
+        {
+            VerUsu.Items.Remove(VerUsu.SelectedItems);
+            //me falta eliminar de la lista de usuarios no iguales
+           
+         
+        }
+
+   
     }
 }
 

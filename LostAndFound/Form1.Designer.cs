@@ -58,6 +58,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panelUsuario = new System.Windows.Forms.Panel();
+            this.panelVerUsu = new System.Windows.Forms.Panel();
+            this.botonvolvermenu = new System.Windows.Forms.Button();
+            this.buttoneliminarusu = new System.Windows.Forms.Button();
+            this.buttonagregarusu = new System.Windows.Forms.Button();
+            this.labelverusu = new System.Windows.Forms.Label();
+            this.VerUsu = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panelAdmin = new System.Windows.Forms.Panel();
@@ -68,6 +74,7 @@
             this.buttonverUsuarios = new System.Windows.Forms.Button();
             this.panelCuentaNueva.SuspendLayout();
             this.panelUsuario.SuspendLayout();
+            this.panelVerUsu.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,6 +197,8 @@
             // 
             // panelCuentaNueva
             // 
+            this.panelCuentaNueva.AutoSize = true;
+            this.panelCuentaNueva.Controls.Add(this.panelUsuario);
             this.panelCuentaNueva.Controls.Add(this.label6);
             this.panelCuentaNueva.Controls.Add(this.rutNC);
             this.panelCuentaNueva.Controls.Add(this.nombreCuentaNueva);
@@ -203,9 +212,9 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Location = new System.Drawing.Point(12, 12);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(22, 36);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
-            this.panelCuentaNueva.Size = new System.Drawing.Size(776, 357);
+            this.panelCuentaNueva.Size = new System.Drawing.Size(817, 477);
             this.panelCuentaNueva.TabIndex = 12;
             this.panelCuentaNueva.Visible = false;
             // 
@@ -320,14 +329,82 @@
             // 
             // panelUsuario
             // 
+            this.panelUsuario.AutoSize = true;
+            this.panelUsuario.Controls.Add(this.panelVerUsu);
             this.panelUsuario.Controls.Add(this.button1);
             this.panelUsuario.Controls.Add(this.button3);
-            this.panelUsuario.Controls.Add(this.panelAdmin);
-            this.panelUsuario.Location = new System.Drawing.Point(12, 12);
+            this.panelUsuario.Location = new System.Drawing.Point(38, 27);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(776, 383);
+            this.panelUsuario.Size = new System.Drawing.Size(776, 447);
             this.panelUsuario.TabIndex = 26;
             this.panelUsuario.Visible = false;
+            // 
+            // panelVerUsu
+            // 
+            this.panelVerUsu.AutoSize = true;
+            this.panelVerUsu.Controls.Add(this.botonvolvermenu);
+            this.panelVerUsu.Controls.Add(this.buttoneliminarusu);
+            this.panelVerUsu.Controls.Add(this.buttonagregarusu);
+            this.panelVerUsu.Controls.Add(this.labelverusu);
+            this.panelVerUsu.Controls.Add(this.VerUsu);
+            this.panelVerUsu.Location = new System.Drawing.Point(33, 18);
+            this.panelVerUsu.Name = "panelVerUsu";
+            this.panelVerUsu.Size = new System.Drawing.Size(740, 426);
+            this.panelVerUsu.TabIndex = 6;
+            this.panelVerUsu.Visible = false;
+            // 
+            // botonvolvermenu
+            // 
+            this.botonvolvermenu.Location = new System.Drawing.Point(446, 340);
+            this.botonvolvermenu.Name = "botonvolvermenu";
+            this.botonvolvermenu.Size = new System.Drawing.Size(75, 23);
+            this.botonvolvermenu.TabIndex = 4;
+            this.botonvolvermenu.Text = "VOLVER";
+            this.botonvolvermenu.UseVisualStyleBackColor = true;
+            this.botonvolvermenu.Visible = false;
+            this.botonvolvermenu.Click += new System.EventHandler(this.botonvolvermenu_Click);
+            // 
+            // buttoneliminarusu
+            // 
+            this.buttoneliminarusu.Location = new System.Drawing.Point(197, 340);
+            this.buttoneliminarusu.Name = "buttoneliminarusu";
+            this.buttoneliminarusu.Size = new System.Drawing.Size(75, 23);
+            this.buttoneliminarusu.TabIndex = 3;
+            this.buttoneliminarusu.Text = "Eliminar";
+            this.buttoneliminarusu.UseVisualStyleBackColor = true;
+            this.buttoneliminarusu.Visible = false;
+            this.buttoneliminarusu.Click += new System.EventHandler(this.buttoneliminarusu_Click);
+            // 
+            // buttonagregarusu
+            // 
+            this.buttonagregarusu.Location = new System.Drawing.Point(329, 340);
+            this.buttonagregarusu.Name = "buttonagregarusu";
+            this.buttonagregarusu.Size = new System.Drawing.Size(75, 23);
+            this.buttonagregarusu.TabIndex = 2;
+            this.buttonagregarusu.Text = "Agregar";
+            this.buttonagregarusu.UseVisualStyleBackColor = true;
+            this.buttonagregarusu.Visible = false;
+            this.buttonagregarusu.Click += new System.EventHandler(this.buttonagregarusu_Click);
+            // 
+            // labelverusu
+            // 
+            this.labelverusu.AutoSize = true;
+            this.labelverusu.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelverusu.Location = new System.Drawing.Point(168, 16);
+            this.labelverusu.Name = "labelverusu";
+            this.labelverusu.Size = new System.Drawing.Size(174, 19);
+            this.labelverusu.TabIndex = 1;
+            this.labelverusu.Text = "USUARIOS";
+            this.labelverusu.Visible = false;
+            // 
+            // VerUsu
+            // 
+            this.VerUsu.FormattingEnabled = true;
+            this.VerUsu.Location = new System.Drawing.Point(197, 43);
+            this.VerUsu.Name = "VerUsu";
+            this.VerUsu.Size = new System.Drawing.Size(324, 264);
+            this.VerUsu.TabIndex = 0;
+            this.VerUsu.Visible = false;
             // 
             // button1
             // 
@@ -349,12 +426,13 @@
             // 
             // panelAdmin
             // 
+            this.panelAdmin.AutoSize = true;
             this.panelAdmin.Controls.Add(this.botonVerCali);
             this.panelAdmin.Controls.Add(this.botonagregarobjeto);
             this.panelAdmin.Controls.Add(this.boronVerObjetoEnc);
             this.panelAdmin.Controls.Add(this.button2);
             this.panelAdmin.Controls.Add(this.buttonverUsuarios);
-            this.panelAdmin.Location = new System.Drawing.Point(17, 3);
+            this.panelAdmin.Location = new System.Drawing.Point(12, 12);
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(773, 479);
             this.panelAdmin.TabIndex = 27;
@@ -411,9 +489,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelUsuario);
             this.Controls.Add(this.panelCuentaNueva);
             this.Controls.Add(this.boton_simulacion);
+            this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.simulation);
             this.Controls.Add(this.c_usuarios);
             this.Controls.Add(this.c_dias);
@@ -431,6 +509,9 @@
             this.panelCuentaNueva.ResumeLayout(false);
             this.panelCuentaNueva.PerformLayout();
             this.panelUsuario.ResumeLayout(false);
+            this.panelUsuario.PerformLayout();
+            this.panelVerUsu.ResumeLayout(false);
+            this.panelVerUsu.PerformLayout();
             this.panelAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -474,5 +555,11 @@
         private System.Windows.Forms.Button buttonverUsuarios;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panelVerUsu;
+        private System.Windows.Forms.ListBox VerUsu;
+        private System.Windows.Forms.Button buttoneliminarusu;
+        private System.Windows.Forms.Button buttonagregarusu;
+        private System.Windows.Forms.Label labelverusu;
+        private System.Windows.Forms.Button botonvolvermenu;
     }
 }
