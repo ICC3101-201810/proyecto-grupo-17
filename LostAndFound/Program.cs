@@ -4,15 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 
 namespace LostAndFound
 {
+    internal static class NativeMethods
+    {
+        [DllImport("kernel32.dll")]
+        internal static extern Boolean AllocConsole();
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            
+            if (args.Length == 0)
+            {
+                // run as windows app
+                Application.EnableVisualStyles();
+                Application.Run(new Form1());
+            }
+            else
+            {
+                // run as console app
+                NativeMethods.AllocConsole();
+                Console.WriteLine("Hello World");
+                Console.ReadLine();
+            }
+
             List<string> ruts_totales = new List<string>();
             List<Objeto> objetos = new List<Objeto>();
             List<Ubicacion> ubicaciones = new List<Ubicacion>();
@@ -261,7 +280,7 @@ namespace LostAndFound
                 if (opcion1 != "1" && opcion1 != "2")               
                 {
                     Console.WriteLine("opcion ingresada no valida");
-                    continue;
+                    break;
                 }
             }
             while (opcion != "8")
@@ -652,6 +671,7 @@ namespace LostAndFound
                 if (opcion != "1" && opcion != "2" && opcion != "3" && opcion != "4" && opcion != "5" && opcion != "6" && opcion != "7" && opcion != "8")
                 {
                     Console.WriteLine("opcion ingresada no valida regresando al menu prinicpal...");
+                    break;
                 }
             }
 

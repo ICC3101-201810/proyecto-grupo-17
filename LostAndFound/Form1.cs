@@ -23,7 +23,7 @@ namespace LostAndFound
         List<string> rut_usuarios = new List<string>();
         List<string> appelidos = new List<string>();
         public List<string> nombres = new List<string>();
-        List<Usuario> usuarios_no_iguales = new List<Usuario>();
+        public List<Usuario> usuarios_no_iguales = new List<Usuario>();
         List<Objeto> objeto_perdido = new List<Objeto>();
         List<Objeto> objeto_encontrado = new List<Objeto>();
         List<Objeto> objeto_totales = new List<Objeto>();
@@ -43,6 +43,7 @@ namespace LostAndFound
         Random random = new Random();
         List<string> noiguales = new List<string>();
         List<string> cleanlist = new List<string>();
+        
 
 
 
@@ -96,10 +97,10 @@ namespace LostAndFound
         tipoderopa.Add("polera");
         tipoderopa.Add("poleron");
         tipoderopa.Add("calzon"); 
-
+        
 
         }
-
+        
 
         public void visiblelogin()
         {
@@ -128,12 +129,26 @@ namespace LostAndFound
 
         private void boton_login_Click(object sender, EventArgs e)
         {
+            NOvisiblelogin();
             int ruttest=Int32.Parse(ruttext.Text);
             foreach (Usuario u in usuarios_no_iguales)
             {
-                if (ruttest == u.rut && miclave.Text == u.password && u.administrador)
+                if (ruttest == u.rut && miclave.Text == u.password)
                 {
+                    if (u.administrador)
+                    {
 
+                           //menu admin
+                    }
+                    else
+                    {
+                        //menu usuario
+                    }
+                
+                }
+                else
+                {
+                    MessageBox.Show("el usuario o la contraseña es erronea! por favor intentar denuevo");
                 }
             }
                 
@@ -141,6 +156,8 @@ namespace LostAndFound
 
         private void boton_nuevaCuenta_Click(object sender, EventArgs e)
         {
+            NOvisiblelogin();
+            panelCuentaNueva.Visible = true;
 
         }
 
@@ -149,6 +166,7 @@ namespace LostAndFound
             int numero_de_usuarios=Convert.ToInt32(c_dias.Text);
             int horas=Convert.ToInt32(c_horas.Text);
             int dias=Convert.ToInt32(c_usuarios.Text);
+
             for (int i = 0; i < numero_de_usuarios; i++)
             {
                 int ruto = i + 1000;
@@ -222,7 +240,60 @@ namespace LostAndFound
         {
 
         }
+
+        private void creandoCuenta_Click(object sender, EventArgs e)
+        {
+            if (reContraseñaNC.Text == contraseñaCuentaNueva.Text)
+            {
+                MessageBox.Show("Las contraseñas coinciden");
+
+                string minombre = nombreCuentaNueva.Text;
+                int mirut = Convert.ToInt32(rutNC.Text);
+                string mipass1 = contraseñaCuentaNueva.Text;
+                string mimail = mailNC.Text;
+                bool admin1 = false;
+                if (checkAdmin.Checked)
+                {
+                    admin1 = true;
+                }
+
+                Usuario yo1 = new Usuario(mirut, mipass1, minombre, mimail, admin1, 0);
+                Console.WriteLine("Usuario creado con exito");
+                usuarios_no_iguales.Add(yo1);
+                if (admin1)
+                {
+                    //menu admin
+                }
+                else
+                {
+                    //menu cabrochico
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("las contraseñas no coinciden");
+            }
+        }
+
+        private void buttonverUsuarios_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            ListBox listBox = new ListBox();
+            foreach (Usuario item in usuarios_no_iguales)
+            {  
+                listBox.Select(item.nombre_usuario);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
+}
 
   
-}
+
