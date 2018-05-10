@@ -19,10 +19,18 @@ namespace WindowsFormsApp1
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Inicio inicio = new Inicio();
             inicio.Show();
 
         }
+
+        private void btnIS_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu_Admin menu_admin = new Menu_Admin();
+            menu_admin.Show();
+        }
+    }
     }
 }

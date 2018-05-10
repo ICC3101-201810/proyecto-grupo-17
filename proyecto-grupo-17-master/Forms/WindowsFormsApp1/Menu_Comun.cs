@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Registrarse : Form
+    public partial class Menu_Comun : Form
     {
-        public Registrarse()
+        public Menu_Comun()
         {
             InitializeComponent();
         }
 
-        private void cbadmin_CheckedChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            bool admin = true;
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -28,13 +28,5 @@ namespace WindowsFormsApp1
             Inicio inicio = new Inicio();
             inicio.Show();
         }
-
-        private void btnRegistrarse_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            ISesion sesion = new ISesion();
-            sesion.Show();
-        }
-    }
     }
 }

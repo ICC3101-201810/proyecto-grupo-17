@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace WindowsFormsApp1
 {
@@ -35,9 +36,10 @@ namespace WindowsFormsApp1
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SystemSounds.Beep.Play();
             MessageBox.Show("Gracias por ocupar Lost & Found Uandes\n" +
                             "              Vuelve Pronto!");
+            this.Close();
         }
 
     }
