@@ -10,21 +10,23 @@ using System.Windows.Forms;
 using System.Media;
 using System.IO;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsFormsApp1
 {
     public delegate void addUsuario();
     public partial class Inicio : Form
     {
+        public Info informacion;
         public Inicio()
         {
             InitializeComponent();
-            List<string> ruts_totales = new List<string>();
+            
+            List<int> ruts_totales = new List<int>();
             List<Objeto> objetos = new List<Objeto>();
             List<Ubicacion> ubicaciones = new List<Ubicacion>();
             List<Usuario> usuarios = new List<Usuario>();
-            List<string> rut_usuarios = new List<string>();
+            List<int> rut_usuarios = new List<int>();
             List<string> appelidos = new List<string>();
             List<string> nombres = new List<string>();
             List<Usuario> usuarios_no_iguales = new List<Usuario>();
@@ -93,10 +95,11 @@ namespace WindowsFormsApp1
             List<string> noiguales = new List<string>();
             List<string> cleanlist = new List<string>();
 
-            int numero_de_usuarios = 5;
+            int numero_de_usuarios = 10;
             for (int i = 0; i < numero_de_usuarios; i++)
             {
                 int ruto = i + 1000;
+                ruts_totales.Add(ruto);
                 string name = nombres[random.Next(nombres.Count())];
                 int suma = 1 + 200;
                 string appellido1 = appelidos[random.Next(appelidos.Count())];
@@ -118,10 +121,11 @@ namespace WindowsFormsApp1
 
                 Usuario usuario = new Usuario(ruto, password, fullname, mail, admin, 0);
                 usuarios.Add(usuario);
+                ruts_totales.Add(ruto);
             }
             usuarios_no_iguales = usuarios.Distinct().ToList();
-            int dias = 2;
-            int horas = 12;
+            int dias = 3;
+            int horas = 24;
             int contador = 0;
             int contadorinbox = 0;
             for (int i = 0; i < dias; i++)
@@ -154,12 +158,17 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+            informacion = new Info(ruts_totales, objetos, ubicaciones, usuarios, rut_usuarios, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales);
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = File.Open("Datos.bin", FileMode.Truncate);
+            bf.Serialize(fs, informacion);
+            fs.Close();
         }
 
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
         private void Registrarse_Click(object sender, EventArgs e)
         {

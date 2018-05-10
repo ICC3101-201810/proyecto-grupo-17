@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         private void btnIS_Click(object sender, EventArgs e)
         {
             this.Close();
-            Menu_Admin menu_admin = new Menu_Admin();
+            Menu menu_admin = new Menu();
             menu_admin.Show();
         }
     }

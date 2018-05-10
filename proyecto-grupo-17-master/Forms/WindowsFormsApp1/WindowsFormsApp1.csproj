@@ -52,23 +52,18 @@
     <Compile Include="InboxForms.Designer.cs">
       <DependentUpon>InboxForms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Info.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu_Admin.cs">
+    <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu_Admin.Designer.cs">
-      <DependentUpon>Menu_Admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu_Comun.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu_Comun.Designer.cs">
-      <DependentUpon>Menu_Comun.cs</DependentUpon>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Objeto.cs" />
     <Compile Include="Program.cs" />
@@ -93,11 +88,8 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu_Admin.resx">
-      <DependentUpon>Menu_Admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu_Comun.resx">
-      <DependentUpon>Menu_Comun.cs</DependentUpon>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
