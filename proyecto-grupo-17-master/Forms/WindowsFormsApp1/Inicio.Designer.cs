@@ -94,6 +94,7 @@
             this.Controls.Add(this.button3);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inicio_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

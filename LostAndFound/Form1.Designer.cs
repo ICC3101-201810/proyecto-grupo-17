@@ -44,6 +44,15 @@
             this.simulation = new System.Windows.Forms.Label();
             this.boton_simulacion = new System.Windows.Forms.Button();
             this.panelCuentaNueva = new System.Windows.Forms.Panel();
+            this.panelUsuario = new System.Windows.Forms.Panel();
+            this.panelVerUsu = new System.Windows.Forms.Panel();
+            this.botonvolvermenu = new System.Windows.Forms.Button();
+            this.buttoneliminarusu = new System.Windows.Forms.Button();
+            this.buttonagregarusu = new System.Windows.Forms.Button();
+            this.labelverusu = new System.Windows.Forms.Label();
+            this.VerUsu = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.rutNC = new System.Windows.Forms.TextBox();
             this.nombreCuentaNueva = new System.Windows.Forms.TextBox();
@@ -57,15 +66,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.panelUsuario = new System.Windows.Forms.Panel();
-            this.panelVerUsu = new System.Windows.Forms.Panel();
-            this.botonvolvermenu = new System.Windows.Forms.Button();
-            this.buttoneliminarusu = new System.Windows.Forms.Button();
-            this.buttonagregarusu = new System.Windows.Forms.Button();
-            this.labelverusu = new System.Windows.Forms.Label();
-            this.VerUsu = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.botonVerCali = new System.Windows.Forms.Button();
             this.botonagregarobjeto = new System.Windows.Forms.Button();
@@ -85,9 +85,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LOGIN.AutoSize = true;
             this.LOGIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LOGIN.Location = new System.Drawing.Point(57, 48);
+            this.LOGIN.Location = new System.Drawing.Point(86, 74);
+            this.LOGIN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LOGIN.Name = "LOGIN";
-            this.LOGIN.Size = new System.Drawing.Size(45, 13);
+            this.LOGIN.Size = new System.Drawing.Size(66, 20);
             this.LOGIN.TabIndex = 0;
             this.LOGIN.Text = "LOGIN";
             this.LOGIN.Visible = false;
@@ -95,9 +96,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 165);
+            this.label1.Location = new System.Drawing.Point(266, 254);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(119, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "CONTRASEÑA";
             this.label1.Visible = false;
@@ -105,35 +107,39 @@
             // labelrut
             // 
             this.labelrut.AutoSize = true;
-            this.labelrut.Location = new System.Drawing.Point(177, 98);
+            this.labelrut.Location = new System.Drawing.Point(266, 151);
+            this.labelrut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelrut.Name = "labelrut";
-            this.labelrut.Size = new System.Drawing.Size(30, 13);
+            this.labelrut.Size = new System.Drawing.Size(42, 20);
             this.labelrut.TabIndex = 2;
             this.labelrut.Text = "RUT";
             this.labelrut.Visible = false;
             // 
             // ruttext
             // 
-            this.ruttext.Location = new System.Drawing.Point(320, 91);
+            this.ruttext.Location = new System.Drawing.Point(480, 140);
+            this.ruttext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ruttext.Name = "ruttext";
-            this.ruttext.Size = new System.Drawing.Size(166, 20);
+            this.ruttext.Size = new System.Drawing.Size(247, 26);
             this.ruttext.TabIndex = 3;
             this.ruttext.Visible = false;
             // 
             // miclave
             // 
-            this.miclave.Location = new System.Drawing.Point(320, 158);
+            this.miclave.Location = new System.Drawing.Point(480, 243);
+            this.miclave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.miclave.Name = "miclave";
             this.miclave.PasswordChar = '*';
-            this.miclave.Size = new System.Drawing.Size(166, 20);
+            this.miclave.Size = new System.Drawing.Size(247, 26);
             this.miclave.TabIndex = 4;
             this.miclave.Visible = false;
             // 
             // boton_login
             // 
-            this.boton_login.Location = new System.Drawing.Point(224, 232);
+            this.boton_login.Location = new System.Drawing.Point(336, 357);
+            this.boton_login.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.boton_login.Name = "boton_login";
-            this.boton_login.Size = new System.Drawing.Size(75, 23);
+            this.boton_login.Size = new System.Drawing.Size(112, 35);
             this.boton_login.TabIndex = 5;
             this.boton_login.Text = "LOGIN";
             this.boton_login.UseVisualStyleBackColor = true;
@@ -142,9 +148,10 @@
             // 
             // boton_nuevaCuenta
             // 
-            this.boton_nuevaCuenta.Location = new System.Drawing.Point(357, 232);
+            this.boton_nuevaCuenta.Location = new System.Drawing.Point(536, 357);
+            this.boton_nuevaCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.boton_nuevaCuenta.Name = "boton_nuevaCuenta";
-            this.boton_nuevaCuenta.Size = new System.Drawing.Size(155, 23);
+            this.boton_nuevaCuenta.Size = new System.Drawing.Size(232, 35);
             this.boton_nuevaCuenta.TabIndex = 6;
             this.boton_nuevaCuenta.Text = "CREAR NUEVA CUENTA";
             this.boton_nuevaCuenta.UseVisualStyleBackColor = true;
@@ -153,25 +160,28 @@
             // 
             // c_horas
             // 
-            this.c_horas.Location = new System.Drawing.Point(519, 128);
+            this.c_horas.Location = new System.Drawing.Point(778, 197);
+            this.c_horas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c_horas.Name = "c_horas";
-            this.c_horas.Size = new System.Drawing.Size(100, 20);
+            this.c_horas.Size = new System.Drawing.Size(148, 26);
             this.c_horas.TabIndex = 7;
             this.c_horas.Text = "cantidad de horas";
             // 
             // c_dias
             // 
-            this.c_dias.Location = new System.Drawing.Point(365, 128);
+            this.c_dias.Location = new System.Drawing.Point(548, 197);
+            this.c_dias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c_dias.Name = "c_dias";
-            this.c_dias.Size = new System.Drawing.Size(100, 20);
+            this.c_dias.Size = new System.Drawing.Size(148, 26);
             this.c_dias.TabIndex = 8;
             this.c_dias.Text = "cantidad de dias";
             // 
             // c_usuarios
             // 
-            this.c_usuarios.Location = new System.Drawing.Point(158, 128);
+            this.c_usuarios.Location = new System.Drawing.Point(237, 197);
+            this.c_usuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.c_usuarios.Name = "c_usuarios";
-            this.c_usuarios.Size = new System.Drawing.Size(100, 20);
+            this.c_usuarios.Size = new System.Drawing.Size(148, 26);
             this.c_usuarios.TabIndex = 9;
             this.c_usuarios.Text = "cantidad de usuarios";
             // 
@@ -179,17 +189,19 @@
             // 
             this.simulation.AutoSize = true;
             this.simulation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simulation.Location = new System.Drawing.Point(314, 36);
+            this.simulation.Location = new System.Drawing.Point(471, 55);
+            this.simulation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.simulation.Name = "simulation";
-            this.simulation.Size = new System.Drawing.Size(151, 25);
+            this.simulation.Size = new System.Drawing.Size(225, 37);
             this.simulation.TabIndex = 10;
             this.simulation.Text = "SIMULACION";
             // 
             // boton_simulacion
             // 
-            this.boton_simulacion.Location = new System.Drawing.Point(357, 301);
+            this.boton_simulacion.Location = new System.Drawing.Point(536, 463);
+            this.boton_simulacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.boton_simulacion.Name = "boton_simulacion";
-            this.boton_simulacion.Size = new System.Drawing.Size(75, 23);
+            this.boton_simulacion.Size = new System.Drawing.Size(112, 35);
             this.boton_simulacion.TabIndex = 11;
             this.boton_simulacion.Text = "enter";
             this.boton_simulacion.UseVisualStyleBackColor = true;
@@ -212,120 +224,12 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Location = new System.Drawing.Point(22, 36);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(33, 55);
+            this.panelCuentaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
-            this.panelCuentaNueva.Size = new System.Drawing.Size(817, 477);
+            this.panelCuentaNueva.Size = new System.Drawing.Size(1226, 735);
             this.panelCuentaNueva.TabIndex = 12;
             this.panelCuentaNueva.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(230, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "RUT(sin puntos ni guion):";
-            // 
-            // rutNC
-            // 
-            this.rutNC.Location = new System.Drawing.Point(387, 58);
-            this.rutNC.Name = "rutNC";
-            this.rutNC.Size = new System.Drawing.Size(100, 20);
-            this.rutNC.TabIndex = 24;
-            // 
-            // nombreCuentaNueva
-            // 
-            this.nombreCuentaNueva.Location = new System.Drawing.Point(387, 3);
-            this.nombreCuentaNueva.Name = "nombreCuentaNueva";
-            this.nombreCuentaNueva.Size = new System.Drawing.Size(100, 20);
-            this.nombreCuentaNueva.TabIndex = 23;
-            // 
-            // contraseñaCuentaNueva
-            // 
-            this.contraseñaCuentaNueva.Location = new System.Drawing.Point(387, 100);
-            this.contraseñaCuentaNueva.Name = "contraseñaCuentaNueva";
-            this.contraseñaCuentaNueva.Size = new System.Drawing.Size(100, 20);
-            this.contraseñaCuentaNueva.TabIndex = 22;
-            // 
-            // reContraseñaNC
-            // 
-            this.reContraseñaNC.Location = new System.Drawing.Point(387, 159);
-            this.reContraseñaNC.Name = "reContraseñaNC";
-            this.reContraseñaNC.Size = new System.Drawing.Size(100, 20);
-            this.reContraseñaNC.TabIndex = 21;
-            // 
-            // mailNC
-            // 
-            this.mailNC.Location = new System.Drawing.Point(387, 220);
-            this.mailNC.Name = "mailNC";
-            this.mailNC.Size = new System.Drawing.Size(100, 20);
-            this.mailNC.TabIndex = 20;
-            // 
-            // creandoCuenta
-            // 
-            this.creandoCuenta.Location = new System.Drawing.Point(387, 315);
-            this.creandoCuenta.Name = "creandoCuenta";
-            this.creandoCuenta.Size = new System.Drawing.Size(125, 23);
-            this.creandoCuenta.TabIndex = 19;
-            this.creandoCuenta.Text = "Crear Cuenta";
-            this.creandoCuenta.UseVisualStyleBackColor = true;
-            this.creandoCuenta.Click += new System.EventHandler(this.creandoCuenta_Click);
-            // 
-            // checkAdmin
-            // 
-            this.checkAdmin.AutoSize = true;
-            this.checkAdmin.Location = new System.Drawing.Point(387, 272);
-            this.checkAdmin.Name = "checkAdmin";
-            this.checkAdmin.Size = new System.Drawing.Size(36, 17);
-            this.checkAdmin.TabIndex = 18;
-            this.checkAdmin.Text = "SI";
-            this.checkAdmin.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(229, 272);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "adiministrador: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(229, 223);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "mail";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(230, 166);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "repita contraseña:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "contraseña:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(229, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Nombre completo:";
             // 
             // panelUsuario
             // 
@@ -333,9 +237,10 @@
             this.panelUsuario.Controls.Add(this.panelVerUsu);
             this.panelUsuario.Controls.Add(this.button1);
             this.panelUsuario.Controls.Add(this.button3);
-            this.panelUsuario.Location = new System.Drawing.Point(38, 27);
+            this.panelUsuario.Location = new System.Drawing.Point(57, 42);
+            this.panelUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(776, 447);
+            this.panelUsuario.Size = new System.Drawing.Size(1164, 688);
             this.panelUsuario.TabIndex = 26;
             this.panelUsuario.Visible = false;
             // 
@@ -347,17 +252,19 @@
             this.panelVerUsu.Controls.Add(this.buttonagregarusu);
             this.panelVerUsu.Controls.Add(this.labelverusu);
             this.panelVerUsu.Controls.Add(this.VerUsu);
-            this.panelVerUsu.Location = new System.Drawing.Point(33, 18);
+            this.panelVerUsu.Location = new System.Drawing.Point(50, 28);
+            this.panelVerUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelVerUsu.Name = "panelVerUsu";
-            this.panelVerUsu.Size = new System.Drawing.Size(740, 426);
+            this.panelVerUsu.Size = new System.Drawing.Size(1110, 655);
             this.panelVerUsu.TabIndex = 6;
             this.panelVerUsu.Visible = false;
             // 
             // botonvolvermenu
             // 
-            this.botonvolvermenu.Location = new System.Drawing.Point(446, 340);
+            this.botonvolvermenu.Location = new System.Drawing.Point(669, 523);
+            this.botonvolvermenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.botonvolvermenu.Name = "botonvolvermenu";
-            this.botonvolvermenu.Size = new System.Drawing.Size(75, 23);
+            this.botonvolvermenu.Size = new System.Drawing.Size(112, 35);
             this.botonvolvermenu.TabIndex = 4;
             this.botonvolvermenu.Text = "VOLVER";
             this.botonvolvermenu.UseVisualStyleBackColor = true;
@@ -366,9 +273,10 @@
             // 
             // buttoneliminarusu
             // 
-            this.buttoneliminarusu.Location = new System.Drawing.Point(197, 340);
+            this.buttoneliminarusu.Location = new System.Drawing.Point(296, 523);
+            this.buttoneliminarusu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttoneliminarusu.Name = "buttoneliminarusu";
-            this.buttoneliminarusu.Size = new System.Drawing.Size(75, 23);
+            this.buttoneliminarusu.Size = new System.Drawing.Size(112, 35);
             this.buttoneliminarusu.TabIndex = 3;
             this.buttoneliminarusu.Text = "Eliminar";
             this.buttoneliminarusu.UseVisualStyleBackColor = true;
@@ -377,9 +285,10 @@
             // 
             // buttonagregarusu
             // 
-            this.buttonagregarusu.Location = new System.Drawing.Point(329, 340);
+            this.buttonagregarusu.Location = new System.Drawing.Point(494, 523);
+            this.buttonagregarusu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonagregarusu.Name = "buttonagregarusu";
-            this.buttonagregarusu.Size = new System.Drawing.Size(75, 23);
+            this.buttonagregarusu.Size = new System.Drawing.Size(112, 35);
             this.buttonagregarusu.TabIndex = 2;
             this.buttonagregarusu.Text = "Agregar";
             this.buttonagregarusu.UseVisualStyleBackColor = true;
@@ -390,9 +299,10 @@
             // 
             this.labelverusu.AutoSize = true;
             this.labelverusu.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelverusu.Location = new System.Drawing.Point(168, 16);
+            this.labelverusu.Location = new System.Drawing.Point(252, 25);
+            this.labelverusu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelverusu.Name = "labelverusu";
-            this.labelverusu.Size = new System.Drawing.Size(174, 19);
+            this.labelverusu.Size = new System.Drawing.Size(262, 29);
             this.labelverusu.TabIndex = 1;
             this.labelverusu.Text = "USUARIOS";
             this.labelverusu.Visible = false;
@@ -400,29 +310,155 @@
             // VerUsu
             // 
             this.VerUsu.FormattingEnabled = true;
-            this.VerUsu.Location = new System.Drawing.Point(197, 43);
+            this.VerUsu.ItemHeight = 20;
+            this.VerUsu.Location = new System.Drawing.Point(296, 66);
+            this.VerUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VerUsu.Name = "VerUsu";
-            this.VerUsu.Size = new System.Drawing.Size(324, 264);
+            this.VerUsu.Size = new System.Drawing.Size(484, 404);
             this.VerUsu.TabIndex = 0;
             this.VerUsu.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(318, 219);
+            this.button1.Location = new System.Drawing.Point(477, 337);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 27);
+            this.button1.Size = new System.Drawing.Size(212, 42);
             this.button1.TabIndex = 29;
             this.button1.Text = "Objetos Encontrados";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(318, 137);
+            this.button3.Location = new System.Drawing.Point(477, 211);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 23);
+            this.button3.Size = new System.Drawing.Size(212, 35);
             this.button3.TabIndex = 28;
             this.button3.Text = "Objetos Perdidos";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(345, 89);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(188, 20);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "RUT(sin puntos ni guion):";
+            // 
+            // rutNC
+            // 
+            this.rutNC.Location = new System.Drawing.Point(580, 89);
+            this.rutNC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rutNC.Name = "rutNC";
+            this.rutNC.Size = new System.Drawing.Size(148, 26);
+            this.rutNC.TabIndex = 24;
+            // 
+            // nombreCuentaNueva
+            // 
+            this.nombreCuentaNueva.Location = new System.Drawing.Point(580, 5);
+            this.nombreCuentaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nombreCuentaNueva.Name = "nombreCuentaNueva";
+            this.nombreCuentaNueva.Size = new System.Drawing.Size(148, 26);
+            this.nombreCuentaNueva.TabIndex = 23;
+            // 
+            // contraseñaCuentaNueva
+            // 
+            this.contraseñaCuentaNueva.Location = new System.Drawing.Point(580, 154);
+            this.contraseñaCuentaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.contraseñaCuentaNueva.Name = "contraseñaCuentaNueva";
+            this.contraseñaCuentaNueva.Size = new System.Drawing.Size(148, 26);
+            this.contraseñaCuentaNueva.TabIndex = 22;
+            // 
+            // reContraseñaNC
+            // 
+            this.reContraseñaNC.Location = new System.Drawing.Point(580, 245);
+            this.reContraseñaNC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.reContraseñaNC.Name = "reContraseñaNC";
+            this.reContraseñaNC.Size = new System.Drawing.Size(148, 26);
+            this.reContraseñaNC.TabIndex = 21;
+            // 
+            // mailNC
+            // 
+            this.mailNC.Location = new System.Drawing.Point(580, 338);
+            this.mailNC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mailNC.Name = "mailNC";
+            this.mailNC.Size = new System.Drawing.Size(148, 26);
+            this.mailNC.TabIndex = 20;
+            // 
+            // creandoCuenta
+            // 
+            this.creandoCuenta.Location = new System.Drawing.Point(580, 485);
+            this.creandoCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.creandoCuenta.Name = "creandoCuenta";
+            this.creandoCuenta.Size = new System.Drawing.Size(188, 35);
+            this.creandoCuenta.TabIndex = 19;
+            this.creandoCuenta.Text = "Crear Cuenta";
+            this.creandoCuenta.UseVisualStyleBackColor = true;
+            this.creandoCuenta.Click += new System.EventHandler(this.creandoCuenta_Click);
+            // 
+            // checkAdmin
+            // 
+            this.checkAdmin.AutoSize = true;
+            this.checkAdmin.Location = new System.Drawing.Point(580, 418);
+            this.checkAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkAdmin.Name = "checkAdmin";
+            this.checkAdmin.Size = new System.Drawing.Size(51, 24);
+            this.checkAdmin.TabIndex = 18;
+            this.checkAdmin.Text = "SI";
+            this.checkAdmin.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(344, 418);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 20);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "adiministrador: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(344, 343);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 20);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "mail";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(345, 255);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 20);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "repita contraseña:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(344, 165);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "contraseña:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(344, 5);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Nombre completo:";
             // 
             // panelAdmin
             // 
@@ -432,53 +468,60 @@
             this.panelAdmin.Controls.Add(this.boronVerObjetoEnc);
             this.panelAdmin.Controls.Add(this.button2);
             this.panelAdmin.Controls.Add(this.buttonverUsuarios);
-            this.panelAdmin.Location = new System.Drawing.Point(12, 12);
+            this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAdmin.Location = new System.Drawing.Point(0, 0);
+            this.panelAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(773, 479);
+            this.panelAdmin.Size = new System.Drawing.Size(1200, 692);
             this.panelAdmin.TabIndex = 27;
             this.panelAdmin.Visible = false;
             // 
             // botonVerCali
             // 
-            this.botonVerCali.Location = new System.Drawing.Point(317, 130);
+            this.botonVerCali.Location = new System.Drawing.Point(476, 200);
+            this.botonVerCali.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.botonVerCali.Name = "botonVerCali";
-            this.botonVerCali.Size = new System.Drawing.Size(133, 27);
+            this.botonVerCali.Size = new System.Drawing.Size(200, 42);
             this.botonVerCali.TabIndex = 5;
             this.botonVerCali.Text = "Ver Califiaciones";
             this.botonVerCali.UseVisualStyleBackColor = true;
             // 
             // botonagregarobjeto
             // 
-            this.botonagregarobjeto.Location = new System.Drawing.Point(195, 240);
+            this.botonagregarobjeto.Location = new System.Drawing.Point(292, 369);
+            this.botonagregarobjeto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.botonagregarobjeto.Name = "botonagregarobjeto";
-            this.botonagregarobjeto.Size = new System.Drawing.Size(141, 28);
+            this.botonagregarobjeto.Size = new System.Drawing.Size(212, 43);
             this.botonagregarobjeto.TabIndex = 3;
             this.botonagregarobjeto.Text = "agregar perdida de objeto";
             this.botonagregarobjeto.UseVisualStyleBackColor = true;
             // 
             // boronVerObjetoEnc
             // 
-            this.boronVerObjetoEnc.Location = new System.Drawing.Point(60, 133);
+            this.boronVerObjetoEnc.Location = new System.Drawing.Point(90, 205);
+            this.boronVerObjetoEnc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.boronVerObjetoEnc.Name = "boronVerObjetoEnc";
-            this.boronVerObjetoEnc.Size = new System.Drawing.Size(141, 27);
+            this.boronVerObjetoEnc.Size = new System.Drawing.Size(212, 42);
             this.boronVerObjetoEnc.TabIndex = 2;
             this.boronVerObjetoEnc.Text = "Objetos Encontrados";
             this.boronVerObjetoEnc.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(60, 51);
+            this.button2.Location = new System.Drawing.Point(90, 78);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 23);
+            this.button2.Size = new System.Drawing.Size(212, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "Objetos Perdidos";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonverUsuarios
             // 
-            this.buttonverUsuarios.Location = new System.Drawing.Point(317, 53);
+            this.buttonverUsuarios.Location = new System.Drawing.Point(476, 82);
+            this.buttonverUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonverUsuarios.Name = "buttonverUsuarios";
-            this.buttonverUsuarios.Size = new System.Drawing.Size(133, 19);
+            this.buttonverUsuarios.Size = new System.Drawing.Size(200, 29);
             this.buttonverUsuarios.TabIndex = 0;
             this.buttonverUsuarios.Text = "Usuarios";
             this.buttonverUsuarios.UseVisualStyleBackColor = true;
@@ -486,9 +529,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.panelCuentaNueva);
             this.Controls.Add(this.boton_simulacion);
             this.Controls.Add(this.panelAdmin);
@@ -503,6 +546,7 @@
             this.Controls.Add(this.labelrut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LOGIN);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "grupo 17";
             this.Load += new System.EventHandler(this.Form1_Load);

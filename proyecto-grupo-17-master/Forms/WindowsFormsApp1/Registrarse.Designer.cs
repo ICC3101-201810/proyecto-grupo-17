@@ -209,6 +209,7 @@
             this.Name = "Registrarse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrarse";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Registrarse_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -32,5 +32,4 @@ namespace WindowsFormsApp1
             menu_admin.Show();
         }
     }
-    }
 }

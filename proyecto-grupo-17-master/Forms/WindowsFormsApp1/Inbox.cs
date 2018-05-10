@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters;
 
 namespace WindowsFormsApp1
 {
-    public partial class Inbox : Form
+    [Serializable]
+    public class Inbox
     {
-        public Inbox()
+        Usuario usuario_p, usuario_e;
+        int contador;
+        public Inbox(Usuario usuario_p, Usuario usuario_e, int contador)
         {
-            InitializeComponent();
+            this.usuario_p = usuario_p;
+            this.usuario_e = usuario_e;
+            this.contador = contador;
         }
     }
 }

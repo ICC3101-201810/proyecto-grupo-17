@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void cbadmin_CheckedChanged(object sender, EventArgs e)
         {
-            bool admin = true;
+            //bool admin = true;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
             this.Close();
             Inicio inicio = new Inicio();
             inicio.Show();
+
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
@@ -34,7 +35,13 @@ namespace WindowsFormsApp1
             this.Close();
             ISesion sesion = new ISesion();
             sesion.Show();
+            
+        }
+
+        private void Registrarse_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Application.Exit();
         }
     }
-    }
+    
 }

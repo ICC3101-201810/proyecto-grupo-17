@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Inbox
+    partial class InboxForms
     {
         /// <summary>
         /// Required designer variable.
