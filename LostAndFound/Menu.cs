@@ -27,13 +27,13 @@ namespace LostAndFound
             biblioteca = (Biblioteca)bif.Deserialize(fis);
             fis.Close();
             IniciarMenu();
-            
+            MessageBox.Show(("rut bib"+this.biblioteca.rut_admin + "rut ingr "+ruti).ToString());
 
         }
 
         private void IniciarMenu()
         {
-            if (this.biblioteca.admin.Contains(ruti))
+            if (this.biblioteca.rut_admin == "1")
             {
                 PanelMenu.Visible = true;
                 VerObj.Visible = true;
@@ -50,8 +50,13 @@ namespace LostAndFound
                 buttonverUsuarios.Visible = false;
                 boronVerObjetoEnc.Visible = false;
             }
-
-
+        }
+        private void MostrarInbox()
+        {
+            panelInbox.Visible = true;
+            PanelMenu.Visible = false;
+            panelAgregarObjeto.Visible = false;
+            panelCuentaNueva.Visible = false;
         }
 
         private void ButtonverUsuarios_Click_1(object sender, EventArgs e)
@@ -220,21 +225,23 @@ namespace LostAndFound
 
         private void BotonAgregarObjEncontrado_Click(object sender, EventArgs e)
         {
-            PanelMenu.Visible = false;
+            MostrarInbox();
 
             foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
             {
+                
                 if (ussu.nombre_usuario == biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario)
                 {
+                    
 
-                    ibox_nombre_perdido.Text = ussu.nombre_usuario;
-                    MessageBox.Show("Contactarse!");
-                    panelInbox.Visible = true;
-                    PanelMenu.Visible = false;
                     btnEliminarObj.Visible = false;
                     btnObjetoEncontrado.Visible = false;
                     VerObj.Visible = false;
+                    ibox_nombre_perdido.Text = ussu.nombre_usuario;
+                    MessageBox.Show("Contactarse!");
+
                 }
+                
             }
             biblioteca.objeto_encontrado.Add(biblioteca.objeto_perdido[VerObj.SelectedIndex]);
             biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
@@ -245,23 +252,9 @@ namespace LostAndFound
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            
         }
-        private void ReconocerAdmin(int rutt)
-        {
-            foreach (Usuario usu in biblioteca.usuarios_no_iguales)
-            {
-                if (usu.rut == rutt)
-                {
-                    if (usu.administrador)
-                    {
-                        //Aqui se esconden los botones 
-                    }
-                }
-            }
 
-
-        }
         private void IboxEnter_Click(object sender, EventArgs e)
         {
             string mn;

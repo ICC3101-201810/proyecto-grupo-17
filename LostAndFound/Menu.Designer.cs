@@ -42,6 +42,7 @@
             this.contraseñaCuentaNueva = new System.Windows.Forms.TextBox();
             this.reContraseñaNC = new System.Windows.Forms.TextBox();
             this.mailNC = new System.Windows.Forms.TextBox();
+            this.BtnVolver = new System.Windows.Forms.Button();
             this.creandoCuenta = new System.Windows.Forms.Button();
             this.checkAdmin = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,6 +69,7 @@
             this.tipo = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.btnAgregartipo = new System.Windows.Forms.Button();
+            this.botonSalir = new System.Windows.Forms.Button();
             this.btnAgregarUbicacion = new System.Windows.Forms.Button();
             this.descripcion = new System.Windows.Forms.TextBox();
             this.descripcionn = new System.Windows.Forms.Label();
@@ -79,9 +81,7 @@
             this.comboTipo = new System.Windows.Forms.ComboBox();
             this.comboubicaciones = new System.Windows.Forms.ComboBox();
             this.AceptarObjeto = new System.Windows.Forms.Button();
-            this.BtnVolver = new System.Windows.Forms.Button();
             this.PanelMenu = new System.Windows.Forms.Panel();
-            this.botonSalir = new System.Windows.Forms.Button();
             this.panelCuentaNueva.SuspendLayout();
             this.panelInbox.SuspendLayout();
             this.panelAgregarObjeto.SuspendLayout();
@@ -155,7 +155,7 @@
             // 
             this.btnAgrUsu.BackColor = System.Drawing.Color.Black;
             this.btnAgrUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgrUsu.Location = new System.Drawing.Point(475, 514);
+            this.btnAgrUsu.Location = new System.Drawing.Point(490, 408);
             this.btnAgrUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgrUsu.Name = "btnAgrUsu";
             this.btnAgrUsu.Size = new System.Drawing.Size(212, 63);
@@ -169,7 +169,7 @@
             // 
             this.btnEliminarUsu.BackColor = System.Drawing.Color.Black;
             this.btnEliminarUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarUsu.Location = new System.Drawing.Point(475, 514);
+            this.btnEliminarUsu.Location = new System.Drawing.Point(490, 509);
             this.btnEliminarUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminarUsu.Name = "btnEliminarUsu";
             this.btnEliminarUsu.Size = new System.Drawing.Size(212, 63);
@@ -196,10 +196,11 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Location = new System.Drawing.Point(1019, 0);
+            this.panelCuentaNueva.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCuentaNueva.Location = new System.Drawing.Point(0, 0);
             this.panelCuentaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
-            this.panelCuentaNueva.Size = new System.Drawing.Size(1027, 579);
+            this.panelCuentaNueva.Size = new System.Drawing.Size(1200, 692);
             this.panelCuentaNueva.TabIndex = 17;
             this.panelCuentaNueva.Visible = false;
             // 
@@ -252,6 +253,17 @@
             this.mailNC.Name = "mailNC";
             this.mailNC.Size = new System.Drawing.Size(148, 26);
             this.mailNC.TabIndex = 20;
+            // 
+            // BtnVolver
+            // 
+            this.BtnVolver.Location = new System.Drawing.Point(580, 539);
+            this.BtnVolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(188, 35);
+            this.BtnVolver.TabIndex = 19;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.UseVisualStyleBackColor = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // creandoCuenta
             // 
@@ -341,7 +353,7 @@
             // 
             this.btnEliminarObj.BackColor = System.Drawing.Color.Black;
             this.btnEliminarObj.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarObj.Location = new System.Drawing.Point(475, 432);
+            this.btnEliminarObj.Location = new System.Drawing.Point(490, 509);
             this.btnEliminarObj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminarObj.Name = "btnEliminarObj";
             this.btnEliminarObj.Size = new System.Drawing.Size(212, 63);
@@ -366,7 +378,7 @@
             // 
             this.btnObjetoEncontrado.BackColor = System.Drawing.Color.Black;
             this.btnObjetoEncontrado.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnObjetoEncontrado.Location = new System.Drawing.Point(475, 432);
+            this.btnObjetoEncontrado.Location = new System.Drawing.Point(490, 408);
             this.btnObjetoEncontrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnObjetoEncontrado.Name = "btnObjetoEncontrado";
             this.btnObjetoEncontrado.Size = new System.Drawing.Size(212, 63);
@@ -395,16 +407,17 @@
             this.panelInbox.Controls.Add(this.textoInbox);
             this.panelInbox.Controls.Add(this.feedInbox);
             this.panelInbox.Controls.Add(this.iboxEnter);
-            this.panelInbox.Location = new System.Drawing.Point(322, 46);
+            this.panelInbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInbox.Location = new System.Drawing.Point(0, 0);
             this.panelInbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelInbox.Name = "panelInbox";
-            this.panelInbox.Size = new System.Drawing.Size(324, 288);
+            this.panelInbox.Size = new System.Drawing.Size(1200, 692);
             this.panelInbox.TabIndex = 17;
             this.panelInbox.Visible = false;
             // 
             // SalirInbox
             // 
-            this.SalirInbox.Location = new System.Drawing.Point(849, 43);
+            this.SalirInbox.Location = new System.Drawing.Point(849, 106);
             this.SalirInbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SalirInbox.Name = "SalirInbox";
             this.SalirInbox.Size = new System.Drawing.Size(112, 35);
@@ -484,10 +497,11 @@
             this.panelAgregarObjeto.Controls.Add(this.comboTipo);
             this.panelAgregarObjeto.Controls.Add(this.comboubicaciones);
             this.panelAgregarObjeto.Controls.Add(this.AceptarObjeto);
-            this.panelAgregarObjeto.Location = new System.Drawing.Point(164, 260);
+            this.panelAgregarObjeto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAgregarObjeto.Location = new System.Drawing.Point(0, 0);
             this.panelAgregarObjeto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelAgregarObjeto.Name = "panelAgregarObjeto";
-            this.panelAgregarObjeto.Size = new System.Drawing.Size(314, 260);
+            this.panelAgregarObjeto.Size = new System.Drawing.Size(1200, 692);
             this.panelAgregarObjeto.TabIndex = 19;
             this.panelAgregarObjeto.Visible = false;
             // 
@@ -552,6 +566,18 @@
             this.btnAgregartipo.Text = "Agregar tipo";
             this.btnAgregartipo.UseVisualStyleBackColor = true;
             this.btnAgregartipo.Click += new System.EventHandler(this.BtnAgregartipo_Click);
+            // 
+            // botonSalir
+            // 
+            this.botonSalir.Location = new System.Drawing.Point(503, 441);
+            this.botonSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.botonSalir.Name = "botonSalir";
+            this.botonSalir.Size = new System.Drawing.Size(128, 34);
+            this.botonSalir.TabIndex = 16;
+            this.botonSalir.Text = "Volver";
+            this.botonSalir.UseVisualStyleBackColor = true;
+            this.botonSalir.Visible = false;
+            this.botonSalir.Click += new System.EventHandler(this.botonSALIR_Click);
             // 
             // btnAgregarUbicacion
             // 
@@ -670,17 +696,6 @@
             this.AceptarObjeto.Visible = false;
             this.AceptarObjeto.Click += new System.EventHandler(this.Input2_Click);
             // 
-            // BtnVolver
-            // 
-            this.BtnVolver.Location = new System.Drawing.Point(580, 539);
-            this.BtnVolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.Size = new System.Drawing.Size(188, 35);
-            this.BtnVolver.TabIndex = 19;
-            this.BtnVolver.Text = "Volver";
-            this.BtnVolver.UseVisualStyleBackColor = true;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
-            // 
             // PanelMenu
             // 
             this.PanelMenu.Controls.Add(this.panelAgregarObjeto);
@@ -704,18 +719,6 @@
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(1200, 692);
             this.PanelMenu.TabIndex = 19;
-            // 
-            // botonSalir
-            // 
-            this.botonSalir.Location = new System.Drawing.Point(503, 441);
-            this.botonSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.botonSalir.Name = "botonSalir";
-            this.botonSalir.Size = new System.Drawing.Size(128, 34);
-            this.botonSalir.TabIndex = 16;
-            this.botonSalir.Text = "Volver";
-            this.botonSalir.UseVisualStyleBackColor = true;
-            this.botonSalir.Visible = false;
-            this.botonSalir.Click += new System.EventHandler(this.botonSALIR_Click);
             // 
             // Menu
             // 
