@@ -155,7 +155,7 @@
             // 
             this.btnAgrUsu.BackColor = System.Drawing.Color.Black;
             this.btnAgrUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgrUsu.Location = new System.Drawing.Point(475, 432);
+            this.btnAgrUsu.Location = new System.Drawing.Point(475, 514);
             this.btnAgrUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgrUsu.Name = "btnAgrUsu";
             this.btnAgrUsu.Size = new System.Drawing.Size(212, 63);
@@ -196,11 +196,10 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCuentaNueva.Location = new System.Drawing.Point(0, 0);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(1019, 0);
             this.panelCuentaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
-            this.panelCuentaNueva.Size = new System.Drawing.Size(1200, 692);
+            this.panelCuentaNueva.Size = new System.Drawing.Size(1027, 579);
             this.panelCuentaNueva.TabIndex = 17;
             this.panelCuentaNueva.Visible = false;
             // 
@@ -367,7 +366,7 @@
             // 
             this.btnObjetoEncontrado.BackColor = System.Drawing.Color.Black;
             this.btnObjetoEncontrado.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnObjetoEncontrado.Location = new System.Drawing.Point(475, 514);
+            this.btnObjetoEncontrado.Location = new System.Drawing.Point(475, 432);
             this.btnObjetoEncontrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnObjetoEncontrado.Name = "btnObjetoEncontrado";
             this.btnObjetoEncontrado.Size = new System.Drawing.Size(212, 63);
@@ -396,11 +395,10 @@
             this.panelInbox.Controls.Add(this.textoInbox);
             this.panelInbox.Controls.Add(this.feedInbox);
             this.panelInbox.Controls.Add(this.iboxEnter);
-            this.panelInbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInbox.Location = new System.Drawing.Point(0, 0);
+            this.panelInbox.Location = new System.Drawing.Point(322, 46);
             this.panelInbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelInbox.Name = "panelInbox";
-            this.panelInbox.Size = new System.Drawing.Size(1200, 692);
+            this.panelInbox.Size = new System.Drawing.Size(324, 288);
             this.panelInbox.TabIndex = 17;
             this.panelInbox.Visible = false;
             // 
@@ -486,11 +484,10 @@
             this.panelAgregarObjeto.Controls.Add(this.comboTipo);
             this.panelAgregarObjeto.Controls.Add(this.comboubicaciones);
             this.panelAgregarObjeto.Controls.Add(this.AceptarObjeto);
-            this.panelAgregarObjeto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAgregarObjeto.Location = new System.Drawing.Point(0, 0);
+            this.panelAgregarObjeto.Location = new System.Drawing.Point(164, 260);
             this.panelAgregarObjeto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelAgregarObjeto.Name = "panelAgregarObjeto";
-            this.panelAgregarObjeto.Size = new System.Drawing.Size(1200, 692);
+            this.panelAgregarObjeto.Size = new System.Drawing.Size(314, 260);
             this.panelAgregarObjeto.TabIndex = 19;
             this.panelAgregarObjeto.Visible = false;
             // 

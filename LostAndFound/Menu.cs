@@ -220,7 +220,7 @@ namespace LostAndFound
 
         private void BotonAgregarObjEncontrado_Click(object sender, EventArgs e)
         {
-
+            PanelMenu.Visible = false;
 
             foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
             {
