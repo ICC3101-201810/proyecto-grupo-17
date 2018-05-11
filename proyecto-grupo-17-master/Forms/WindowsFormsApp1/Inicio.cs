@@ -95,7 +95,7 @@ namespace WindowsFormsApp1
             List<string> noiguales = new List<string>();
             List<string> cleanlist = new List<string>();
 
-            int numero_de_usuarios = 10;
+            int numero_de_usuarios = 100;
             for (int i = 0; i < numero_de_usuarios; i++)
             {
                 int ruto = i + 1000;
@@ -158,11 +158,11 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            informacion = new Info(ruts_totales, objetos, ubicaciones, usuarios, rut_usuarios, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales);
+           /* informacion = new Info(ruts_totales, objetos, ubicaciones, usuarios, rut_usuarios, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("Datos.bin", FileMode.Truncate);
             bf.Serialize(fs, informacion);
-            fs.Close();
+            fs.Close();*/
         }
 
 

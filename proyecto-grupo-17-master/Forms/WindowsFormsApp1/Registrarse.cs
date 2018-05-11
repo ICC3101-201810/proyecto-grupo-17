@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
+
             this.Close();
             ISesion sesion = new ISesion();
             sesion.Show();

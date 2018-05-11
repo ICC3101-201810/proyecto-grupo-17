@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 
@@ -43,13 +46,15 @@ namespace LostAndFound
         Random random = new Random();
         List<string> noiguales = new List<string>();
         List<string> cleanlist = new List<string>();
-        
+        Biblioteca biblioteca;
 
 
 
 
         public Form1()
         {
+            
+
             InitializeComponent();
             ubicaciones.Add(ubicacion1);
             ubicaciones.Add(ubicacion2);
@@ -126,16 +131,8 @@ namespace LostAndFound
 
 
         }
-        public void visibleVerUsu()
-        {
-            panelVerUsu.Visible = true;
-            VerUsu.Visible = true;
-            labelverusu.Visible = true;
-            buttonagregarusu.Visible = true;
-            buttoneliminarusu.Visible = true;
-            botonvolvermenu.Visible = true;
-
-        }
+   
+        
         
 
         private void boton_login_Click(object sender, EventArgs e)
@@ -148,15 +145,20 @@ namespace LostAndFound
                 {
                     if (u.administrador)
                     {
-                        NOvisiblelogin();
-                        panelAdmin.Visible = true;
-                           //menu admin
+                        this.Hide();
+                        Menu main = new Menu();
+                        main.Show();
+                        this.biblioteca = main.biblioteca;
+
+                        
                     }
                     else
                     {
-                        NOvisiblelogin();
-                        panelUsuario.Visible = true;
-                        //menu usuario
+                        this.Hide();
+                        Menu main = new Menu();
+                        main.Show();
+                        this.biblioteca = main.biblioteca;
+
                     }
                 
                 }
@@ -176,10 +178,10 @@ namespace LostAndFound
         }
 
         private void boton_simulacion_Click(object sender, EventArgs e)
-        {
-            int numero_de_usuarios=Convert.ToInt32(c_dias.Text);
-            int horas=Convert.ToInt32(c_horas.Text);
-            int dias=Convert.ToInt32(c_usuarios.Text);
+        {   /*
+            int numero_de_usuarios = Convert.ToInt32(c_dias.Text);
+            int horas = Convert.ToInt32(c_horas.Text);
+            int dias = Convert.ToInt32(c_usuarios.Text);
 
             for (int i = 0; i < numero_de_usuarios; i++)
             {
@@ -241,6 +243,17 @@ namespace LostAndFound
                     }
                 }
             }
+            Biblioteca biblioteca1 = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales);
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
+            bf.Serialize(fs, biblioteca1);
+            fs.Close();*/
+            Menu main = new Menu();
+            BinaryFormatter bif = new BinaryFormatter();
+            FileStream fis = File.Open("Datos.bin", FileMode.Open);
+            Biblioteca biblioteca = (Biblioteca)bif.Deserialize(fis);
+            this.biblioteca = main.biblioteca;
+            fis.Close();
             MessageBox.Show("simulacion creada con exito!");
             simulation.Visible = false;
             c_dias.Visible = false;
@@ -248,6 +261,12 @@ namespace LostAndFound
             c_usuarios.Visible = false;
             boton_simulacion.Visible = false;
             visiblelogin();
+        }
+        public void deserializar()
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = File.Open("Datos.bin", FileMode.Open);
+            Biblioteca deserializar = (Biblioteca)bf.Deserialize(fs);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -276,13 +295,19 @@ namespace LostAndFound
                 usuarios_no_iguales.Add(yo1);
                 if (admin1)
                 {
-                    panelCuentaNueva.Visible = false;
-                    panelAdmin.Visible = true;
+                    this.Hide();
+                    Menu main = new Menu();
+                    main.Show();
+                    this.biblioteca = main.biblioteca;
                 }
                 else
                 {
-                    panelCuentaNueva.Visible = false;
-                    panelUsuario.Visible = true;
+                    this.Hide();
+                    Menu main = new Menu();
+                    main.Show();
+                    this.biblioteca = main.biblioteca;
+
+
                 }
 
             }
@@ -292,37 +317,20 @@ namespace LostAndFound
             }
         }
 
-        private void buttonverUsuarios_Click(object sender, EventArgs e)
+       
+        public void Mostrar_CuentaNueva()
         {
-            panelAdmin.Visible = false;
-            visibleVerUsu();
-            //hacer visible panelverusuario
-            foreach (Usuario item in usuarios_no_iguales)
-            {
-                VerUsu.Items.Add(item.nombre_usuario);
-            }
-        }
-
-
-        private void botonvolvermenu_Click(object sender, EventArgs e)
-        {
-            panelVerUsu.Visible = false;
-           
-        }
-
-        private void buttonagregarusu_Click(object sender, EventArgs e)
-        {
-            panelVerUsu.Visible = false;
+            this.Show();
             panelCuentaNueva.Visible = true;
+
+
         }
 
-        private void buttoneliminarusu_Click(object sender, EventArgs e)
-        {
-            VerUsu.Items.Remove(VerUsu.SelectedItems);
-            //me falta eliminar de la lista de usuarios no iguales
-           
-         
-        }
+    
+
+     
+
+
 
    
     }

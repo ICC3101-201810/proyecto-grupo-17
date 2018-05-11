@@ -27,9 +27,32 @@ namespace WindowsFormsApp1
 
         private void btnIS_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Menu menu_admin = new Menu();
-            menu_admin.Show();
+            int ruttest = Int32.Parse(txtBRut.Text);
+            foreach (Usuario u in usuarios_no_iguales)
+            {
+                if (ruttest == u.rut && txtBContraseña.Text == u.password)
+                {
+                    if (u.administrador)
+                    {
+                        this.Close();
+                        Menu menu_admin = new Menu();
+                        menu_admin.Show();
+                    }
+                    else
+                    {
+                        this.Close();
+                        Menu menu_admin = new Menu();
+                        menu_admin.Show();
+                        //cambiar menu usuario
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("el usuario o la contraseña es erronea! por favor intentar denuevo");
+                }
+            }
+           
         }
     }
 }
