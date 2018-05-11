@@ -18,7 +18,7 @@ namespace LostAndFound
     public partial class Form1 : Form
     {
 
-      
+        public static int adminnns;
         List<string> ruts_totales = new List<string>();
         List<Objeto> objetos = new List<Objeto>();
         List<Ubicacion> ubicaciones = new List<Ubicacion>();
@@ -53,7 +53,10 @@ namespace LostAndFound
 
         public Form1()
         {
-            
+            BinaryFormatter bif = new BinaryFormatter();
+            FileStream fis = File.Open("Datos.bin", FileMode.Open);
+            Biblioteca biblioteca = (Biblioteca)bif.Deserialize(fis);
+
 
             InitializeComponent();
             ubicaciones.Add(ubicacion1);
@@ -243,17 +246,18 @@ namespace LostAndFound
                     }
                 }
             }
-            Biblioteca biblioteca1 = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales);
+            Biblioteca biblioteca1 = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales, tipoderopa);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
             bf.Serialize(fs, biblioteca1);
             fs.Close();*/
             Menu main = new Menu();
+            /*
             BinaryFormatter bif = new BinaryFormatter();
             FileStream fis = File.Open("Datos.bin", FileMode.Open);
-            Biblioteca biblioteca = (Biblioteca)bif.Deserialize(fis);
+            Biblioteca biblioteca = (Biblioteca)bif.Deserialize(fis);*/
             this.biblioteca = main.biblioteca;
-            fis.Close();
+            //fis.Close();
             MessageBox.Show("simulacion creada con exito!");
             simulation.Visible = false;
             c_dias.Visible = false;
@@ -299,6 +303,7 @@ namespace LostAndFound
                     Menu main = new Menu();
                     main.Show();
                     this.biblioteca = main.biblioteca;
+                    
                 }
                 else
                 {

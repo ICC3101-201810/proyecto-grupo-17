@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.botonVerCali = new System.Windows.Forms.Button();
             this.botonagregarobjeto = new System.Windows.Forms.Button();
             this.boronVerObjetoEnc = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnObjPerdidos = new System.Windows.Forms.Button();
             this.buttonverUsuarios = new System.Windows.Forms.Button();
             this.VerUsu = new System.Windows.Forms.ListBox();
             this.btnAgrUsu = new System.Windows.Forms.Button();
@@ -50,50 +49,46 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.VerObj = new System.Windows.Forms.ListBox();
             this.panelCuentaNueva.SuspendLayout();
             this.SuspendLayout();
             // 
-            // botonVerCali
-            // 
-            this.botonVerCali.Location = new System.Drawing.Point(12, 217);
-            this.botonVerCali.Name = "botonVerCali";
-            this.botonVerCali.Size = new System.Drawing.Size(133, 27);
-            this.botonVerCali.TabIndex = 10;
-            this.botonVerCali.Text = "Ver Califiaciones";
-            this.botonVerCali.UseVisualStyleBackColor = true;
-            // 
             // botonagregarobjeto
             // 
-            this.botonagregarobjeto.Location = new System.Drawing.Point(12, 297);
+            this.botonagregarobjeto.Location = new System.Drawing.Point(12, 75);
             this.botonagregarobjeto.Name = "botonagregarobjeto";
             this.botonagregarobjeto.Size = new System.Drawing.Size(141, 28);
             this.botonagregarobjeto.TabIndex = 9;
             this.botonagregarobjeto.Text = "agregar perdida de objeto";
             this.botonagregarobjeto.UseVisualStyleBackColor = true;
+            this.botonagregarobjeto.Click += new System.EventHandler(this.botonagregarobjeto_Click);
             // 
             // boronVerObjetoEnc
             // 
-            this.boronVerObjetoEnc.Location = new System.Drawing.Point(12, 136);
+            this.boronVerObjetoEnc.Location = new System.Drawing.Point(12, 154);
             this.boronVerObjetoEnc.Name = "boronVerObjetoEnc";
-            this.boronVerObjetoEnc.Size = new System.Drawing.Size(141, 27);
+            this.boronVerObjetoEnc.Size = new System.Drawing.Size(141, 47);
             this.boronVerObjetoEnc.TabIndex = 8;
             this.boronVerObjetoEnc.Text = "Objetos Encontrados";
             this.boronVerObjetoEnc.UseVisualStyleBackColor = true;
+            this.boronVerObjetoEnc.Visible = false;
+            this.boronVerObjetoEnc.Click += new System.EventHandler(this.boronVerObjetoEnc_Click);
             // 
-            // button2
+            // btnObjPerdidos
             // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Objetos Perdidos";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnObjPerdidos.Location = new System.Drawing.Point(12, 12);
+            this.btnObjPerdidos.Name = "btnObjPerdidos";
+            this.btnObjPerdidos.Size = new System.Drawing.Size(141, 23);
+            this.btnObjPerdidos.TabIndex = 7;
+            this.btnObjPerdidos.Text = "Objetos Perdidos";
+            this.btnObjPerdidos.UseVisualStyleBackColor = true;
+            this.btnObjPerdidos.Click += new System.EventHandler(this.btnObjPerdidos_Click);
             // 
             // buttonverUsuarios
             // 
-            this.buttonverUsuarios.Location = new System.Drawing.Point(12, 80);
+            this.buttonverUsuarios.Location = new System.Drawing.Point(12, 222);
             this.buttonverUsuarios.Name = "buttonverUsuarios";
-            this.buttonverUsuarios.Size = new System.Drawing.Size(133, 19);
+            this.buttonverUsuarios.Size = new System.Drawing.Size(141, 41);
             this.buttonverUsuarios.TabIndex = 6;
             this.buttonverUsuarios.Text = "Usuarios";
             this.buttonverUsuarios.UseVisualStyleBackColor = true;
@@ -146,7 +141,7 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Location = new System.Drawing.Point(198, 180);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(674, 282);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
             this.panelCuentaNueva.Size = new System.Drawing.Size(800, 450);
             this.panelCuentaNueva.TabIndex = 14;
@@ -261,19 +256,27 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Nombre completo:";
             // 
+            // VerObj
+            // 
+            this.VerObj.FormattingEnabled = true;
+            this.VerObj.Location = new System.Drawing.Point(478, 21);
+            this.VerObj.Name = "VerObj";
+            this.VerObj.Size = new System.Drawing.Size(281, 290);
+            this.VerObj.TabIndex = 15;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.VerObj);
             this.Controls.Add(this.panelCuentaNueva);
             this.Controls.Add(this.btnEliminarUsu);
             this.Controls.Add(this.btnAgrUsu);
             this.Controls.Add(this.VerUsu);
-            this.Controls.Add(this.botonVerCali);
             this.Controls.Add(this.botonagregarobjeto);
             this.Controls.Add(this.boronVerObjetoEnc);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnObjPerdidos);
             this.Controls.Add(this.buttonverUsuarios);
             this.Name = "Menu";
             this.Text = "Menu";
@@ -285,11 +288,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button botonVerCali;
         private System.Windows.Forms.Button botonagregarobjeto;
         private System.Windows.Forms.Button boronVerObjetoEnc;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnObjPerdidos;
         private System.Windows.Forms.Button buttonverUsuarios;
         private System.Windows.Forms.ListBox VerUsu;
         private System.Windows.Forms.Button btnAgrUsu;
@@ -308,5 +309,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox VerObj;
     }
 }
