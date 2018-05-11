@@ -203,6 +203,7 @@ namespace LostAndFound
                     VerObj.Visible = false;
                 }
             }
+            biblioteca.objeto_encontrado.Add(biblioteca.objeto_perdido[VerObj.SelectedIndex]);
             biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
             VerObj.Items.Remove(VerObj.SelectedItems);
         }
@@ -293,7 +294,7 @@ namespace LostAndFound
                             
                             Objeto objetito = new Objeto(codigooo, descrip, false, ubicacionn, null, u, comboTipo.SelectedText);
                             MessageBox.Show("Objeto publicado con exito ");
-                            VerObj.Items.Add(objetito.descripcion);
+                            biblioteca.objeto_perdido.Add(objetito);
                             break;
                            
 
