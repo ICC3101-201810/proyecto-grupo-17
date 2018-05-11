@@ -20,7 +20,7 @@ namespace LostAndFound
         }
         public string Nombre_lugar { get => nombre_lugar; }
         public string Indicacion { get => indicacion; }
-        public bool reconocer(List<Ubicacion>ubicaciones)
+        public bool Reconocer(List<Ubicacion>ubicaciones)
         {
             foreach (Ubicacion item in ubicaciones)
             {

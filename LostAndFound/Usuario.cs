@@ -31,29 +31,29 @@ namespace LostAndFound
         }
         public string Nombre_usuario { get => nombre_usuario; }
         public string Mail { get => mail; }
-        public void mostrar(List<Usuario>usuarios)
+        public void Mostrar(List<Usuario>usuarios)
         {
             foreach (Usuario usuario in usuarios)
             {
                 Console.WriteLine(usuario.nombre_usuario);
             }
         }
-        public void vercalificacion()
+        public void Vercalificacion()
         {
             Console.WriteLine("nombre de ususario: "+this.nombre_usuario+" calificacion: "+this.calificacion+"\n");
         }
-        public void vercalificacion(List<Usuario> usuarios_no_iguales)
+        public void Vercalificacion(List<Usuario> usuarios_no_iguales)
         {
             if (this.administrador)
             {
                 foreach (Usuario itemm in usuarios_no_iguales)
                 {
-                    itemm.vercalificacion();
+                    itemm.Vercalificacion();
 
                 }
             }
         }
-        public Usuario reconocerusuario(List<Usuario> usuarios_no_iguales,int rut)
+        public Usuario Reconocerusuario(List<Usuario> usuarios_no_iguales,int rut)
         {
             foreach (Usuario usuario in usuarios_no_iguales)
             {

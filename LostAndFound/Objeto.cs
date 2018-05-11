@@ -20,10 +20,11 @@ namespace LostAndFound
         public string descripcion;
         public Ubicacion ubicacion;
         public Usuario usuarioencontro, usuarioperdio;
+        public string tipo;
 
-        public int Codigo { get => codigo; set => codigo = value; }
+        public int Codigo { get => codigo; set => codigo = value;   }
 
-        public Objeto(int codigo, string descripcion, bool perdido_encontrado, Ubicacion ubicacion,Usuario usuarioencontro, Usuario usuarioperdido)
+        public Objeto(int codigo, string descripcion, bool perdido_encontrado, Ubicacion ubicacion,Usuario usuarioencontro, Usuario usuarioperdido,string tipo)
         {
             this.Codigo = codigo;
             this.descripcion = descripcion;
@@ -31,6 +32,7 @@ namespace LostAndFound
             this.ubicacion = ubicacion;
             this.usuarioencontro = usuarioencontro;
             this.usuarioperdio = usuarioperdido;
+            this.tipo = tipo;
         }
         public void InfoO()
         {

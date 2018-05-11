@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Globalization;
 
 namespace LostAndFound
 {
@@ -18,58 +19,65 @@ namespace LostAndFound
         public Biblioteca biblioteca;
         public Menu()
         {
-            
+
             InitializeComponent();
             BinaryFormatter bif = new BinaryFormatter();
             FileStream fis = File.Open("Datos.bin", FileMode.Open);
             biblioteca = (Biblioteca)bif.Deserialize(fis);
             fis.Close();
+            
 
         }
-     
 
-        private void buttonverUsuarios_Click_1(object sender, EventArgs e)
+
+        private void ButtonverUsuarios_Click_1(object sender, EventArgs e)
         {
-
-            btnAgrUsu.Visible = true;
+            btnAgrUsu.Visible = false;
+            btnObjetoEncontrado.Visible = false;            
             btnEliminarUsu.Visible = true;
             VerUsu.Visible = true;
             VerObj.Visible = false;
             btnEliminarObj.Visible = false;
             btnObjetoEncontrado.Visible = false;
-
+            
             VerUsu.Items.Clear();
             foreach (Usuario item in biblioteca.usuarios_no_iguales)
             {
-                VerUsu.Items.Add(item.nombre_usuario +"\t"+ item.calificacion);
+                VerUsu.Items.Add(item.nombre_usuario + "\t" + item.calificacion);
             }
         }
+        int codigooo = 10000000;
 
-        private void btnAgrUsu_Click(object sender, EventArgs e)
+        private void BtnAgrUsu_Click(object sender, EventArgs e)
         {
             VerUsu.Visible = false;
             btnAgrUsu.Visible = false;
             btnEliminarUsu.Visible = false;
             panelCuentaNueva.Visible = true;
-           
-            
-            
+            // panelCuentaNueva.Location.CenterToScreen;
+            panelInbox.Visible = false;
+            lblMenu.Visible = false;
+
+
+
+
         }
 
-        private void btnEliminarUsu_Click(object sender, EventArgs e)
+        private void BtnEliminarUsu_Click(object sender, EventArgs e)
         {
             VerUsu.Items.Remove(VerUsu.SelectedItems);
 
-            biblioteca.usuarios_no_iguales.RemoveAt(VerUsu.SelectedIndex);
+            this.biblioteca.usuarios_no_iguales.RemoveAt(VerUsu.SelectedIndex);
             btnEliminarUsu.Visible = false;
             btnAgrUsu.Visible = false;
             VerUsu.Visible = false;
             MessageBox.Show("Usuario Eliminado con Exito");
+
         }
 
-        private void creandoCuenta_Click(object sender, EventArgs e)
+        private void CreandoCuenta_Click(object sender, EventArgs e)
         {
-            
+
             if (reContraseñaNC.Text == contraseñaCuentaNueva.Text)
             {
                 MessageBox.Show("Las contraseñas coinciden");
@@ -94,7 +102,7 @@ namespace LostAndFound
                 else
                 {
                     panelCuentaNueva.Visible = false;
-                   
+
 
                 }
 
@@ -105,41 +113,58 @@ namespace LostAndFound
             }
         }
 
-        private void btnObjPerdidos_Click(object sender, EventArgs e)
+        private void BtnObjPerdidos_Click(object sender, EventArgs e)
         {
+            btnObjetoEncontrado.Visible = false;
             VerObj.Items.Clear();
             VerObj.Visible = true;
             VerUsu.Visible = false;
             btnEliminarUsu.Visible = false;
             btnAgrUsu.Visible = false;
             btnEliminarObj.Visible = true;
-            btnObjetoEncontrado.Visible = true;
+            
             foreach (Objeto obj in biblioteca.objeto_perdido)
             {
                 VerObj.Items.Add(obj.descripcion);
             }
         }
 
-        private void boronVerObjetoEnc_Click(object sender, EventArgs e)
+        private void BoronVerObjetoEnc_Click(object sender, EventArgs e)
         {
             VerObj.Items.Clear();
             VerUsu.Visible = false;
             btnEliminarObj.Visible = true;
             VerObj.Visible = true;
-            
+            lblMenu.Visible = false;
+
             foreach (Objeto obj in biblioteca.objeto_encontrado)
             {
                 VerObj.Items.Add(obj.descripcion);
             }
         }
 
-        private void botonagregarobjeto_Click(object sender, EventArgs e)
+        private void Botonagregarobjeto_Click(object sender, EventArgs e)
         {
-           
-        
+
+            MessageBox.Show("Porfavor publicar con seriedad y respeto!");
+            panelAgregarObjeto.Visible = true;
+            foreach (Ubicacion ubicacion in biblioteca.ubicaciones)
+            {
+                comboubicaciones.Items.Add(ubicacion.nombre_lugar);
+            }
+            foreach (string tipo in biblioteca.tipoderopa)
+            {
+                comboTipo.Items.Add(tipo);
+            }
+            if (comboTipo.SelectedItem!=null && comboubicaciones.SelectedItem!=null)
+            {
+                AceptarObjeto.Visible = true;
+            }
+            
+
         }
 
-        private void btnEliminarObj_Click_1(object sender, EventArgs e)
+        private void BtnEliminarObj_Click_1(object sender, EventArgs e)
         {
             VerObj.Items.Remove(VerUsu.SelectedItems);
 
@@ -151,7 +176,7 @@ namespace LostAndFound
         }
 
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
+        private void BtnSalir_Click_1(object sender, EventArgs e)
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
@@ -161,9 +186,25 @@ namespace LostAndFound
             Application.Exit();
         }
 
-        private void botonAgregarObjEncontrado_Click(object sender, EventArgs e)
+        private void BotonAgregarObjEncontrado_Click(object sender, EventArgs e)
         {
 
+
+            foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
+            {
+                if (ussu.nombre_usuario == biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario)
+                {
+
+                    ibox_nombre_perdido.Text = ussu.nombre_usuario;
+                    MessageBox.Show("Contactarse!");
+                    panelInbox.Visible = true;
+                    btnEliminarObj.Visible = false;
+                    btnObjetoEncontrado.Visible = false;
+                    VerObj.Visible = false;
+                }
+            }
+            biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
+            VerObj.Items.Remove(VerObj.SelectedItems);
         }
 
 
@@ -172,5 +213,137 @@ namespace LostAndFound
         {
 
         }
+        private void ReconocerAdmin(int rutt)
+        {
+            foreach (Usuario usu in biblioteca.usuarios_no_iguales)
+            {
+                if (usu.rut == rutt)
+                {
+                    if (usu.administrador)
+                    {
+                        //Aqui se esconden los botones 
+                    }
+                }
+            }
+
+
+        }
+        private void IboxEnter_Click(object sender, EventArgs e)
+        {
+            string mn;
+            mn = textoInbox.Text + "\n ";
+            textoInbox.Text = " ";
+            feedInbox.Text += " YO: \n";
+            DateTime localDate = DateTime.Now;
+            var culture = new CultureInfo("en-US");
+            feedInbox.Text += mn + "\n";
+            feedInbox.Text += localDate.ToString(culture) + "\n";
+            lblMenu.Visible = false;
+
+        }
+
+        private void SalirInbox_Click(object sender, EventArgs e)
+        {
+            panelInbox.Visible = false;
+            lblMenu.Visible = true;
+        }
+
+        private void BtnInbox_Click(object sender, EventArgs e)
+        {
+            panelInbox.Visible = true;
+            panelCuentaNueva.Visible = false;
+            lblMenu.Visible = false;
+        }
+
+        private void VerObj_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Input2_Click(object sender, EventArgs e)
+        {
+            foreach (Ubicacion u in biblioteca.ubicaciones)
+            {
+                if (u == comboubicaciones.SelectedItem)
+                {
+                    AceptarObjeto.Visible = true;
+                }
+            }
+            descripcion.Visible = false;
+            name_ubi.Visible = false;
+            nombre_ubicacion.Visible = false;
+            descripcionn.Visible = false;
+            btnAgregarUbicacion.Visible = false;
+            txtTipo.Visible = false;
+            tipo.Visible = false;
+            btnAceptarTipo.Visible = false;
+            codigooo += 1;
+            foreach (Usuario u in biblioteca.usuarios_no_iguales)
+            {
+                if (Convert.ToInt32(biblioteca.rut_admin) == (u.rut))
+                {
+                    foreach  (Ubicacion ubicacionn in biblioteca.ubicaciones)
+                    {
+                        if (ubicacionn.nombre_lugar == comboubicaciones.SelectedText)
+                        {
+                            Object objetito = new Objeto(codigooo, " ", false, ubicacionn, null, u, comboTipo.SelectedText);
+                            break;
+                            MessageBox.Show("Objeto publicado con exito ");
+                            
+
+                        }
+                    }
+
+                }
+            }
+            
+        }
+        
+        
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Ubicacion nuevp = new Ubicacion(name_ubi.Text, descripcion.Text);
+            biblioteca.ubicaciones.Add(nuevp);
+            name_ubi.Text = "";
+            descripcion.Text = "";
+            comboubicaciones.Items.Add(nuevp.nombre_lugar);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            descripcion.Visible = true;
+            name_ubi.Visible = true;
+            nombre_ubicacion.Visible = true;
+            descripcionn.Visible = true;
+            btnAgregarUbicacion.Visible = true;
+
+        }
+
+        private void BtnAgregartipo_Click(object sender, EventArgs e)
+        {
+            txtTipo.Visible = true;
+            tipo.Visible = true;
+            btnAceptarTipo.Visible = true;
+
+        }
+
+        private void BtnAceptarTipo_Click(object sender, EventArgs e)
+        {
+            biblioteca.tipoderopa.Add(txtTipo.Text);
+            comboTipo.Items.Add(txtTipo.Text);
+            
+            txtTipo.Text = "";
+
+        }
+
+      
     }
 }
+
+        

@@ -159,7 +159,7 @@ namespace LostAndFound
                             contadorinbox++;
                             Usuario u = usuarios_no_iguales[random.Next(usuarios.Count())];
                             Usuario po = usuarios_no_iguales[random.Next(usuarios.Count())];
-                            Objeto objetiño = new Objeto(contador, nombreobjeto, true, ubicaciones[random.Next(ubicaciones.Count())], u, po);
+                            Objeto objetiño = new Objeto(contador, nombreobjeto, true, ubicaciones[random.Next(ubicaciones.Count())], u, po, null);
                             Inbox inbos = new Inbox(po, u, contadorinbox);
                             po.calificacion = po.calificacion + random.Next(5);
                             objeto_encontrado.Add(objetiño);
@@ -168,7 +168,7 @@ namespace LostAndFound
                         if (marin == 0 || marin == 1 || marin == 2 || marin == 4)
                         {
                             Usuario ti = usuarios_no_iguales[random.Next(usuarios.Count())];
-                            Objeto objetiño = new Objeto(contador, nombreobjeto, false, ubicaciones[random.Next(ubicaciones.Count())],null,ti);
+                            Objeto objetiño = new Objeto(contador, nombreobjeto, false, ubicaciones[random.Next(ubicaciones.Count())],null,ti, null);
                             objeto_perdido.Add(objetiño);
                             objeto_totales.Add(objetiño);
                         }
@@ -303,7 +303,7 @@ namespace LostAndFound
                         {
                             if (item.administrador)
                             {
-                                item.mostrar(usuarios_no_iguales);
+                                item.Mostrar(usuarios_no_iguales);
                             }
                         }
                        
@@ -415,7 +415,7 @@ namespace LostAndFound
                                             {
                                                 if (a.rut == mirut)
                                                 {
-                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1),nombrenuevoo,false, u,a, null);
+                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1),nombrenuevoo,false, u,a, null,null);
                                                     objeto_perdido.Add(nuevop);
                                                     Console.WriteLine("objeto ingresado con exito!");
                                                     keeploopingg = false;
@@ -435,7 +435,7 @@ namespace LostAndFound
                                     Console.WriteLine("ingresar descripcion breve de lugar");
                                     string descrip = Console.ReadLine();
                                     Ubicacion ubiii = new Ubicacion(nombreubi, descrip);
-                                    if (ubiii.reconocer(ubicaciones))
+                                    if (ubiii.Reconocer(ubicaciones))
                                     {
                                         ubicaciones.Add(ubiii);
                                     }
@@ -447,7 +447,7 @@ namespace LostAndFound
                                             {
                                                 if (usu.rut == mirut)
                                                 {
-                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, item, usu, null);
+                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, item, usu, null,null);
                                                     objeto_perdido.Add(nuevop);
                                                     Console.WriteLine("se ha añadido objeto perdido");
                                                     keeploopingg = false;
@@ -496,7 +496,7 @@ namespace LostAndFound
                                             {
                                                 if (a.rut == mirut)
                                                 {
-                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, u, a, null);
+                                                    Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, u, a, null,   null);
                                                     keeploopingggg = false;
                                                     hugeloop = false;
                                                     break;
@@ -517,7 +517,7 @@ namespace LostAndFound
                                     {
                                         if (usu.rut == mirut)
                                         {
-                                            Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, ubiii, usu, null);
+                                            Objeto nuevop = new Objeto((objeto_perdido.Count() + 1), nombrenuevoo, false, ubiii, usu, null, null);
                                             objeto_perdido.Add(nuevop);
                                             Console.WriteLine("se ha añadido objeto perdido");
                                             keeploopingggg = false;
@@ -620,7 +620,7 @@ namespace LostAndFound
                     {
                         if (mirut == u.rut)
                         {
-                            u.vercalificacion(usuarios_no_iguales);
+                            u.Vercalificacion(usuarios_no_iguales);
                         }
                        
                     }

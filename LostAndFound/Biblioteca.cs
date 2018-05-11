@@ -19,10 +19,13 @@ namespace LostAndFound
         public List<Objeto> objeto_perdido = new List<Objeto>();
         public List<Objeto> objeto_encontrado = new List<Objeto>();
         public List<Objeto> objeto_totales = new List<Objeto>();
-        List<string> tipoderopa = new List<string>();
+        public List<string> tipoderopa = new List<string>();
+        public List<string> admin = new List<string>();
+        public string rut_admin;
 
 
-        public Biblioteca(List<Objeto> objetos, List<Ubicacion> ubicaciones, List<Usuario> usuarios_no_iguales, List<Objeto> objeto_perdido, List<Objeto> objeto_encontrado, List<Objeto> objeto_totales, List<string> tipoderopa)
+
+        public Biblioteca(List<Objeto> objetos, List<Ubicacion> ubicaciones, List<Usuario> usuarios_no_iguales, List<Objeto> objeto_perdido, List<Objeto> objeto_encontrado, List<Objeto> objeto_totales, List<string> tipoderopa, List<string> admin, string rut_admin)
         {
             this.objetos = objetos;
             this.ubicaciones = ubicaciones;
@@ -31,6 +34,8 @@ namespace LostAndFound
             this.objeto_encontrado = objeto_encontrado;
             this.objeto_totales = objeto_totales;
             this.tipoderopa = tipoderopa;
+            this.admin = admin;
+            this.rut_admin = rut_admin;
         }
     }
 }
