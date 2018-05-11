@@ -33,7 +33,7 @@ namespace LostAndFound
 
         private void IniciarMenu()
         {
-            if (this.biblioteca.rut_admin == "1")
+            if (this.biblioteca.admin.Contains(this.biblioteca.rut_admin)) 
             {
                 PanelMenu.Visible = true;
                 VerObj.Visible = true;
@@ -41,7 +41,7 @@ namespace LostAndFound
                 btnSalir.Visible = true;
                 buttonverUsuarios.Visible = true;
             }
-            else
+            else      
             {
                 PanelMenu.Visible = true;
                 VerObj.Visible = true;
@@ -62,8 +62,7 @@ namespace LostAndFound
         private void ButtonverUsuarios_Click_1(object sender, EventArgs e)
         {
             
-            btnAgrUsu.Visible = true;
-            btnObjetoEncontrado.Visible = false;            
+            btnAgrUsu.Visible = true;            
             btnEliminarUsu.Visible = true;
             VerUsu.Visible = true;
             VerObj.Visible = false;
@@ -166,16 +165,21 @@ namespace LostAndFound
 
         private void BoronVerObjetoEnc_Click(object sender, EventArgs e)
         {
-            PanelMenu.Hide();
+            panelAgregarObjeto.Show();
+            btnAgrUsu.Visible = false;
+            btnEliminarUsu.Visible = false;
+            VerUsu.Items.Clear();
             VerObj.Items.Clear();
-            VerUsu.Visible = false;
+            VerUsu.Visible = true;
+            panelAgregarObjeto.Hide();
+            panelCuentaNueva.Hide();
             btnEliminarObj.Visible = true;
-            VerObj.Visible = true;
+            VerObj.Visible = false;
             lblMenu.Visible = false;
 
             foreach (Objeto obj in biblioteca.objeto_encontrado)
             {
-                VerObj.Items.Add(obj.descripcion);
+                VerUsu.Items.Add(obj.descripcion);
             }
         }
 
@@ -184,6 +188,9 @@ namespace LostAndFound
             VerObj.Visible = false;
             MessageBox.Show("Porfavor publicar con seriedad y respeto!");
             panelAgregarObjeto.Visible = true;
+            panelCuentaNueva.Visible = false;
+            panelInbox.Visible = false;
+            PanelMenu.Visible = false;
             botonSalir.Visible = true;
             foreach (Ubicacion ubicacion in biblioteca.ubicaciones)
             {
@@ -277,6 +284,7 @@ namespace LostAndFound
 
         private void BtnInbox_Click(object sender, EventArgs e)
         {
+            panelAgregarObjeto.Visible = false;
             panelInbox.Visible = true;
             panelCuentaNueva.Visible = false;
             lblMenu.Visible = false;

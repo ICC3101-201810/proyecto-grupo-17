@@ -162,7 +162,7 @@ namespace LostAndFound
                         Menu main = new Menu();
                         this.ruttext.Text = main.ruti;
                         this.rutNC.Text = main.ruti;
-                        this.biblioteca.rut_admin = "1";
+                        this.biblioteca.rut_admin = ruttest.ToString();
                         this.biblioteca = main.biblioteca;
                         main.Show();
 
@@ -217,6 +217,7 @@ namespace LostAndFound
                 if (random.Next(5) == 3)
                 {
                     admin = true;
+                    this.biblioteca.admin.Add(ruto.ToString());
 
                 }
                 else
@@ -230,6 +231,7 @@ namespace LostAndFound
                 { 
                     administradores.Add(usuario.rut.ToString());
                     this.biblioteca.rut_admin = ruto.ToString();
+
 
                 }
                 this.biblioteca.rut_admin = "contraseñanousada";
@@ -317,6 +319,7 @@ namespace LostAndFound
                 if (checkAdmin.Checked)
                 {
                     admin1 = true;
+                    this.biblioteca.admin.Add(mirut.ToString());
                 }
 
                 Usuario yo1 = new Usuario(mirut, mipass1, minombre, mimail, admin1, 0);
