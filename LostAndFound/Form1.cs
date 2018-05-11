@@ -53,12 +53,53 @@ namespace LostAndFound
 
         public Form1()
         {
-            BinaryFormatter bif = new BinaryFormatter();
-            FileStream fis = File.Open("Datos.bin", FileMode.Open);
-            Biblioteca biblioteca = (Biblioteca)bif.Deserialize(fis);
-
-
-            InitializeComponent();
+            
+            nombres.Add("Carlos");
+            nombres.Add("Gonzalo");
+            nombres.Add("Gabriela");
+            nombres.Add("Raimundo");
+            nombres.Add("Isidora");
+            nombres.Add("juan");
+            nombres.Add("Esteban");
+            nombres.Add("Alan");
+            nombres.Add("Juanita");
+            nombres.Add("Zacarias");
+            nombres.Add("Matias");
+            appelidos.Add("Brito");
+            appelidos.Add("Quito");
+            appelidos.Add("Santiago");
+            appelidos.Add("E MANUEL");
+            appelidos.Add("Del pilar");
+            appelidos.Add("De La fuente");
+            appelidos.Add("Rosas");
+            appelidos.Add("Rojas");
+            appelidos.Add("del fuego");
+            appelidos.Add("Un Perno");
+            appelidos.Add("Un Troncho");
+            appelidos.Add("Piña");
+            appelidos.Add("Jaguar");
+            appelidos.Add("Peña");
+            tallas.Add("XXl");
+            tallas.Add("XL ");
+            tallas.Add("L  ");
+            tallas.Add("M  ");
+            tallas.Add("S  ");
+            tallas.Add("XS ");
+            tipoderopa.Add("pantalones");
+            tipoderopa.Add("shorts    ");
+            tipoderopa.Add("zapatillas");
+            tipoderopa.Add("Caño      ");
+            tipoderopa.Add("polera    ");
+            tipoderopa.Add("poleron   ");
+            tipoderopa.Add("calzon    ");
+            Ubicacion ubicacion1 = new Ubicacion("Biblioteca        ", "edificio central superior");
+            Ubicacion ubicacion2 = new Ubicacion("Ciencias          ", "De ladrillos, con anfiteatro");
+            Ubicacion ubicacion3 = new Ubicacion("Humanidades       ", "de ladrillo, sin anfiteatro y cuadrado");
+            Ubicacion ubicacion4 = new Ubicacion("Cen               ", "edificio central similar al loubre");
+            Ubicacion ubicacion5 = new Ubicacion("Canchas superiores", "antes de la clinica");
+            Ubicacion ubicacion6 = new Ubicacion("Cancha nivel u    ", "entremedio del muro de escalada");
+            Ubicacion ubicacion7 = new Ubicacion("Cancha inferior   ", "cancha nivel san carlos");
+            Ubicacion ubicacion8 = new Ubicacion("Camarin hombres   ", "a la derecha del muro de escalada");
             ubicaciones.Add(ubicacion1);
             ubicaciones.Add(ubicacion2);
             ubicaciones.Add(ubicacion3);
@@ -67,45 +108,14 @@ namespace LostAndFound
             ubicaciones.Add(ubicacion6);
             ubicaciones.Add(ubicacion7);
             ubicaciones.Add(ubicacion8);
-            nombres.Add("Carlos");
-        nombres.Add("Gonzalo");
-        nombres.Add("Gabriela");
-        nombres.Add("Raimundo");
-        nombres.Add("Isidora");
-        nombres.Add("juan");
-        nombres.Add("Esteban");
-        nombres.Add("Alan");
-        nombres.Add("Juanita");
-        nombres.Add("Zacarias");
-        nombres.Add("Matias");
-        appelidos.Add("Brito");
-        appelidos.Add("Quito");
-        appelidos.Add("Santiago");
-        appelidos.Add("E MANUEL");
-        appelidos.Add("Del pilar");
-        appelidos.Add("De La fuente");
-        appelidos.Add("Rosas");
-        appelidos.Add("Rojas");
-        appelidos.Add("del fuego");
-        appelidos.Add("Un Perno");
-        appelidos.Add("Un Troncho");
-        appelidos.Add("Piña");
-        appelidos.Add("Jaguar");
-        appelidos.Add("Peña");
-        tallas.Add("XXl");
-        tallas.Add("XL");
-        tallas.Add("L");
-        tallas.Add("M");
-        tallas.Add("S");
-        tallas.Add("XS");
-        tipoderopa.Add("pantalones");
-        tipoderopa.Add("shorts");
-        tipoderopa.Add("zapatillas");
-        tipoderopa.Add("Caño");
-        tipoderopa.Add("polera");
-        tipoderopa.Add("poleron");
-        tipoderopa.Add("calzon"); 
-        
+            BinaryFormatter bif = new BinaryFormatter();
+            FileStream fis = File.Open("Datos.bin", FileMode.Open);
+            biblioteca = (Biblioteca)bif.Deserialize(fis);
+            fis.Close();
+
+            InitializeComponent();
+
+            
 
         }
         
@@ -140,14 +150,16 @@ namespace LostAndFound
 
         private void boton_login_Click(object sender, EventArgs e)
         {
-            NOvisiblelogin();
+           
             int ruttest=Int32.Parse(ruttext.Text);
+           
             foreach (Usuario u in usuarios_no_iguales)
             {
                 if (ruttest == u.rut && miclave.Text == u.password)
                 {
                     if (u.administrador)
                     {
+                        NOvisiblelogin();
                         this.Hide();
                         Menu main = new Menu();
                         main.Show();
@@ -157,6 +169,7 @@ namespace LostAndFound
                     }
                     else
                     {
+                        NOvisiblelogin();
                         this.Hide();
                         Menu main = new Menu();
                         main.Show();
@@ -168,7 +181,9 @@ namespace LostAndFound
                 else
                 {
                     MessageBox.Show("el usuario o la contraseña es erronea! por favor intentar denuevo");
+                    break;
                 }
+
             }
                 
         }
@@ -181,7 +196,7 @@ namespace LostAndFound
         }
 
         private void boton_simulacion_Click(object sender, EventArgs e)
-        {   /*
+        {   
             int numero_de_usuarios = Convert.ToInt32(c_dias.Text);
             int horas = Convert.ToInt32(c_horas.Text);
             int dias = Convert.ToInt32(c_usuarios.Text);
@@ -248,16 +263,12 @@ namespace LostAndFound
             }
             Biblioteca biblioteca1 = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales, tipoderopa);
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
+            FileStream fs = File.Open("Datos.bin", FileMode.Truncate);
             bf.Serialize(fs, biblioteca1);
-            fs.Close();*/
+            fs.Close();
             Menu main = new Menu();
-            /*
-            BinaryFormatter bif = new BinaryFormatter();
-            FileStream fis = File.Open("Datos.bin", FileMode.Open);
-            Biblioteca biblioteca = (Biblioteca)bif.Deserialize(fis);*/
+
             this.biblioteca = main.biblioteca;
-            //fis.Close();
             MessageBox.Show("simulacion creada con exito!");
             simulation.Visible = false;
             c_dias.Visible = false;
