@@ -34,17 +34,22 @@ namespace LostAndFound
             btnAgrUsu.Visible = true;
             btnEliminarUsu.Visible = true;
             VerUsu.Visible = true;
+            VerObj.Visible = false;
+            btnEliminarObj.Visible = false;
+            btnObjetoEncontrado.Visible = false;
 
             VerUsu.Items.Clear();
             foreach (Usuario item in biblioteca.usuarios_no_iguales)
             {
-                VerUsu.Items.Add(item.nombre_usuario);
+                VerUsu.Items.Add(item.nombre_usuario +"\t"+ item.calificacion);
             }
         }
 
         private void btnAgrUsu_Click(object sender, EventArgs e)
         {
             VerUsu.Visible = false;
+            btnAgrUsu.Visible = false;
+            btnEliminarUsu.Visible = false;
             panelCuentaNueva.Visible = true;
            
             
@@ -103,7 +108,12 @@ namespace LostAndFound
         private void btnObjPerdidos_Click(object sender, EventArgs e)
         {
             VerObj.Items.Clear();
-            
+            VerObj.Visible = true;
+            VerUsu.Visible = false;
+            btnEliminarUsu.Visible = false;
+            btnAgrUsu.Visible = false;
+            btnEliminarObj.Visible = true;
+            btnObjetoEncontrado.Visible = true;
             foreach (Objeto obj in biblioteca.objeto_perdido)
             {
                 VerObj.Items.Add(obj.descripcion);
@@ -113,7 +123,9 @@ namespace LostAndFound
         private void boronVerObjetoEnc_Click(object sender, EventArgs e)
         {
             VerObj.Items.Clear();
+            VerUsu.Visible = false;
             btnEliminarObj.Visible = true;
+            VerObj.Visible = true;
             
             foreach (Objeto obj in biblioteca.objeto_encontrado)
             {
@@ -133,6 +145,7 @@ namespace LostAndFound
 
             biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
             btnEliminarObj.Visible = false;
+            btnObjetoEncontrado.Visible = false;
             VerObj.Visible = false;
             MessageBox.Show("Objeto Eliminado con Exito");
         }
@@ -140,6 +153,10 @@ namespace LostAndFound
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
+            bf.Serialize(fs, biblioteca);
+            fs.Close();
             this.Close();
             Application.Exit();
         }
@@ -149,10 +166,7 @@ namespace LostAndFound
 
         }
 
-        private void btnVerCalificacion_Click_1(object sender, EventArgs e)
-        {
 
-        }
 
         private void Menu_Load(object sender, EventArgs e)
         {

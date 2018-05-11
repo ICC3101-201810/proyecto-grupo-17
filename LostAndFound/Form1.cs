@@ -260,13 +260,13 @@ namespace LostAndFound
                 }
             }
             
-            Biblioteca biblioteca1 = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales, tipoderopa);
+
+            Menu main = new Menu();
+            Biblioteca biblioteca = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales, tipoderopa);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("Datos.bin", FileMode.Truncate);
-            bf.Serialize(fs, biblioteca1);
+            bf.Serialize(fs, biblioteca);
             fs.Close();
-            Menu main = new Menu();
-
             this.biblioteca = main.biblioteca;
             MessageBox.Show("simulacion creada con exito!");
             simulation.Visible = false;
@@ -305,8 +305,16 @@ namespace LostAndFound
                 }
 
                 Usuario yo1 = new Usuario(mirut, mipass1, minombre, mimail, admin1, 0);
-                Console.WriteLine("Usuario creado con exito");
-                biblioteca.usuarios_no_iguales.Add(yo1);
+                this.biblioteca.usuarios_no_iguales.Add(yo1);
+                this.usuarios_no_iguales.Add(yo1);
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
+                bf.Serialize(fs, biblioteca);
+                fs.Close();
+                BinaryFormatter bif = new BinaryFormatter();
+                FileStream fis = File.Open("Datos.bin", FileMode.Open);
+                biblioteca = (Biblioteca)bif.Deserialize(fis);
+                fis.Close();
                 if (admin1)
                 {
                     this.Hide();
@@ -324,10 +332,7 @@ namespace LostAndFound
 
 
                 }
-                BinaryFormatter bf = new BinaryFormatter();
-                FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
-                bf.Serialize(fs, biblioteca);
-                fs.Close();
+
 
             }
             else
