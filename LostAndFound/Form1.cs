@@ -18,7 +18,7 @@ namespace LostAndFound
     public partial class Form1 : Form
     {
 
-        public static int adminnns;
+
         List<string> ruts_totales = new List<string>();
         List<Objeto> objetos = new List<Objeto>();
         List<Ubicacion> ubicaciones = new List<Ubicacion>();
@@ -41,7 +41,7 @@ namespace LostAndFound
         Ubicacion ubicacion6 = new Ubicacion("cancha nivel u", "entremedio del muro de escalada");
         Ubicacion ubicacion7 = new Ubicacion("cancha inferior oficial", "cancha niver san carlos");
         Ubicacion ubicacion8 = new Ubicacion("camarin hombres", "a la derecha del muro de escalada");
-      
+
 
         Random random = new Random();
         List<string> noiguales = new List<string>();
@@ -49,11 +49,13 @@ namespace LostAndFound
         Biblioteca biblioteca;
 
 
-
-
         public Form1()
         {
-            
+            BinaryFormatter bif = new BinaryFormatter();
+            FileStream fis = File.Open("Datos.bin", FileMode.Open);
+            biblioteca = (Biblioteca)bif.Deserialize(fis);
+            fis.Close();
+            InitializeComponent();
             nombres.Add("Carlos");
             nombres.Add("Gonzalo");
             nombres.Add("Gabriela");
@@ -108,16 +110,12 @@ namespace LostAndFound
             ubicaciones.Add(ubicacion6);
             ubicaciones.Add(ubicacion7);
             ubicaciones.Add(ubicacion8);
-            BinaryFormatter bif = new BinaryFormatter();
-            FileStream fis = File.Open("Datos.bin", FileMode.Open);
-            biblioteca = (Biblioteca)bif.Deserialize(fis);
-            fis.Close();
-
-            InitializeComponent();
-
-            
 
         }
+
+        
+
+        
         
 
         public void visiblelogin()
@@ -135,7 +133,7 @@ namespace LostAndFound
         public void NOvisiblelogin()
         {
             LOGIN.Visible = false;
-            label1.Visible =false;
+            label1.Visible = false;
             labelrut.Visible = false;
             miclave.Visible = false;
             ruttext.Visible = false;
@@ -144,15 +142,15 @@ namespace LostAndFound
 
 
         }
-   
-        
-        
+
+
+
 
         private void boton_login_Click(object sender, EventArgs e)
         {
-           
-            int ruttest=Int32.Parse(ruttext.Text);
-           
+
+            int ruttest = Int32.Parse(ruttext.Text);
+
             foreach (Usuario u in usuarios_no_iguales)
             {
                 if (ruttest == u.rut && miclave.Text == u.password)
@@ -165,7 +163,7 @@ namespace LostAndFound
                         main.Show();
                         this.biblioteca = main.biblioteca;
 
-                        
+
                     }
                     else
                     {
@@ -176,7 +174,7 @@ namespace LostAndFound
                         this.biblioteca = main.biblioteca;
 
                     }
-                
+
                 }
                 else
                 {
@@ -185,7 +183,7 @@ namespace LostAndFound
                 }
 
             }
-                
+
         }
 
         private void boton_nuevaCuenta_Click(object sender, EventArgs e)
@@ -196,7 +194,7 @@ namespace LostAndFound
         }
 
         private void boton_simulacion_Click(object sender, EventArgs e)
-        {   
+        {
             int numero_de_usuarios = Convert.ToInt32(c_dias.Text);
             int horas = Convert.ToInt32(c_horas.Text);
             int dias = Convert.ToInt32(c_usuarios.Text);
@@ -261,6 +259,7 @@ namespace LostAndFound
                     }
                 }
             }
+            
             Biblioteca biblioteca1 = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales, tipoderopa);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("Datos.bin", FileMode.Truncate);
@@ -307,14 +306,14 @@ namespace LostAndFound
 
                 Usuario yo1 = new Usuario(mirut, mipass1, minombre, mimail, admin1, 0);
                 Console.WriteLine("Usuario creado con exito");
-                usuarios_no_iguales.Add(yo1);
+                biblioteca.usuarios_no_iguales.Add(yo1);
                 if (admin1)
                 {
                     this.Hide();
                     Menu main = new Menu();
                     main.Show();
                     this.biblioteca = main.biblioteca;
-                    
+
                 }
                 else
                 {
@@ -325,6 +324,10 @@ namespace LostAndFound
 
 
                 }
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
+                bf.Serialize(fs, biblioteca);
+                fs.Close();
 
             }
             else
@@ -333,7 +336,7 @@ namespace LostAndFound
             }
         }
 
-       
+
         public void Mostrar_CuentaNueva()
         {
             this.Show();
@@ -342,13 +345,13 @@ namespace LostAndFound
 
         }
 
-    
-
-     
 
 
 
-   
+
+
+           
+
     }
 }
 
