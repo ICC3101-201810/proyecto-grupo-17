@@ -146,6 +146,7 @@ namespace LostAndFound
             Biblioteca biblioteca = (Biblioteca)bf.Deserialize(fs);
             fs.Close();
             int ruttest = Int32.Parse(ruttext.Text);
+
             this.biblioteca.rut_admin = ruttext.Text;
             foreach (Usuario u in this.biblioteca.usuarios_no_iguales)
             {
@@ -154,9 +155,12 @@ namespace LostAndFound
                 {
                     if (u.administrador)
                     {
+                        
                         NOvisiblelogin();
                         this.Hide();
                         Menu main = new Menu();
+                        this.ruttext.Text = main.ruti;
+                        this.rutNC.Text = main.ruti;
                         main.Show();
                         this.biblioteca = main.biblioteca;
                     }
@@ -165,6 +169,8 @@ namespace LostAndFound
                         NOvisiblelogin();
                         this.Hide();
                         Menu main = new Menu();
+                        this.ruttext.Text = main.ruti;
+                        this.rutNC.Text = main.ruti;
                         main.Show();
                         this.biblioteca = main.biblioteca;
 
@@ -219,8 +225,9 @@ namespace LostAndFound
                 { 
                     administradores.Add(usuario.rut.ToString());
                     this.biblioteca.rut_admin = ruto.ToString();
+
                 }
-                this.biblioteca.rut_admin = null;
+                this.biblioteca.rut_admin = "contraseñanousada";
             }
             usuarios_no_iguales = usuarios.Distinct().ToList();
             int contador = 0;
@@ -260,8 +267,10 @@ namespace LostAndFound
             
 
             Menu main = new Menu();
-            
-            
+            this.ruttext.Text = main.ruti;
+            this.rutNC.Text = main.ruti;
+
+
             Biblioteca biblioteca = new Biblioteca(objetos, ubicaciones, usuarios_no_iguales, objeto_perdido, objeto_encontrado, objeto_totales, tipoderopa, administradores, rutNC.Text);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("Datos.bin", FileMode.Truncate);
@@ -269,6 +278,7 @@ namespace LostAndFound
             fs.Close();
             
             this.biblioteca = main.biblioteca;
+
             MessageBox.Show("simulacion creada con exito!");
             SystemSounds.Beep.Play();
             simulation.Visible = false;
@@ -294,6 +304,7 @@ namespace LostAndFound
                 SystemSounds.Beep.Play();
 
                 string minombre = nombreCuentaNueva.Text;
+                
                 int mirut = Convert.ToInt32(rutNC.Text);
                 string mipass1 = contraseñaCuentaNueva.Text;
                 string mimail = mailNC.Text;
@@ -311,6 +322,7 @@ namespace LostAndFound
                     administradores.Add(yo1.rut.ToString()); 
                 }
                 this.biblioteca.rut_admin = rutNC.Text;
+
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream fs = File.Open("Datos.bin", FileMode.OpenOrCreate);
                 bf.Serialize(fs, biblioteca);
@@ -323,6 +335,8 @@ namespace LostAndFound
                 {
                     this.Hide();
                     Menu main = new Menu();
+                    this.ruttext.Text = main.ruti;
+                    this.rutNC.Text = main.ruti;
                     main.Show();
                     this.biblioteca = main.biblioteca;
 
@@ -331,6 +345,8 @@ namespace LostAndFound
                 {
                     this.Hide();
                     Menu main = new Menu();
+                    this.ruttext.Text = main.ruti;
+                    this.rutNC.Text = main.ruti;
                     main.Show();
                     this.biblioteca = main.biblioteca;
 

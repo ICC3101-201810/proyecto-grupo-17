@@ -16,6 +16,7 @@ namespace LostAndFound
 {
     public partial class Menu : Form
     {
+        public string ruti; 
         public Biblioteca biblioteca;
         public Menu()
         {
@@ -25,14 +26,38 @@ namespace LostAndFound
             FileStream fis = File.Open("Datos.bin", FileMode.Open);
             biblioteca = (Biblioteca)bif.Deserialize(fis);
             fis.Close();
+            IniciarMenu();
             
 
         }
 
+        private void IniciarMenu()
+        {
+            if (this.biblioteca.admin.Contains(ruti))
+            {
+                PanelMenu.Visible = true;
+                VerObj.Visible = true;
+                btnInbox.Visible = true;
+                btnSalir.Visible = true;
+                buttonverUsuarios.Visible = true;
+            }
+            else
+            {
+                PanelMenu.Visible = true;
+                VerObj.Visible = true;
+                btnInbox.Visible = true;
+                btnSalir.Visible = true;
+                buttonverUsuarios.Visible = false;
+                boronVerObjetoEnc.Visible = false;
+            }
+
+
+        }
 
         private void ButtonverUsuarios_Click_1(object sender, EventArgs e)
         {
-            btnAgrUsu.Visible = false;
+            
+            btnAgrUsu.Visible = true;
             btnObjetoEncontrado.Visible = false;            
             btnEliminarUsu.Visible = true;
             VerUsu.Visible = true;
@@ -115,14 +140,19 @@ namespace LostAndFound
 
         private void BtnObjPerdidos_Click(object sender, EventArgs e)
         {
-            btnObjetoEncontrado.Visible = false;
+            btnObjetoEncontrado.Visible = true;
             VerObj.Items.Clear();
             VerObj.Visible = true;
             VerUsu.Visible = false;
             btnEliminarUsu.Visible = false;
             btnAgrUsu.Visible = false;
-            btnEliminarObj.Visible = true;
-            
+            if (this.biblioteca.admin.Contains(ruti))
+            {
+                btnEliminarObj.Visible = true;
+
+            }
+            else { btnEliminarObj.Visible = false; }
+
             foreach (Objeto obj in biblioteca.objeto_perdido)
             {
                 VerObj.Items.Add(obj.descripcion);
@@ -131,6 +161,7 @@ namespace LostAndFound
 
         private void BoronVerObjetoEnc_Click(object sender, EventArgs e)
         {
+            PanelMenu.Hide();
             VerObj.Items.Clear();
             VerUsu.Visible = false;
             btnEliminarObj.Visible = true;
@@ -148,6 +179,7 @@ namespace LostAndFound
             VerObj.Visible = false;
             MessageBox.Show("Porfavor publicar con seriedad y respeto!");
             panelAgregarObjeto.Visible = true;
+            botonSalir.Visible = true;
             foreach (Ubicacion ubicacion in biblioteca.ubicaciones)
             {
                 comboubicaciones.Items.Add(ubicacion.nombre_lugar);
@@ -198,6 +230,7 @@ namespace LostAndFound
                     ibox_nombre_perdido.Text = ussu.nombre_usuario;
                     MessageBox.Show("Contactarse!");
                     panelInbox.Visible = true;
+                    PanelMenu.Visible = false;
                     btnEliminarObj.Visible = false;
                     btnObjetoEncontrado.Visible = false;
                     VerObj.Visible = false;
@@ -284,7 +317,7 @@ namespace LostAndFound
 
             foreach (Usuario u in biblioteca.usuarios_no_iguales)
             {
-                if (u.rut == Convert.ToInt32(biblioteca.rut_admin))
+                if (u.rut.ToString() == biblioteca.rut_admin)
                 {
                     
                     foreach (Ubicacion ubicacionn in biblioteca.ubicaciones)
@@ -385,6 +418,23 @@ namespace LostAndFound
                 
             }
             
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            panelCuentaNueva.Hide();
+            PanelMenu.Show();
+            btnObjPerdidos.Visible = true;
+            botonagregarobjeto.Visible = true;
+            btnInbox.Visible = true;
+
+            
+        }
+
+        private void botonSALIR_Click(object sender, EventArgs e)
+        {
+            panelAgregarObjeto.Hide();
+            PanelMenu.Show();
         }
     }
 }
