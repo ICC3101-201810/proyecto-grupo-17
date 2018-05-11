@@ -77,6 +77,8 @@
             this.comboTipo = new System.Windows.Forms.ComboBox();
             this.comboubicaciones = new System.Windows.Forms.ComboBox();
             this.AceptarObjeto = new System.Windows.Forms.Button();
+            this.textoNOmbreObjeto = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panelCuentaNueva.SuspendLayout();
             this.panelInbox.SuspendLayout();
             this.panelAgregarObjeto.SuspendLayout();
@@ -183,7 +185,7 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Location = new System.Drawing.Point(95, 86);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(159, 146);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
             this.panelCuentaNueva.Size = new System.Drawing.Size(653, 721);
             this.panelCuentaNueva.TabIndex = 17;
@@ -361,9 +363,8 @@
             this.panelInbox.Controls.Add(this.SalirInbox);
             this.panelInbox.Controls.Add(this.textoInbox);
             this.panelInbox.Controls.Add(this.feedInbox);
-            this.panelInbox.Controls.Add(this.panelCuentaNueva);
             this.panelInbox.Controls.Add(this.iboxEnter);
-            this.panelInbox.Location = new System.Drawing.Point(605, 3);
+            this.panelInbox.Location = new System.Drawing.Point(249, 19);
             this.panelInbox.Name = "panelInbox";
             this.panelInbox.Size = new System.Drawing.Size(655, 307);
             this.panelInbox.TabIndex = 17;
@@ -427,6 +428,8 @@
             // 
             // panelAgregarObjeto
             // 
+            this.panelAgregarObjeto.Controls.Add(this.label8);
+            this.panelAgregarObjeto.Controls.Add(this.textoNOmbreObjeto);
             this.panelAgregarObjeto.Controls.Add(this.btnAceptarTipo);
             this.panelAgregarObjeto.Controls.Add(this.tipo);
             this.panelAgregarObjeto.Controls.Add(this.txtTipo);
@@ -442,15 +445,15 @@
             this.panelAgregarObjeto.Controls.Add(this.comboTipo);
             this.panelAgregarObjeto.Controls.Add(this.comboubicaciones);
             this.panelAgregarObjeto.Controls.Add(this.AceptarObjeto);
-            this.panelAgregarObjeto.Location = new System.Drawing.Point(46, 82);
+            this.panelAgregarObjeto.Location = new System.Drawing.Point(192, 21);
             this.panelAgregarObjeto.Name = "panelAgregarObjeto";
-            this.panelAgregarObjeto.Size = new System.Drawing.Size(438, 250);
+            this.panelAgregarObjeto.Size = new System.Drawing.Size(491, 328);
             this.panelAgregarObjeto.TabIndex = 19;
             this.panelAgregarObjeto.Visible = false;
             // 
             // btnAceptarTipo
             // 
-            this.btnAceptarTipo.Location = new System.Drawing.Point(12, 174);
+            this.btnAceptarTipo.Location = new System.Drawing.Point(12, 214);
             this.btnAceptarTipo.Name = "btnAceptarTipo";
             this.btnAceptarTipo.Size = new System.Drawing.Size(83, 22);
             this.btnAceptarTipo.TabIndex = 20;
@@ -462,7 +465,7 @@
             // tipo
             // 
             this.tipo.AutoSize = true;
-            this.tipo.Location = new System.Drawing.Point(9, 144);
+            this.tipo.Location = new System.Drawing.Point(9, 183);
             this.tipo.Name = "tipo";
             this.tipo.Size = new System.Drawing.Size(74, 13);
             this.tipo.TabIndex = 19;
@@ -471,7 +474,7 @@
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(91, 142);
+            this.txtTipo.Location = new System.Drawing.Point(89, 180);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(121, 20);
             this.txtTipo.TabIndex = 18;
@@ -479,7 +482,7 @@
             // 
             // btnAgregartipo
             // 
-            this.btnAgregartipo.Location = new System.Drawing.Point(12, 98);
+            this.btnAgregartipo.Location = new System.Drawing.Point(12, 145);
             this.btnAgregartipo.Name = "btnAgregartipo";
             this.btnAgregartipo.Size = new System.Drawing.Size(105, 23);
             this.btnAgregartipo.TabIndex = 17;
@@ -489,7 +492,7 @@
             // 
             // btnAgregarUbicacion
             // 
-            this.btnAgregarUbicacion.Location = new System.Drawing.Point(335, 131);
+            this.btnAgregarUbicacion.Location = new System.Drawing.Point(335, 181);
             this.btnAgregarUbicacion.Name = "btnAgregarUbicacion";
             this.btnAgregarUbicacion.Size = new System.Drawing.Size(85, 22);
             this.btnAgregarUbicacion.TabIndex = 16;
@@ -500,7 +503,7 @@
             // 
             // descripcion
             // 
-            this.descripcion.Location = new System.Drawing.Point(288, 101);
+            this.descripcion.Location = new System.Drawing.Point(295, 133);
             this.descripcion.Name = "descripcion";
             this.descripcion.Size = new System.Drawing.Size(121, 20);
             this.descripcion.TabIndex = 15;
@@ -509,7 +512,7 @@
             // descripcionn
             // 
             this.descripcionn.AutoSize = true;
-            this.descripcionn.Location = new System.Drawing.Point(225, 104);
+            this.descripcionn.Location = new System.Drawing.Point(225, 136);
             this.descripcionn.Name = "descripcionn";
             this.descripcionn.Size = new System.Drawing.Size(66, 13);
             this.descripcionn.TabIndex = 14;
@@ -519,7 +522,7 @@
             // nombre_ubicacion
             // 
             this.nombre_ubicacion.AutoSize = true;
-            this.nombre_ubicacion.Location = new System.Drawing.Point(238, 64);
+            this.nombre_ubicacion.Location = new System.Drawing.Point(239, 109);
             this.nombre_ubicacion.Name = "nombre_ubicacion";
             this.nombre_ubicacion.Size = new System.Drawing.Size(50, 13);
             this.nombre_ubicacion.TabIndex = 13;
@@ -528,7 +531,7 @@
             // 
             // name_ubi
             // 
-            this.name_ubi.Location = new System.Drawing.Point(288, 63);
+            this.name_ubi.Location = new System.Drawing.Point(295, 105);
             this.name_ubi.Name = "name_ubi";
             this.name_ubi.Size = new System.Drawing.Size(121, 20);
             this.name_ubi.TabIndex = 12;
@@ -536,7 +539,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(235, 25);
+            this.button1.Location = new System.Drawing.Point(286, 61);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 23);
             this.button1.TabIndex = 10;
@@ -547,7 +550,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 73);
+            this.label9.Location = new System.Drawing.Point(22, 108);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 8;
@@ -556,7 +559,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 30);
+            this.label1.Location = new System.Drawing.Point(22, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 6;
@@ -565,24 +568,26 @@
             // comboTipo
             // 
             this.comboTipo.FormattingEnabled = true;
-            this.comboTipo.Location = new System.Drawing.Point(91, 66);
+            this.comboTipo.Location = new System.Drawing.Point(89, 108);
             this.comboTipo.Name = "comboTipo";
             this.comboTipo.Size = new System.Drawing.Size(121, 21);
             this.comboTipo.TabIndex = 4;
+            this.comboTipo.SelectedIndexChanged += new System.EventHandler(this.comboTipo_SelectedIndexChanged);
             // 
             // comboubicaciones
             // 
             this.comboubicaciones.FormattingEnabled = true;
-            this.comboubicaciones.Location = new System.Drawing.Point(91, 27);
+            this.comboubicaciones.Location = new System.Drawing.Point(89, 62);
             this.comboubicaciones.Name = "comboubicaciones";
             this.comboubicaciones.Size = new System.Drawing.Size(121, 21);
             this.comboubicaciones.TabIndex = 2;
+            this.comboubicaciones.SelectedIndexChanged += new System.EventHandler(this.comboubicaciones_SelectedIndexChanged);
             // 
             // AceptarObjeto
             // 
             this.AceptarObjeto.BackColor = System.Drawing.Color.Black;
             this.AceptarObjeto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AceptarObjeto.Location = new System.Drawing.Point(203, 195);
+            this.AceptarObjeto.Location = new System.Drawing.Point(228, 261);
             this.AceptarObjeto.Name = "AceptarObjeto";
             this.AceptarObjeto.Size = new System.Drawing.Size(111, 49);
             this.AceptarObjeto.TabIndex = 1;
@@ -590,6 +595,23 @@
             this.AceptarObjeto.UseVisualStyleBackColor = false;
             this.AceptarObjeto.Visible = false;
             this.AceptarObjeto.Click += new System.EventHandler(this.Input2_Click);
+            // 
+            // textoNOmbreObjeto
+            // 
+            this.textoNOmbreObjeto.Location = new System.Drawing.Point(138, 21);
+            this.textoNOmbreObjeto.Name = "textoNOmbreObjeto";
+            this.textoNOmbreObjeto.Size = new System.Drawing.Size(266, 20);
+            this.textoNOmbreObjeto.TabIndex = 21;
+            this.textoNOmbreObjeto.TextChanged += new System.EventHandler(this.textoNOmbreObjeto_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(98, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Nombre del Objeto:";
             // 
             // Menu
             // 
@@ -600,6 +622,7 @@
             this.Controls.Add(this.panelAgregarObjeto);
             this.Controls.Add(this.lblMenu);
             this.Controls.Add(this.panelInbox);
+            this.Controls.Add(this.panelCuentaNueva);
             this.Controls.Add(this.btnInbox);
             this.Controls.Add(this.ibox_nombre_perdido);
             this.Controls.Add(this.VerObj);
@@ -677,5 +700,7 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Button btnAgregartipo;
         private System.Windows.Forms.Button btnAceptarTipo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textoNOmbreObjeto;
     }
 }

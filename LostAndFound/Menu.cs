@@ -145,7 +145,7 @@ namespace LostAndFound
 
         private void Botonagregarobjeto_Click(object sender, EventArgs e)
         {
-
+            VerObj.Visible = false;
             MessageBox.Show("Porfavor publicar con seriedad y respeto!");
             panelAgregarObjeto.Visible = true;
             foreach (Ubicacion ubicacion in biblioteca.ubicaciones)
@@ -267,13 +267,10 @@ namespace LostAndFound
 
         private void Input2_Click(object sender, EventArgs e)
         {
-            foreach (Ubicacion u in biblioteca.ubicaciones)
-            {
-                if (u == comboubicaciones.SelectedItem)
-                {
-                    AceptarObjeto.Visible = true;
-                }
-            }
+            string descrip = textoNOmbreObjeto.Text;
+            textoNOmbreObjeto.Text = " ";
+            AceptarObjeto.Visible = false;
+            panelAgregarObjeto.Visible = false;
             descripcion.Visible = false;
             name_ubi.Visible = false;
             nombre_ubicacion.Visible = false;
@@ -283,23 +280,28 @@ namespace LostAndFound
             tipo.Visible = false;
             btnAceptarTipo.Visible = false;
             codigooo += 1;
+
             foreach (Usuario u in biblioteca.usuarios_no_iguales)
             {
-                if (Convert.ToInt32(biblioteca.rut_admin) == (u.rut))
+                if (u.rut == Convert.ToInt32(biblioteca.rut_admin))
                 {
-                    foreach  (Ubicacion ubicacionn in biblioteca.ubicaciones)
+                    
+                    foreach (Ubicacion ubicacionn in biblioteca.ubicaciones)
                     {
                         if (ubicacionn.nombre_lugar == comboubicaciones.SelectedText)
                         {
-                            Object objetito = new Objeto(codigooo, " ", false, ubicacionn, null, u, comboTipo.SelectedText);
-                            break;
-                            MessageBox.Show("Objeto publicado con exito ");
                             
+                            Objeto objetito = new Objeto(codigooo, descrip, false, ubicacionn, null, u, comboTipo.SelectedText);
+                            MessageBox.Show("Objeto publicado con exito ");
+                            VerObj.Items.Add(objetito.descripcion);
+                            break;
+                           
+
 
                         }
                     }
-
                 }
+                
             }
             
         }
@@ -342,7 +344,47 @@ namespace LostAndFound
 
         }
 
-      
+        private void comboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (textoNOmbreObjeto.Text != null || textoNOmbreObjeto.Text != " ")
+            {
+                if (comboubicaciones.SelectedItem != null && comboTipo.SelectedItem != null)
+                {
+                    AceptarObjeto.Visible = true;
+                }
+
+            }
+        }
+
+        private void comboubicaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (textoNOmbreObjeto.Text != null || textoNOmbreObjeto.Text != " ")
+            {
+                if (comboubicaciones.SelectedItem != null && comboTipo.SelectedItem != null)
+                {
+                    AceptarObjeto.Visible = true;
+                }
+
+            }
+        }
+
+        private void btnNombreObj_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textoNOmbreObjeto_TextChanged(object sender, EventArgs e)
+        {
+            if (textoNOmbreObjeto.Text !=null || textoNOmbreObjeto.Text!= " ")
+            {
+                if (comboubicaciones.SelectedItem != null && comboTipo.SelectedItem != null)
+                {
+                    AceptarObjeto.Visible = true;
+                }
+                
+            }
+            
+        }
     }
 }
 
