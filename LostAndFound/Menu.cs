@@ -165,7 +165,7 @@ namespace LostAndFound
 
         private void BoronVerObjetoEnc_Click(object sender, EventArgs e)
         {
-            panelAgregarObjeto.Show();
+            panelAgregarObjeto.Visible = true;
             btnAgrUsu.Visible = false;
             btnEliminarUsu.Visible = false;
             VerUsu.Items.Clear();
@@ -188,9 +188,9 @@ namespace LostAndFound
             VerObj.Visible = false;
             MessageBox.Show("Porfavor publicar con seriedad y respeto!");
             panelAgregarObjeto.Visible = true;
-            panelCuentaNueva.Visible = false;
-            panelInbox.Visible = false;
-            PanelMenu.Visible = false;
+            //panelCuentaNueva.Visible = false;
+            //panelInbox.Visible = false;
+            //PanelMenu.Visible = false;
             botonSalir.Visible = true;
             foreach (Ubicacion ubicacion in biblioteca.ubicaciones)
             {
@@ -210,12 +210,13 @@ namespace LostAndFound
 
         private void BtnEliminarObj_Click_1(object sender, EventArgs e)
         {
-            VerObj.Items.Remove(VerUsu.SelectedItems);
-
-            biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
+            VerUsu.Items.Remove(VerUsu.SelectedItems);
+             
+            biblioteca.objeto_perdido.RemoveAt(VerUsu.SelectedIndex);
             btnEliminarObj.Visible = false;
             btnObjetoEncontrado.Visible = false;
             VerObj.Visible = false;
+            VerUsu.Visible = false;
             MessageBox.Show("Objeto Eliminado con Exito");
         }
 
@@ -232,20 +233,21 @@ namespace LostAndFound
 
         private void BotonAgregarObjEncontrado_Click(object sender, EventArgs e)
         {
-            MostrarInbox();
+            //MostrarInbox();
 
             foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
             {
                 
                 if (ussu.nombre_usuario == biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario)
                 {
-                    
 
-                    btnEliminarObj.Visible = false;
-                    btnObjetoEncontrado.Visible = false;
-                    VerObj.Visible = false;
+                    //panelInbox.Visible = true;
+                    //btnEliminarObj.Visible = false;
+                    //btnObjetoEncontrado.Visible = false;
+                    //VerObj.Visible = false;
                     ibox_nombre_perdido.Text = ussu.nombre_usuario;
-                    MessageBox.Show("Contactarse!");
+                    MessageBox.Show("Contactarse con: "+ussu.nombre_usuario +"\n"+ "Mail: "+ ussu.mail );
+
 
                 }
                 
@@ -436,6 +438,11 @@ namespace LostAndFound
         {
             panelAgregarObjeto.Hide();
             PanelMenu.Show();
+        }
+
+        private void panelCuentaNueva_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
