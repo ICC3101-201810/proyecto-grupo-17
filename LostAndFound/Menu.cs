@@ -150,7 +150,7 @@ namespace LostAndFound
             VerUsu.Visible = false;
             btnEliminarUsu.Visible = false;
             btnAgrUsu.Visible = false;
-            if (this.biblioteca.admin.Contains(ruti))
+            if (this.biblioteca.rut_admin == "1")
             {
                 btnEliminarObj.Visible = true;
 
@@ -245,16 +245,20 @@ namespace LostAndFound
                     //btnEliminarObj.Visible = false;
                     //btnObjetoEncontrado.Visible = false;
                     //VerObj.Visible = false;
-                    ibox_nombre_perdido.Text = ussu.nombre_usuario;
+                    //ibox_nombre_perdido.Text = ussu.nombre_usuario;
                     MessageBox.Show("Contactarse con: "+ussu.nombre_usuario +"\n"+ "Mail: "+ ussu.mail );
-
+                    btnObjetoEncontrado.Visible = false;
+                    btnEliminarObj.Visible = false;
+                    
 
                 }
                 
             }
+            
             biblioteca.objeto_encontrado.Add(biblioteca.objeto_perdido[VerObj.SelectedIndex]);
             biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
             VerObj.Items.Remove(VerObj.SelectedItems);
+            VerObj.Items.Clear();
         }
 
 
@@ -282,6 +286,10 @@ namespace LostAndFound
         {
             panelInbox.Visible = false;
             lblMenu.Visible = true;
+            btnEliminarObj.Visible = false;
+            btnAgrUsu.Visible = false;
+            VerObj.Visible = false;
+            VerUsu.Visible = false;
         }
 
         private void BtnInbox_Click(object sender, EventArgs e)
@@ -430,13 +438,18 @@ namespace LostAndFound
             btnObjPerdidos.Visible = true;
             botonagregarobjeto.Visible = true;
             btnInbox.Visible = true;
+            VerUsu.Visible = false;
+            VerObj.Visible = false;
+            btnEliminarObj.Visible = false;
 
-            
         }
 
         private void botonSALIR_Click(object sender, EventArgs e)
         {
             panelAgregarObjeto.Hide();
+            VerUsu.Visible = false;
+            VerObj.Visible = false;
+            btnEliminarObj.Visible = false;
             PanelMenu.Show();
         }
 

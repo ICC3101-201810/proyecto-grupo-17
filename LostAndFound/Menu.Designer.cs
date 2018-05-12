@@ -155,7 +155,7 @@
             // 
             this.btnAgrUsu.BackColor = System.Drawing.Color.Black;
             this.btnAgrUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgrUsu.Location = new System.Drawing.Point(490, 407);
+            this.btnAgrUsu.Location = new System.Drawing.Point(490, 437);
             this.btnAgrUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgrUsu.Name = "btnAgrUsu";
             this.btnAgrUsu.Size = new System.Drawing.Size(212, 62);
@@ -354,7 +354,7 @@
             // 
             this.btnEliminarObj.BackColor = System.Drawing.Color.Black;
             this.btnEliminarObj.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarObj.Location = new System.Drawing.Point(490, 509);
+            this.btnEliminarObj.Location = new System.Drawing.Point(490, 434);
             this.btnEliminarObj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminarObj.Name = "btnEliminarObj";
             this.btnEliminarObj.Size = new System.Drawing.Size(212, 62);
@@ -379,7 +379,7 @@
             // 
             this.btnObjetoEncontrado.BackColor = System.Drawing.Color.Black;
             this.btnObjetoEncontrado.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnObjetoEncontrado.Location = new System.Drawing.Point(490, 408);
+            this.btnObjetoEncontrado.Location = new System.Drawing.Point(490, 506);
             this.btnObjetoEncontrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnObjetoEncontrado.Name = "btnObjetoEncontrado";
             this.btnObjetoEncontrado.Size = new System.Drawing.Size(212, 62);
