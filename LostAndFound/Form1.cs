@@ -154,29 +154,32 @@ namespace LostAndFound
                 //MessageBox.Show(u.rut+ " es "+ ruttest +" y la clave" + u.password + " es "+ miclave.Text);
                 if (ruttest == u.rut && miclave.Text == u.password)
                 {
+                    this.biblioteca.rut_admin = u.rut.ToString();
                     if (u.administrador)
                     {
-                        
+                        this.biblioteca.admin.Add(u.rut.ToString());
                         NOvisiblelogin();
                         this.Hide();
                         Menu main = new Menu();
                         this.ruttext.Text = main.ruti;
                         this.rutNC.Text = main.ruti;
-                        this.biblioteca.rut_admin = ruttest.ToString();
+                        this.biblioteca.rut_admin = u.rut.ToString();
+                        //this.biblioteca.rut_admin = main.biblioteca.rut_admin;
+                        this.biblioteca.admin.Add(this.biblioteca.rut_admin);
                         this.biblioteca = main.biblioteca;
                         main.Show();
 
                     }
                     else
                     {
-                        NOvisiblelogin();
+                        //NOvisiblelogin();
                         this.Hide();
                         Menu main = new Menu();
-                        this.ruttext.Text = main.ruti;
-                        this.rutNC.Text = main.ruti;
-                        main.Show();
-                        this.biblioteca = main.biblioteca;
                         this.biblioteca.rut_admin = u.rut.ToString();
+                        this.biblioteca.rut_admin = main.biblioteca.rut_admin;
+                        this.biblioteca.admin.Add(this.biblioteca.rut_admin);
+                        this.biblioteca = main.biblioteca;
+                        main.Show();
 
 
                     }
@@ -234,7 +237,6 @@ namespace LostAndFound
 
 
                 }
-                this.biblioteca.rut_admin = "contraseñanousada";
             }
             usuarios_no_iguales = usuarios.Distinct().ToList();
             int contador = 0;
