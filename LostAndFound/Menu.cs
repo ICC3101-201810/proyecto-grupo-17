@@ -27,7 +27,6 @@ namespace LostAndFound
             biblioteca = (Biblioteca)bif.Deserialize(fis);
             fis.Close();
             IniciarMenu();
-            MessageBox.Show(("rut bib"+this.biblioteca.rut_admin + "rut ingr "+ruti).ToString());
 
         }
 
@@ -95,8 +94,8 @@ namespace LostAndFound
         private void BtnEliminarUsu_Click(object sender, EventArgs e)
         {
             VerUsu.Items.Remove(VerUsu.SelectedItems);
-
-            this.biblioteca.usuarios_no_iguales.RemoveAt(VerUsu.SelectedIndex);
+            //MessageBox.Show(biblioteca.usuarios_no_iguales.Count().ToString() + "selectedindex " + VerUsu.SelectedIndex.ToString() );
+            biblioteca.usuarios_no_iguales.RemoveAt(Convert.ToInt32(VerUsu.SelectedIndex));
             btnEliminarUsu.Visible = false;
             btnAgrUsu.Visible = false;
             VerUsu.Visible = false;
@@ -212,11 +211,11 @@ namespace LostAndFound
         {
             VerUsu.Items.Remove(VerUsu.SelectedItems);
              
-            biblioteca.objeto_perdido.RemoveAt(VerUsu.SelectedIndex);
-            btnEliminarObj.Visible = false;
-            btnObjetoEncontrado.Visible = false;
-            VerObj.Visible = false;
-            VerUsu.Visible = false;
+            biblioteca.objeto_perdido.RemoveAt(VerUsu.SelectedIndex-1);
+            //btnEliminarObj.Visible = false;
+            //btnObjetoEncontrado.Visible = false;
+            //VerObj.Visible = false;
+            //VerUsu.Visible = false;
             MessageBox.Show("Objeto Eliminado con Exito");
         }
 
