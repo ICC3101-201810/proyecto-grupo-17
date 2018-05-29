@@ -82,6 +82,14 @@
             this.comboubicaciones = new System.Windows.Forms.ComboBox();
             this.AceptarObjeto = new System.Windows.Forms.Button();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.lbl_calificar_usuario = new System.Windows.Forms.Label();
+            this.checkBox_puntaje5 = new System.Windows.Forms.CheckBox();
+            this.checkBox_puntaje4 = new System.Windows.Forms.CheckBox();
+            this.checkBox_puntaje3 = new System.Windows.Forms.CheckBox();
+            this.checkBox_puntaje2 = new System.Windows.Forms.CheckBox();
+            this.checkBox_puntaje1 = new System.Windows.Forms.CheckBox();
+            this.lbl_calif = new System.Windows.Forms.Label();
+            this.btn_calificar = new System.Windows.Forms.Button();
             this.panelCuentaNueva.SuspendLayout();
             this.panelInbox.SuspendLayout();
             this.panelAgregarObjeto.SuspendLayout();
@@ -155,7 +163,7 @@
             // 
             this.btnAgrUsu.BackColor = System.Drawing.Color.Black;
             this.btnAgrUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgrUsu.Location = new System.Drawing.Point(490, 437);
+            this.btnAgrUsu.Location = new System.Drawing.Point(490, 434);
             this.btnAgrUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgrUsu.Name = "btnAgrUsu";
             this.btnAgrUsu.Size = new System.Drawing.Size(212, 62);
@@ -169,7 +177,7 @@
             // 
             this.btnEliminarUsu.BackColor = System.Drawing.Color.Black;
             this.btnEliminarUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarUsu.Location = new System.Drawing.Point(490, 509);
+            this.btnEliminarUsu.Location = new System.Drawing.Point(490, 553);
             this.btnEliminarUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminarUsu.Name = "btnEliminarUsu";
             this.btnEliminarUsu.Size = new System.Drawing.Size(212, 62);
@@ -183,6 +191,7 @@
             // 
             this.panelCuentaNueva.AutoSize = true;
             this.panelCuentaNueva.Controls.Add(this.label6);
+            this.panelCuentaNueva.Controls.Add(this.panelAgregarObjeto);
             this.panelCuentaNueva.Controls.Add(this.rutNC);
             this.panelCuentaNueva.Controls.Add(this.nombreCuentaNueva);
             this.panelCuentaNueva.Controls.Add(this.contraseñaCuentaNueva);
@@ -196,11 +205,10 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCuentaNueva.Location = new System.Drawing.Point(0, 0);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(697, 227);
             this.panelCuentaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
-            this.panelCuentaNueva.Size = new System.Drawing.Size(1200, 692);
+            this.panelCuentaNueva.Size = new System.Drawing.Size(1204, 759);
             this.panelCuentaNueva.TabIndex = 17;
             this.panelCuentaNueva.Visible = false;
             this.panelCuentaNueva.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCuentaNueva_Paint);
@@ -408,8 +416,7 @@
             this.panelInbox.Controls.Add(this.textoInbox);
             this.panelInbox.Controls.Add(this.feedInbox);
             this.panelInbox.Controls.Add(this.iboxEnter);
-            this.panelInbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInbox.Location = new System.Drawing.Point(0, 0);
+            this.panelInbox.Location = new System.Drawing.Point(0, 86);
             this.panelInbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelInbox.Name = "panelInbox";
             this.panelInbox.Size = new System.Drawing.Size(1200, 692);
@@ -481,6 +488,7 @@
             // panelAgregarObjeto
             // 
             this.panelAgregarObjeto.Controls.Add(this.label8);
+            this.panelAgregarObjeto.Controls.Add(this.panelInbox);
             this.panelAgregarObjeto.Controls.Add(this.textoNOmbreObjeto);
             this.panelAgregarObjeto.Controls.Add(this.btnAceptarTipo);
             this.panelAgregarObjeto.Controls.Add(this.tipo);
@@ -498,8 +506,7 @@
             this.panelAgregarObjeto.Controls.Add(this.comboTipo);
             this.panelAgregarObjeto.Controls.Add(this.comboubicaciones);
             this.panelAgregarObjeto.Controls.Add(this.AceptarObjeto);
-            this.panelAgregarObjeto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAgregarObjeto.Location = new System.Drawing.Point(0, 0);
+            this.panelAgregarObjeto.Location = new System.Drawing.Point(0, 62);
             this.panelAgregarObjeto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelAgregarObjeto.Name = "panelAgregarObjeto";
             this.panelAgregarObjeto.Size = new System.Drawing.Size(1200, 692);
@@ -699,8 +706,7 @@
             // 
             // PanelMenu
             // 
-            this.PanelMenu.Controls.Add(this.panelInbox);
-            this.PanelMenu.Controls.Add(this.panelAgregarObjeto);
+            this.PanelMenu.Controls.Add(this.lbl_calificar_usuario);
             this.PanelMenu.Controls.Add(this.panelCuentaNueva);
             this.PanelMenu.Controls.Add(this.botonagregarobjeto);
             this.PanelMenu.Controls.Add(this.btnSalir);
@@ -714,13 +720,121 @@
             this.PanelMenu.Controls.Add(this.buttonverUsuarios);
             this.PanelMenu.Controls.Add(this.VerUsu);
             this.PanelMenu.Controls.Add(this.VerObj);
+            this.PanelMenu.Controls.Add(this.btn_calificar);
             this.PanelMenu.Controls.Add(this.btnObjPerdidos);
+            this.PanelMenu.Controls.Add(this.checkBox_puntaje5);
+            this.PanelMenu.Controls.Add(this.checkBox_puntaje4);
+            this.PanelMenu.Controls.Add(this.checkBox_puntaje3);
+            this.PanelMenu.Controls.Add(this.checkBox_puntaje2);
+            this.PanelMenu.Controls.Add(this.checkBox_puntaje1);
+            this.PanelMenu.Controls.Add(this.lbl_calif);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMenu.Location = new System.Drawing.Point(0, 0);
             this.PanelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(1200, 692);
             this.PanelMenu.TabIndex = 19;
+            this.PanelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelMenu_Paint);
+            // 
+            // lbl_calificar_usuario
+            // 
+            this.lbl_calificar_usuario.AutoSize = true;
+            this.lbl_calificar_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_calificar_usuario.Location = new System.Drawing.Point(491, 179);
+            this.lbl_calificar_usuario.Name = "lbl_calificar_usuario";
+            this.lbl_calificar_usuario.Size = new System.Drawing.Size(0, 29);
+            this.lbl_calificar_usuario.TabIndex = 20;
+            this.lbl_calificar_usuario.Visible = false;
+            // 
+            // checkBox_puntaje5
+            // 
+            this.checkBox_puntaje5.AutoSize = true;
+            this.checkBox_puntaje5.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_puntaje5.Location = new System.Drawing.Point(353, 347);
+            this.checkBox_puntaje5.Name = "checkBox_puntaje5";
+            this.checkBox_puntaje5.Size = new System.Drawing.Size(46, 27);
+            this.checkBox_puntaje5.TabIndex = 21;
+            this.checkBox_puntaje5.Text = "5";
+            this.checkBox_puntaje5.UseVisualStyleBackColor = true;
+            this.checkBox_puntaje5.Visible = false;
+            this.checkBox_puntaje5.CheckedChanged += new System.EventHandler(this.checkBox_puntaje5_CheckedChanged);
+            // 
+            // checkBox_puntaje4
+            // 
+            this.checkBox_puntaje4.AutoSize = true;
+            this.checkBox_puntaje4.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_puntaje4.Location = new System.Drawing.Point(353, 317);
+            this.checkBox_puntaje4.Name = "checkBox_puntaje4";
+            this.checkBox_puntaje4.Size = new System.Drawing.Size(46, 27);
+            this.checkBox_puntaje4.TabIndex = 21;
+            this.checkBox_puntaje4.Text = "4";
+            this.checkBox_puntaje4.UseVisualStyleBackColor = true;
+            this.checkBox_puntaje4.Visible = false;
+            this.checkBox_puntaje4.CheckedChanged += new System.EventHandler(this.checkBox_puntaje4_CheckedChanged);
+            // 
+            // checkBox_puntaje3
+            // 
+            this.checkBox_puntaje3.AutoSize = true;
+            this.checkBox_puntaje3.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_puntaje3.Location = new System.Drawing.Point(353, 287);
+            this.checkBox_puntaje3.Name = "checkBox_puntaje3";
+            this.checkBox_puntaje3.Size = new System.Drawing.Size(45, 27);
+            this.checkBox_puntaje3.TabIndex = 21;
+            this.checkBox_puntaje3.Text = "3";
+            this.checkBox_puntaje3.UseVisualStyleBackColor = true;
+            this.checkBox_puntaje3.Visible = false;
+            this.checkBox_puntaje3.CheckedChanged += new System.EventHandler(this.checkBox_puntaje3_CheckedChanged);
+            // 
+            // checkBox_puntaje2
+            // 
+            this.checkBox_puntaje2.AutoSize = true;
+            this.checkBox_puntaje2.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_puntaje2.Location = new System.Drawing.Point(353, 257);
+            this.checkBox_puntaje2.Name = "checkBox_puntaje2";
+            this.checkBox_puntaje2.Size = new System.Drawing.Size(46, 27);
+            this.checkBox_puntaje2.TabIndex = 21;
+            this.checkBox_puntaje2.Text = "2";
+            this.checkBox_puntaje2.UseVisualStyleBackColor = true;
+            this.checkBox_puntaje2.Visible = false;
+            this.checkBox_puntaje2.CheckedChanged += new System.EventHandler(this.checkBox_puntaje2_CheckedChanged);
+            // 
+            // checkBox_puntaje1
+            // 
+            this.checkBox_puntaje1.AutoSize = true;
+            this.checkBox_puntaje1.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_puntaje1.Location = new System.Drawing.Point(353, 227);
+            this.checkBox_puntaje1.Name = "checkBox_puntaje1";
+            this.checkBox_puntaje1.Size = new System.Drawing.Size(42, 27);
+            this.checkBox_puntaje1.TabIndex = 21;
+            this.checkBox_puntaje1.Text = "1";
+            this.checkBox_puntaje1.UseVisualStyleBackColor = true;
+            this.checkBox_puntaje1.Visible = false;
+            this.checkBox_puntaje1.CheckedChanged += new System.EventHandler(this.checkBox_puntaje1_CheckedChanged);
+            // 
+            // lbl_calif
+            // 
+            this.lbl_calif.AutoSize = true;
+            this.lbl_calif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_calif.Location = new System.Drawing.Point(348, 179);
+            this.lbl_calif.Name = "lbl_calif";
+            this.lbl_calif.Size = new System.Drawing.Size(137, 29);
+            this.lbl_calif.TabIndex = 20;
+            this.lbl_calif.Text = "Calificar a ";
+            this.lbl_calif.Visible = false;
+            // 
+            // btn_calificar
+            // 
+            this.btn_calificar.BackColor = System.Drawing.Color.Black;
+            this.btn_calificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_calificar.Location = new System.Drawing.Point(445, 321);
+            this.btn_calificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_calificar.Name = "btn_calificar";
+            this.btn_calificar.Size = new System.Drawing.Size(116, 60);
+            this.btn_calificar.TabIndex = 7;
+            this.btn_calificar.Text = "Calificar!";
+            this.btn_calificar.UseVisualStyleBackColor = false;
+            this.btn_calificar.Visible = false;
+            this.btn_calificar.Click += new System.EventHandler(this.btn_calificar_Click);
             // 
             // Menu
             // 
@@ -802,5 +916,13 @@
         private System.Windows.Forms.Button BtnVolver;
         private System.Windows.Forms.Panel PanelMenu;
         private System.Windows.Forms.Button botonSalir;
+        private System.Windows.Forms.Label lbl_calificar_usuario;
+        private System.Windows.Forms.Label lbl_calif;
+        private System.Windows.Forms.CheckBox checkBox_puntaje5;
+        private System.Windows.Forms.CheckBox checkBox_puntaje4;
+        private System.Windows.Forms.CheckBox checkBox_puntaje3;
+        private System.Windows.Forms.CheckBox checkBox_puntaje2;
+        private System.Windows.Forms.CheckBox checkBox_puntaje1;
+        private System.Windows.Forms.Button btn_calificar;
     }
 }

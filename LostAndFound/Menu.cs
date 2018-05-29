@@ -212,11 +212,12 @@ namespace LostAndFound
             VerUsu.Items.Remove(VerUsu.SelectedItems);
              
             biblioteca.objeto_perdido.RemoveAt(VerUsu.SelectedIndex-1);
-            //btnEliminarObj.Visible = false;
-            //btnObjetoEncontrado.Visible = false;
-            //VerObj.Visible = false;
-            //VerUsu.Visible = false;
+            
             MessageBox.Show("Objeto Eliminado con Exito");
+            btnEliminarObj.Visible = false;
+            btnObjetoEncontrado.Visible = false;
+            VerObj.Visible = false;
+            VerUsu.Visible = false;
         }
 
 
@@ -232,32 +233,87 @@ namespace LostAndFound
 
         private void BotonAgregarObjEncontrado_Click(object sender, EventArgs e)
         {
+            bool validacion = false;
             //MostrarInbox();
 
             foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
             {
                 
-                if (ussu.nombre_usuario == biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario)
+                int calificacion;
+                string nombb;
+                nombb = biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario;
+                if (ussu.nombre_usuario == nombb)
                 {
 
-                    //panelInbox.Visible = true;
-                    //btnEliminarObj.Visible = false;
-                    //btnObjetoEncontrado.Visible = false;
-                    //VerObj.Visible = false;
-                    //ibox_nombre_perdido.Text = ussu.nombre_usuario;
-                    MessageBox.Show("Contactarse con: "+ussu.nombre_usuario +"\n"+ "Mail: "+ ussu.mail );
+
+                    btn_calificar.Visible = true;
                     btnObjetoEncontrado.Visible = false;
                     btnEliminarObj.Visible = false;
-                    
+                    lbl_calif.Visible = true;
+                    lbl_calificar_usuario.Text = ussu.nombre_usuario;
+                    lbl_calificar_usuario.Visible = true;
+                    checkBox_puntaje1.Visible = true;
+                    checkBox_puntaje2.Visible = true;
+                    checkBox_puntaje3.Visible = true;
+                    checkBox_puntaje4.Visible = true;
+                    checkBox_puntaje5.Visible = true;
+                    if (checkBox_puntaje1.Checked)
+                    {
+                        
+                        calificacion = 1;
+                        ussu.calificacion += calificacion;
+                        validacion = true;
+                        VerObj.Visible = false;
+
+                    }
+                    if (checkBox_puntaje2.Checked)
+                    {
+                        
+                        calificacion = 2;
+                        ussu.calificacion += calificacion;
+                        validacion = true;
+                        VerObj.Visible = false;
+
+                    }
+                    else if (checkBox_puntaje3.Checked)
+                    {
+                        
+                        calificacion =  3;
+                        ussu.calificacion += calificacion;
+                        VerObj.Visible = false;
+                        validacion = true;
+                    }
+                    else if (checkBox_puntaje4.Checked)
+                    {
+                        
+                        calificacion = 4;
+                        ussu.calificacion += calificacion;
+                        VerObj.Visible = false;
+                        validacion = true;
+                    }
+                    else if (checkBox_puntaje5.Checked)
+                    {
+                        
+                        calificacion = 5;
+                        ussu.calificacion += calificacion;
+                        VerObj.Visible = false;
+                        validacion = true;
+                    }
+                   
+
 
                 }
                 
             }
-            
-            biblioteca.objeto_encontrado.Add(biblioteca.objeto_perdido[VerObj.SelectedIndex]);
-            biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
-            VerObj.Items.Remove(VerObj.SelectedItems);
-            VerObj.Items.Clear();
+
+            if (validacion)
+            {
+                biblioteca.objeto_encontrado.Add(biblioteca.objeto_perdido[VerObj.SelectedIndex]);
+                biblioteca.objeto_perdido.RemoveAt(VerObj.SelectedIndex);
+                VerObj.Items.Remove(VerObj.SelectedItems);
+                VerObj.Items.Clear();
+
+            }
         }
 
 
@@ -455,6 +511,99 @@ namespace LostAndFound
         private void panelCuentaNueva_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void PanelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_calificar_Click(object sender, EventArgs e)
+        {
+            VerObj.Visible = false;
+            lbl_calif.Visible = false;
+            lbl_calificar_usuario.Visible = false;
+            checkBox_puntaje1.Visible = false;
+            checkBox_puntaje2.Visible = false;
+            checkBox_puntaje3.Visible = false;
+            checkBox_puntaje4.Visible = false;
+            checkBox_puntaje5.Visible = false;
+            btn_calificar.Visible = false;
+        }
+
+        private void checkBox_puntaje2_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_puntaje1.Checked = true;
+            checkBox_puntaje3.Checked = false;
+            checkBox_puntaje4.Checked = false;
+            checkBox_puntaje5.Checked = false;
+            if(!checkBox_puntaje2.Checked)
+            {
+                checkBox_puntaje1.Checked = false;
+                checkBox_puntaje3.Checked = false;
+                checkBox_puntaje4.Checked = false;
+                checkBox_puntaje5.Checked = false;
+            }
+        }
+
+        private void checkBox_puntaje3_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_puntaje1.Checked = true;
+            checkBox_puntaje2.Checked = true;
+            checkBox_puntaje4.Checked = false;
+            checkBox_puntaje5.Checked = false;
+            if (!checkBox_puntaje3.Checked)
+            {
+                checkBox_puntaje1.Checked = false;
+                checkBox_puntaje2.Checked = false;
+                checkBox_puntaje4.Checked = false;
+                checkBox_puntaje5.Checked = false;
+            }
+        }
+
+        private void checkBox_puntaje4_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_puntaje1.Checked = true;
+            checkBox_puntaje2.Checked = true;
+            checkBox_puntaje3.Checked = true;
+            checkBox_puntaje5.Checked = false;
+            if (!checkBox_puntaje4.Checked)
+            {
+                checkBox_puntaje1.Checked = false;
+                checkBox_puntaje2.Checked = false;
+                checkBox_puntaje3.Checked = false;
+                checkBox_puntaje5.Checked = false;
+            }
+        }
+
+        private void checkBox_puntaje5_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_puntaje1.Checked = true;
+            checkBox_puntaje2.Checked = true;
+            checkBox_puntaje3.Checked = true;
+            checkBox_puntaje4.Checked = true;
+            if (!checkBox_puntaje5.Checked)
+            {
+                checkBox_puntaje1.Checked = false;
+                checkBox_puntaje2.Checked = false;
+                checkBox_puntaje3.Checked = false;
+                checkBox_puntaje4.Checked = false;
+            }
+        }
+
+        private void checkBox_puntaje1_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_puntaje2.Checked = false;
+            checkBox_puntaje3.Checked = false;
+            checkBox_puntaje4.Checked = false;
+            checkBox_puntaje5.Checked = false;
+            if (!checkBox_puntaje1.Checked)
+            {
+                checkBox_puntaje2.Checked = false;
+                checkBox_puntaje3.Checked = false;
+                checkBox_puntaje4.Checked = false;
+                checkBox_puntaje5.Checked = false;
+            }
         }
     }
 }
