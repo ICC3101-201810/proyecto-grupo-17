@@ -54,7 +54,7 @@ namespace LostAndFound
         public Form1()
         {
             BinaryFormatter bif = new BinaryFormatter();
-            FileStream fis = File.Open("Datos.bin", FileMode.Open);
+            FileStream fis = File.Open("Datos.bin", FileMode.OpenOrCreate);
             biblioteca = (Biblioteca)bif.Deserialize(fis);
             fis.Close();
             InitializeComponent();
@@ -248,14 +248,16 @@ namespace LostAndFound
                     for (int t = 0; t < random.Next(10); t++)
                     {
                         contador = contador + 1;
-                        string nombreobjeto = tipoderopa[random.Next(tipoderopa.Count())] + " " + tallas[random.Next(tallas.Count())];
+                        string op = tipoderopa[random.Next(tipoderopa.Count())];
+                        string nombreobjeto = op + " " + tallas[random.Next(tallas.Count())];
+                        string descrip = op;
                         int marin = random.Next(4);
                         if (marin == 3)
                         {
                             contadorinbox++;
                             Usuario u = usuarios_no_iguales[random.Next(usuarios.Count())];
                             Usuario po = usuarios_no_iguales[random.Next(usuarios.Count())];
-                            Objeto objetiño = new Objeto(contador, nombreobjeto, true, ubicaciones[random.Next(ubicaciones.Count())], u, po, "");
+                            Objeto objetiño = new Objeto(contador, nombreobjeto, true, ubicaciones[random.Next(ubicaciones.Count())], u, po,op);
                             Inbox inbos = new Inbox(po, u, contadorinbox);
                             po.calificacion = po.calificacion + random.Next(5);
                             objeto_encontrado.Add(objetiño);
@@ -264,7 +266,7 @@ namespace LostAndFound
                         if (marin == 0 || marin == 1 || marin == 2 || marin == 4)
                         {
                             Usuario ti = usuarios_no_iguales[random.Next(usuarios.Count())];
-                            Objeto objetiño = new Objeto(contador, nombreobjeto, false, ubicaciones[random.Next(ubicaciones.Count())], null, ti,null);
+                            Objeto objetiño = new Objeto(contador, nombreobjeto, false, ubicaciones[random.Next(ubicaciones.Count())], null, ti,op);
                             objeto_perdido.Add(objetiño);
                             objeto_totales.Add(objetiño);
                         }

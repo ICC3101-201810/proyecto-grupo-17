@@ -149,6 +149,8 @@ namespace LostAndFound
             VerUsu.Visible = false;
             btnEliminarUsu.Visible = false;
             btnAgrUsu.Visible = false;
+            cmb_tipo.Visible = true;
+            lable_tipo.Visible = true;
             if (this.biblioteca.rut_admin == "1")
             {
                 btnEliminarObj.Visible = true;
@@ -159,6 +161,33 @@ namespace LostAndFound
             foreach (Objeto obj in biblioteca.objeto_perdido)
             {
                 VerObj.Items.Add(obj.descripcion);
+            }
+            foreach(Objeto objj in biblioteca.objeto_perdido)
+            {
+                if (cmb_tipo.Items.Count==0)
+                {
+                    if (objj.tipo != null )
+                    {
+                        cmb_tipo.Items.Add(objj.tipo);
+                    
+
+                    }
+                }
+                if (objj.tipo != null)
+                {
+                    if (cmb_tipo.Items.Contains(objj.tipo))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        cmb_tipo.Items.Add(objj.tipo);
+
+                    }
+                }
+               
+               
+                
             }
         }
 
@@ -603,6 +632,25 @@ namespace LostAndFound
                 checkBox_puntaje3.Checked = false;
                 checkBox_puntaje4.Checked = false;
                 checkBox_puntaje5.Checked = false;
+            }
+        }
+
+        private void lable_tipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        string tipo_selected;
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VerObj.Items.Clear();
+            tipo_selected = cmb_tipo.SelectedText;
+            foreach (Objeto obj in biblioteca.objeto_perdido)
+            {
+                if (obj.tipo==tipo_selected)
+                {
+                    VerObj.Items.Add(obj.descripcion);
+                }
             }
         }
     }
