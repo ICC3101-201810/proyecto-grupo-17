@@ -1,0 +1,32 @@
+﻿DOCUMENTACION DE USO
+
+
+
+--------------INICIO DEL PROGRAMA-----------
+1.- Primero que todo, para poder aprovechar al maximo el programa, se deben ingresar un par de datos antes para asi crear una simulacion. 
+Aqui debes ingresar cuantos usuarios quieres que hayan (con un par esta bien, pero si quieres puedes poner mas). Luego deberas ingresar los dias y horas a simular (nuevamente, con un par esta bien, por ejemplo 2 dias y 12 horas)
+
+2.- Para iniciar debes ingresar tu rut. Tal como dice el programa tu rut no debe contener puntos ni guiones.
+
+3.- Pon la opcion de "Crear Cuenta" para crear tu usuario.
+
+4.- Luego deberas ingresar tus datos correspondientes(contraseña, nombre completo, mail), lo ultimo a agregar es la opcion de administrador, para poder ver todas las opciones de este programa debes poner que lo eres.
+
+5.- Una vez ingresado se van a mostrar las opciones que contiene el programa 
+opcion 1 = Ver Usuarios(SOLO ADMINISTRADORES)
+opcion 2 = Ver Objetos Perdidos
+opcion 3 = Ver Objetos Encontrados(SOLO ADMINISTRADORES)
+opcion 4 = Agregar Perdida De Objeto
+opcion 5 = Añadir Ususario(SOLO ADMINISTRADOR)
+opcion 6 = Ver Calificaciones(SOLO ADMINISTRADOR)
+opcion 7 = Eliminar Usuario(SOLO ADMINISTRADOR)
+opcion 8 = Salir
+
+	- Opcion 1: Muestra a todos los usuarios.
+	- Opcion 2: Muestra todos los objetos perdidos que han sido subidos al programa
+	- Opcion 3: Muestra los objetos que han podido ser encontrados exitosamente.
+	- Opcion 4: Agrega al sistema un objeto que haya sido encontrado por un usuario.
+	- Opcion 5: Permite al administrador poder añadir a un usuario nuevo.
+	- Opcion 6: Muestra las calificaciones de los usuarios.
+	- Opcion 7: Permite al administrador poder eliminar un usuario.
+	- Opcion 8: Permite salir del programa. 
