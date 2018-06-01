@@ -67,7 +67,9 @@ namespace LostAndFound
             VerObj.Visible = false;
             btnEliminarObj.Visible = false;
             btnObjetoEncontrado.Visible = false;
-            
+            lable_tipo.Visible = false;
+            cmb_tipo.Visible = false;
+
             VerUsu.Items.Clear();
             foreach (Usuario item in biblioteca.usuarios_no_iguales)
             {
@@ -204,6 +206,8 @@ namespace LostAndFound
             btnEliminarObj.Visible = true;
             VerObj.Visible = false;
             lblMenu.Visible = false;
+            lable_tipo.Visible = false;
+            cmb_tipo.Visible = false;
 
             foreach (Objeto obj in biblioteca.objeto_encontrado)
             {
@@ -214,6 +218,8 @@ namespace LostAndFound
         private void Botonagregarobjeto_Click(object sender, EventArgs e)
         {
             VerObj.Visible = false;
+            lable_tipo.Visible = false;
+            cmb_tipo.Visible = false;
             MessageBox.Show("Porfavor publicar con seriedad y respeto!");
             panelAgregarObjeto.Visible = true;
             //panelCuentaNueva.Visible = false;
@@ -267,7 +273,8 @@ namespace LostAndFound
 
             foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
             {
-                
+                lable_tipo.Visible = false;
+                cmb_tipo.Visible = false;
                 int calificacion;
                 string nombb;
                 nombb = biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario;
@@ -382,6 +389,8 @@ namespace LostAndFound
             panelInbox.Visible = true;
             panelCuentaNueva.Visible = false;
             lblMenu.Visible = false;
+            lable_tipo.Visible = false;
+            cmb_tipo.Visible = false;
         }
 
         private void VerObj_SelectedIndexChanged(object sender, EventArgs e)
@@ -420,7 +429,7 @@ namespace LostAndFound
                         if (ubicacionn.nombre_lugar == comboubicaciones.SelectedText)
                         {
                             
-                            Objeto objetito = new Objeto(codigooo, descrip, false, ubicacionn, null, u, comboTipo.SelectedText);
+                            Objeto objetito = new Objeto(codigooo, descrip, false, ubicacionn, null, u, comboTipo.SelectedItem.ToString());
                             MessageBox.Show("Objeto publicado con exito ");
                             biblioteca.objeto_perdido.Add(objetito);
                             break;
@@ -468,7 +477,7 @@ namespace LostAndFound
         {
             biblioteca.tipoderopa.Add(txtTipo.Text);
             comboTipo.Items.Add(txtTipo.Text);
-            
+            cmb_tipo.Items.Add(txtTipo.Text);
             txtTipo.Text = "";
 
         }
@@ -644,7 +653,8 @@ namespace LostAndFound
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             VerObj.Items.Clear();
-            tipo_selected = cmb_tipo.SelectedText;
+            tipo_selected = cmb_tipo.SelectedItem.ToString();
+
             foreach (Objeto obj in biblioteca.objeto_perdido)
             {
                 if (obj.tipo==tipo_selected)

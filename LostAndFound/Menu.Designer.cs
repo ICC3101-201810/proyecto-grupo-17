@@ -82,6 +82,8 @@
             this.ibox_nombre_perdido = new System.Windows.Forms.Label();
             this.lblMenu = new System.Windows.Forms.Label();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.lable_tipo = new System.Windows.Forms.Label();
+            this.cmb_tipo = new System.Windows.Forms.ComboBox();
             this.lbl_calificar_usuario = new System.Windows.Forms.Label();
             this.btn_calificar = new System.Windows.Forms.Button();
             this.checkBox_puntaje5 = new System.Windows.Forms.CheckBox();
@@ -90,8 +92,6 @@
             this.checkBox_puntaje2 = new System.Windows.Forms.CheckBox();
             this.checkBox_puntaje1 = new System.Windows.Forms.CheckBox();
             this.lbl_calif = new System.Windows.Forms.Label();
-            this.cmb_tipo = new System.Windows.Forms.ComboBox();
-            this.lable_tipo = new System.Windows.Forms.Label();
             this.panelCuentaNueva.SuspendLayout();
             this.panelAgregarObjeto.SuspendLayout();
             this.panelInbox.SuspendLayout();
@@ -185,7 +185,7 @@
             // 
             this.panelCuentaNueva.AutoSize = true;
             this.panelCuentaNueva.Controls.Add(this.label6);
-            this.panelCuentaNueva.Controls.Add(this.panelAgregarObjeto);
+            this.panelCuentaNueva.Controls.Add(this.panelInbox);
             this.panelCuentaNueva.Controls.Add(this.rutNC);
             this.panelCuentaNueva.Controls.Add(this.nombreCuentaNueva);
             this.panelCuentaNueva.Controls.Add(this.contraseñaCuentaNueva);
@@ -199,9 +199,9 @@
             this.panelCuentaNueva.Controls.Add(this.label3);
             this.panelCuentaNueva.Controls.Add(this.label2);
             this.panelCuentaNueva.Controls.Add(this.label7);
-            this.panelCuentaNueva.Location = new System.Drawing.Point(200, 206);
+            this.panelCuentaNueva.Location = new System.Drawing.Point(390, 167);
             this.panelCuentaNueva.Name = "panelCuentaNueva";
-            this.panelCuentaNueva.Size = new System.Drawing.Size(803, 493);
+            this.panelCuentaNueva.Size = new System.Drawing.Size(845, 493);
             this.panelCuentaNueva.TabIndex = 17;
             this.panelCuentaNueva.Visible = false;
             this.panelCuentaNueva.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCuentaNueva_Paint);
@@ -218,7 +218,6 @@
             // panelAgregarObjeto
             // 
             this.panelAgregarObjeto.Controls.Add(this.label8);
-            this.panelAgregarObjeto.Controls.Add(this.panelInbox);
             this.panelAgregarObjeto.Controls.Add(this.textoNOmbreObjeto);
             this.panelAgregarObjeto.Controls.Add(this.btnAceptarTipo);
             this.panelAgregarObjeto.Controls.Add(this.tipo);
@@ -236,7 +235,7 @@
             this.panelAgregarObjeto.Controls.Add(this.comboTipo);
             this.panelAgregarObjeto.Controls.Add(this.comboubicaciones);
             this.panelAgregarObjeto.Controls.Add(this.AceptarObjeto);
-            this.panelAgregarObjeto.Location = new System.Drawing.Point(0, 40);
+            this.panelAgregarObjeto.Location = new System.Drawing.Point(41, 29);
             this.panelAgregarObjeto.Name = "panelAgregarObjeto";
             this.panelAgregarObjeto.Size = new System.Drawing.Size(800, 450);
             this.panelAgregarObjeto.TabIndex = 19;
@@ -254,10 +253,11 @@
             // panelInbox
             // 
             this.panelInbox.Controls.Add(this.SalirInbox);
+            this.panelInbox.Controls.Add(this.panelAgregarObjeto);
             this.panelInbox.Controls.Add(this.textoInbox);
             this.panelInbox.Controls.Add(this.feedInbox);
             this.panelInbox.Controls.Add(this.iboxEnter);
-            this.panelInbox.Location = new System.Drawing.Point(3, 44);
+            this.panelInbox.Location = new System.Drawing.Point(42, 29);
             this.panelInbox.Name = "panelInbox";
             this.panelInbox.Size = new System.Drawing.Size(800, 450);
             this.panelInbox.TabIndex = 17;
@@ -685,6 +685,27 @@
             this.PanelMenu.TabIndex = 19;
             this.PanelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelMenu_Paint);
             // 
+            // lable_tipo
+            // 
+            this.lable_tipo.AutoSize = true;
+            this.lable_tipo.Location = new System.Drawing.Point(234, 133);
+            this.lable_tipo.Name = "lable_tipo";
+            this.lable_tipo.Size = new System.Drawing.Size(32, 13);
+            this.lable_tipo.TabIndex = 23;
+            this.lable_tipo.Text = "TIPO";
+            this.lable_tipo.Visible = false;
+            this.lable_tipo.Click += new System.EventHandler(this.lable_tipo_Click);
+            // 
+            // cmb_tipo
+            // 
+            this.cmb_tipo.FormattingEnabled = true;
+            this.cmb_tipo.Location = new System.Drawing.Point(288, 126);
+            this.cmb_tipo.Name = "cmb_tipo";
+            this.cmb_tipo.Size = new System.Drawing.Size(159, 21);
+            this.cmb_tipo.TabIndex = 22;
+            this.cmb_tipo.Visible = false;
+            this.cmb_tipo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // lbl_calificar_usuario
             // 
             this.lbl_calificar_usuario.AutoSize = true;
@@ -714,7 +735,7 @@
             this.checkBox_puntaje5.AutoSize = true;
             this.checkBox_puntaje5.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_puntaje5.Location = new System.Drawing.Point(235, 226);
-            this.checkBox_puntaje5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_puntaje5.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_puntaje5.Name = "checkBox_puntaje5";
             this.checkBox_puntaje5.Size = new System.Drawing.Size(34, 20);
             this.checkBox_puntaje5.TabIndex = 21;
@@ -728,7 +749,7 @@
             this.checkBox_puntaje4.AutoSize = true;
             this.checkBox_puntaje4.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_puntaje4.Location = new System.Drawing.Point(235, 206);
-            this.checkBox_puntaje4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_puntaje4.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_puntaje4.Name = "checkBox_puntaje4";
             this.checkBox_puntaje4.Size = new System.Drawing.Size(34, 20);
             this.checkBox_puntaje4.TabIndex = 21;
@@ -742,7 +763,7 @@
             this.checkBox_puntaje3.AutoSize = true;
             this.checkBox_puntaje3.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_puntaje3.Location = new System.Drawing.Point(235, 187);
-            this.checkBox_puntaje3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_puntaje3.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_puntaje3.Name = "checkBox_puntaje3";
             this.checkBox_puntaje3.Size = new System.Drawing.Size(34, 20);
             this.checkBox_puntaje3.TabIndex = 21;
@@ -756,7 +777,7 @@
             this.checkBox_puntaje2.AutoSize = true;
             this.checkBox_puntaje2.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_puntaje2.Location = new System.Drawing.Point(235, 167);
-            this.checkBox_puntaje2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_puntaje2.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_puntaje2.Name = "checkBox_puntaje2";
             this.checkBox_puntaje2.Size = new System.Drawing.Size(34, 20);
             this.checkBox_puntaje2.TabIndex = 21;
@@ -770,7 +791,7 @@
             this.checkBox_puntaje1.AutoSize = true;
             this.checkBox_puntaje1.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_puntaje1.Location = new System.Drawing.Point(235, 148);
-            this.checkBox_puntaje1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_puntaje1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_puntaje1.Name = "checkBox_puntaje1";
             this.checkBox_puntaje1.Size = new System.Drawing.Size(31, 20);
             this.checkBox_puntaje1.TabIndex = 21;
@@ -790,27 +811,6 @@
             this.lbl_calif.TabIndex = 20;
             this.lbl_calif.Text = "Calificar a ";
             this.lbl_calif.Visible = false;
-            // 
-            // cmb_tipo
-            // 
-            this.cmb_tipo.FormattingEnabled = true;
-            this.cmb_tipo.Location = new System.Drawing.Point(288, 126);
-            this.cmb_tipo.Name = "cmb_tipo";
-            this.cmb_tipo.Size = new System.Drawing.Size(159, 21);
-            this.cmb_tipo.TabIndex = 22;
-            this.cmb_tipo.Visible = false;
-            this.cmb_tipo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lable_tipo
-            // 
-            this.lable_tipo.AutoSize = true;
-            this.lable_tipo.Location = new System.Drawing.Point(234, 133);
-            this.lable_tipo.Name = "lable_tipo";
-            this.lable_tipo.Size = new System.Drawing.Size(32, 13);
-            this.lable_tipo.TabIndex = 23;
-            this.lable_tipo.Text = "TIPO";
-            this.lable_tipo.Visible = false;
-            this.lable_tipo.Click += new System.EventHandler(this.lable_tipo_Click);
             // 
             // Menu
             // 
