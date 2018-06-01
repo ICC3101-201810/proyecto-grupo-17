@@ -1,0 +1,34 @@
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\bin\Debug\LostAndFound.exe.config
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\bin\Debug\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\bin\Debug\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.csprojResolveAssemblyReference.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.Form1.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.Menu.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.Properties.Resources.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.csproj.GenerateResource.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.csproj.CoreCompileInputs.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\obj\Debug\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\Dato\LostAndFound.exe.config
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\Dato\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17\LostAndFound\Dato\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\Dato\LostAndFound.exe.config
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\Dato\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\Dato\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.csprojResolveAssemblyReference.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.Menu.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.Properties.Resources.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.csproj.GenerateResource.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.csproj.CoreCompileInputs.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17 Isi\LostAndFound\obj\Debug\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\Dato\LostAndFound.exe.config
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\Dato\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\Dato\LostAndFound.pdb
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.csprojResolveAssemblyReference.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.Menu.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.Properties.Resources.resources
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.csproj.GenerateResource.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.csproj.CoreCompileInputs.cache
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.exe
+C:\Users\IRG\Desktop\proyecto-grupo-17\form bonito\LostAndFound\obj\Debug\LostAndFound.pdb
