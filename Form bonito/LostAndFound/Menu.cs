@@ -58,6 +58,8 @@ namespace LostAndFound
                 btnInbox.Visible = true;
                 btnSalir.Visible = true;
                 buttonverUsuarios.Visible = true;
+                cmb_tipo.Visible = false;
+                lable_tipo.Visible = false;
             }
             else
             {
@@ -70,8 +72,8 @@ namespace LostAndFound
                 btnEliminarObj.Visible = false;
                 btnAgrUsu.Visible = false;
                 btnEliminarUsu.Visible = false;
-
-
+                cmb_tipo.Visible = false;
+                lable_tipo.Visible = false;
             }
             panelAgregarObjeto.Location = new Point(0, 0);
             panelCuentaNueva.Location = new Point(0, 0);
@@ -98,7 +100,8 @@ namespace LostAndFound
             VerObj.Visible = false;
             btnEliminarObj.Visible = false;
             btnObjetoEncontrado.Visible = false;
-            
+            cmb_tipo.Visible = false;
+            lable_tipo.Visible = false;
             VerUsu.Items.Clear();
             foreach (Usuario item in biblioteca.usuarios_no_iguales)
             {
@@ -117,20 +120,30 @@ namespace LostAndFound
             panelInbox.Visible = false;
             lblMenu.Visible = false;
             lblerror.Visible = false;
+            cmb_tipo.Visible = false;
+            lable_tipo.Visible = false;
+            btnEliminarObj.Visible = false;
 
         }
 
         private void BtnEliminarUsu_Click(object sender, EventArgs e)
         {
+            lblerror.Text = "";
+            lblerror_o.Text = "";
+
             lblerror.Visible = false;
             try
             {
+                cmb_tipo.Visible = false;
+                lable_tipo.Visible = false;
                 VerUsu.Items.Remove(VerUsu.SelectedItems);
                 biblioteca.usuarios_no_iguales.RemoveAt(Convert.ToInt32(VerUsu.SelectedIndex));
                 btnEliminarUsu.Visible = false;
                 btnAgrUsu.Visible = false;
                 VerUsu.Visible = false;
                 MessageBox.Show("Usuario Eliminado con Exito");
+                btnEliminarObj.Visible = false;
+
             }
             catch
             {
@@ -196,7 +209,6 @@ namespace LostAndFound
             {
                 MessageBox.Show("Debe llenar bien todos los datos.");
             }
-            
         }
 
         private void BtnObjPerdidos_Click(object sender, EventArgs e)
@@ -207,6 +219,8 @@ namespace LostAndFound
             VerObj.Visible = true;
             VerUsu.Visible = false;
             btnEliminarUsu.Visible = false;
+            cmb_tipo.Visible = true;
+            lable_tipo.Visible = true;
             btnAgrUsu.Visible = false;
             if (admin1)
             {
@@ -218,6 +232,28 @@ namespace LostAndFound
             foreach (Objeto obj in biblioteca.objeto_perdido)
             {
                 VerObj.Items.Add(obj.descripcion);
+            }
+            foreach (Objeto objj in biblioteca.objeto_perdido)
+            {
+                if (cmb_tipo.Items.Count == 0)
+                {
+                    if (objj.tipo != null)
+                    {
+                        cmb_tipo.Items.Add(objj.tipo);
+                    }
+                }
+                if (objj.tipo != null)
+                {
+                    if (cmb_tipo.Items.Contains(objj.tipo))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        cmb_tipo.Items.Add(objj.tipo);
+
+                    }
+                }
             }
         }
 
@@ -236,6 +272,8 @@ namespace LostAndFound
             btnObjetoEncontrado.Visible = false;
             VerObj.Visible = false;
             lblMenu.Visible = false;
+            cmb_tipo.Visible = false;
+            lable_tipo.Visible = false;
             VerObj.Refresh();
 
             foreach (Objeto obj in biblioteca.objeto_encontrado)
@@ -246,6 +284,8 @@ namespace LostAndFound
 
         private void Botonagregarobjeto_Click(object sender, EventArgs e)
         {
+            cmb_tipo.Visible = false;
+            lable_tipo.Visible = false;
             lblerror.Visible = false;
             VerObj.Visible = false;
             btnEliminarObj.Visible = false;
@@ -255,9 +295,6 @@ namespace LostAndFound
             panelCuentaNueva.Visible = false;
             panelInbox.Visible = false;
             PanelMenu.Visible = false;
-            //panelCuentaNueva.Visible = false;
-            //panelInbox.Visible = false;
-            //PanelMenu.Visible = false;
             botonSalir.Visible = true;
 
             foreach (Ubicacion ubicacion in biblioteca.ubicaciones)
@@ -278,18 +315,22 @@ namespace LostAndFound
 
         private void BtnEliminarObj_Click_1(object sender, EventArgs e)
         {
+            lblerror.Text = "";
+            lblerror_o.Text = "";
+
             lblerror.Visible = false;
             try
             {
                 lblerror.Visible = false;
                 VerObj.Items.Remove(VerObj.SelectedItems);
-                MessageBox.Show(VerObj.SelectedIndex.ToString());
                 biblioteca.objeto_perdido.RemoveAt(Convert.ToInt32(VerObj.SelectedIndex));
                 MessageBox.Show("Objeto Eliminado con Exito");
                 btnEliminarObj.Visible = false;
                 btnObjetoEncontrado.Visible = false;
                 VerObj.Visible = false;
                 VerUsu.Visible = false;
+                cmb_tipo.Visible = false;
+                lable_tipo.Visible = false;
                 serializar();
             }
             catch
@@ -297,10 +338,6 @@ namespace LostAndFound
                 lblerror.Visible = true;
                 lblerror.Text = "Seleccione una publicacion a eliminar.";
             }
-            
-            
-            
-
         }
 
 
@@ -319,9 +356,8 @@ namespace LostAndFound
                 bool validacion = false;
                 string mailusuario = "";
                 string nombb = "";
-
-
-                //MostrarInbox();
+                lblerror.Text = "";
+                lblerror_o.Text = "";
 
                 foreach (Usuario ussu in biblioteca.usuarios_no_iguales)
                 {
@@ -330,6 +366,8 @@ namespace LostAndFound
                     nombb = biblioteca.objeto_perdido[VerObj.SelectedIndex].usuarioperdio.nombre_usuario;
                     if (ussu.nombre_usuario == nombb)
                     {
+                        cmb_tipo.Visible = false;
+                        lable_tipo.Visible = false;
                         mailusuario = ussu.mail;
                         VerObj.Visible = false;
                         btnObjetoEncontrado.Visible = false;
@@ -375,7 +413,6 @@ namespace LostAndFound
                             validacion = true;
                         }
                     }
-
                 }
                 if (validacion)
                 {
@@ -401,11 +438,10 @@ namespace LostAndFound
             textoInbox.Text = " \n";
             feedInbox.Text += "\n YO: \n";
             DateTime localDate = DateTime.Now;
-            var culture = new CultureInfo("en-US \n");
+            var culture = new CultureInfo("en-US");
             feedInbox.Text += mn + "\n";
             feedInbox.Text += localDate.ToString(culture) + "\n";
             lblMenu.Visible = false;
-
         }
 
         private void SalirInbox_Click(object sender, EventArgs e)
@@ -430,11 +466,17 @@ namespace LostAndFound
             panelCuentaNueva.Visible = false;
             PanelMenu.Visible = false;
             lblerror.Visible = false;
-
+            cmb_tipo.Visible = false;
+            lable_tipo.Visible = false;
+            btnEliminarObj.Visible = false;
+            lblerror.Text = "";
+            lblerror_o.Text = "";
         }
 
         private void Input2_Click(object sender, EventArgs e)
         {
+            lblerror_o.Text = "";
+            lblerror.Text = "";
             try
             {
                 string descrip = textoNOmbreObjeto.Text;
@@ -450,6 +492,8 @@ namespace LostAndFound
                 tipo.Visible = false;
                 btnAceptarTipo.Visible = false;
                 codigooo += 1;
+                cmb_tipo.Visible = false;
+                lable_tipo.Visible = false;
 
                 foreach (Usuario u in biblioteca.usuarios_no_iguales)
                 {
@@ -463,6 +507,7 @@ namespace LostAndFound
                                 MessageBox.Show("Objeto publicado con exito ");
                                 biblioteca.objeto_perdido.Add(objetito);
                                 serializar();
+                                PanelMenu.Visible = true;
                                 break;
                             }
                         }
@@ -477,10 +522,11 @@ namespace LostAndFound
             lblerror_o.Visible = false;
         }
         
-        
-
         private void Button2_Click(object sender, EventArgs e)
         {
+            lblerror_o.Text = "";
+            lblerror.Text = "";
+
             try
             {
                 Ubicacion nuevp = new Ubicacion(name_ubi.Text, descripcion.Text);
@@ -515,6 +561,9 @@ namespace LostAndFound
 
         private void BtnAceptarTipo_Click(object sender, EventArgs e)
         {
+            lblerror.Text = "";
+            lblerror_o.Text = "";
+
             try
             {
                 biblioteca.tipoderopa.Add(txtTipo.Text);
@@ -530,6 +579,7 @@ namespace LostAndFound
 
         private void comboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (textoNOmbreObjeto.Text != null || textoNOmbreObjeto.Text != " ")
             {
                 if (comboubicaciones.SelectedItem != null && comboTipo.SelectedItem != null)
@@ -565,8 +615,10 @@ namespace LostAndFound
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            
-            if((nombreCuentaNueva.Text == "") || (rutNC.Text == "") || contraseñaCuentaNueva.Text == "" || mailNC.Text == "")
+            lblerror.Text = "";
+            lblerror_o.Text = "";
+
+            if ((nombreCuentaNueva.Text == "") || (rutNC.Text == "") || contraseñaCuentaNueva.Text == "" || mailNC.Text == "")
             {
                 panelCuentaNueva.Visible = false;
                 panel_login.Visible = true;
@@ -581,6 +633,8 @@ namespace LostAndFound
 
         private void botonSALIR_Click(object sender, EventArgs e)
         {
+            lblerror.Text = "";
+            lblerror_o.Text = "";
             panelAgregarObjeto.Hide();
             VerUsu.Visible = false;
             VerObj.Visible = false;
@@ -590,15 +644,24 @@ namespace LostAndFound
 
         private void btn_calificar_Click(object sender, EventArgs e)
         {
-            VerObj.Visible = false;
-            lbl_calif.Visible = false;
-            lbl_calificar_usuario.Visible = false;
-            checkBox_puntaje1.Visible = false;
-            checkBox_puntaje2.Visible = false;
-            checkBox_puntaje3.Visible = false;
-            checkBox_puntaje4.Visible = false;
-            checkBox_puntaje5.Visible = false;
-            btn_calificar.Visible = false;
+            try
+            {
+                VerObj.Visible = false;
+                lbl_calif.Visible = false;
+                lbl_calificar_usuario.Visible = false;
+                checkBox_puntaje1.Visible = false;
+                checkBox_puntaje2.Visible = false;
+                checkBox_puntaje3.Visible = false;
+                checkBox_puntaje4.Visible = false;
+                checkBox_puntaje5.Visible = false;
+                btn_calificar.Visible = false;
+                btnEliminarObj.Visible = false;
+
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione una opcion.");
+            }
         }
 
         private void checkBox_puntaje2_CheckedChanged(object sender, EventArgs e)
@@ -699,7 +762,6 @@ namespace LostAndFound
                                 this.biblioteca.admin.Add(u.rut.ToString());
                                 this.biblioteca.rut_admin = u.rut.ToString();
                                 admin1 = true;
-                                //this.biblioteca.rut_admin = main.biblioteca.rut_admin;
                                 this.biblioteca.admin.Add(this.biblioteca.rut_admin);
                                 IniciarMenu();
 
@@ -707,8 +769,6 @@ namespace LostAndFound
                             else
                             {
                                 admin1 = false;
-                                //NOvisiblelogin();
-                                //this.biblioteca.admin.Add(this.biblioteca.rut_admin);
                                 IniciarMenu();
                             }
                         }
@@ -730,9 +790,26 @@ namespace LostAndFound
 
         private void boton_nuevaCuenta_Click(object sender, EventArgs e)
         {
+            lblerror.Text = "";
+            lblerror_o.Text = "";
+
             panel_login.Visible = false;
             panelCuentaNueva.Visible = true;
             serializar();
+        }
+        string tipo_selected;
+        private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VerObj.Items.Clear();
+            tipo_selected = cmb_tipo.SelectedItem.ToString();
+
+            foreach (Objeto obj in biblioteca.objeto_perdido)
+            {
+                if (obj.tipo == tipo_selected)
+                {
+                    VerObj.Items.Add(obj.descripcion);
+                }
+            }
         }
     }
 }

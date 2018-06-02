@@ -64,6 +64,7 @@
             this.ibox_nombre_perdido = new System.Windows.Forms.Label();
             this.lblMenu = new System.Windows.Forms.Label();
             this.panelAgregarObjeto = new System.Windows.Forms.Panel();
+            this.lblerror_o = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textoNOmbreObjeto = new System.Windows.Forms.TextBox();
             this.btnAceptarTipo = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.comboubicaciones = new System.Windows.Forms.ComboBox();
             this.AceptarObjeto = new System.Windows.Forms.Button();
             this.PanelMenu = new System.Windows.Forms.Panel();
+            this.lblerror = new System.Windows.Forms.Label();
             this.lbl_calificar_usuario = new System.Windows.Forms.Label();
             this.btn_calificar = new System.Windows.Forms.Button();
             this.checkBox_puntaje5 = new System.Windows.Forms.CheckBox();
@@ -100,8 +102,8 @@
             this.ruttext = new System.Windows.Forms.TextBox();
             this.labelrut = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lblerror = new System.Windows.Forms.Label();
-            this.lblerror_o = new System.Windows.Forms.Label();
+            this.cmb_tipo = new System.Windows.Forms.ComboBox();
+            this.lable_tipo = new System.Windows.Forms.Label();
             this.panelCuentaNueva.SuspendLayout();
             this.panelInbox.SuspendLayout();
             this.panelAgregarObjeto.SuspendLayout();
@@ -167,7 +169,7 @@
             // 
             this.VerUsu.FormattingEnabled = true;
             this.VerUsu.ItemHeight = 20;
-            this.VerUsu.Location = new System.Drawing.Point(586, 45);
+            this.VerUsu.Location = new System.Drawing.Point(586, 123);
             this.VerUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VerUsu.Name = "VerUsu";
             this.VerUsu.Size = new System.Drawing.Size(270, 444);
@@ -178,7 +180,7 @@
             // 
             this.btnAgrUsu.BackColor = System.Drawing.Color.Black;
             this.btnAgrUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgrUsu.Location = new System.Drawing.Point(430, 362);
+            this.btnAgrUsu.Location = new System.Drawing.Point(430, 440);
             this.btnAgrUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgrUsu.Name = "btnAgrUsu";
             this.btnAgrUsu.Size = new System.Drawing.Size(148, 62);
@@ -192,7 +194,7 @@
             // 
             this.btnEliminarUsu.BackColor = System.Drawing.Color.Black;
             this.btnEliminarUsu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarUsu.Location = new System.Drawing.Point(430, 427);
+            this.btnEliminarUsu.Location = new System.Drawing.Point(430, 505);
             this.btnEliminarUsu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminarUsu.Name = "btnEliminarUsu";
             this.btnEliminarUsu.Size = new System.Drawing.Size(148, 62);
@@ -362,7 +364,7 @@
             // 
             this.VerObj.FormattingEnabled = true;
             this.VerObj.ItemHeight = 20;
-            this.VerObj.Location = new System.Drawing.Point(586, 45);
+            this.VerObj.Location = new System.Drawing.Point(586, 123);
             this.VerObj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VerObj.Name = "VerObj";
             this.VerObj.Size = new System.Drawing.Size(270, 444);
@@ -373,7 +375,7 @@
             // 
             this.btnEliminarObj.BackColor = System.Drawing.Color.Black;
             this.btnEliminarObj.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminarObj.Location = new System.Drawing.Point(430, 355);
+            this.btnEliminarObj.Location = new System.Drawing.Point(430, 433);
             this.btnEliminarObj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminarObj.Name = "btnEliminarObj";
             this.btnEliminarObj.Size = new System.Drawing.Size(148, 83);
@@ -398,7 +400,7 @@
             // 
             this.btnObjetoEncontrado.BackColor = System.Drawing.Color.Black;
             this.btnObjetoEncontrado.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnObjetoEncontrado.Location = new System.Drawing.Point(430, 427);
+            this.btnObjetoEncontrado.Location = new System.Drawing.Point(430, 505);
             this.btnObjetoEncontrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnObjetoEncontrado.Name = "btnObjetoEncontrado";
             this.btnObjetoEncontrado.Size = new System.Drawing.Size(148, 62);
@@ -536,6 +538,16 @@
             this.panelAgregarObjeto.Size = new System.Drawing.Size(688, 499);
             this.panelAgregarObjeto.TabIndex = 19;
             this.panelAgregarObjeto.Visible = false;
+            // 
+            // lblerror_o
+            // 
+            this.lblerror_o.AutoSize = true;
+            this.lblerror_o.ForeColor = System.Drawing.Color.Red;
+            this.lblerror_o.Location = new System.Drawing.Point(203, 351);
+            this.lblerror_o.Name = "lblerror_o";
+            this.lblerror_o.Size = new System.Drawing.Size(0, 20);
+            this.lblerror_o.TabIndex = 24;
+            this.lblerror_o.Visible = false;
             // 
             // label8
             // 
@@ -730,6 +742,8 @@
             // 
             // PanelMenu
             // 
+            this.PanelMenu.Controls.Add(this.lable_tipo);
+            this.PanelMenu.Controls.Add(this.cmb_tipo);
             this.PanelMenu.Controls.Add(this.lblerror);
             this.PanelMenu.Controls.Add(this.lbl_calificar_usuario);
             this.PanelMenu.Controls.Add(this.botonagregarobjeto);
@@ -758,6 +772,16 @@
             this.PanelMenu.Name = "PanelMenu";
             this.PanelMenu.Size = new System.Drawing.Size(879, 672);
             this.PanelMenu.TabIndex = 19;
+            // 
+            // lblerror
+            // 
+            this.lblerror.AutoSize = true;
+            this.lblerror.ForeColor = System.Drawing.Color.Red;
+            this.lblerror.Location = new System.Drawing.Point(586, 576);
+            this.lblerror.Name = "lblerror";
+            this.lblerror.Size = new System.Drawing.Size(0, 20);
+            this.lblerror.TabIndex = 23;
+            this.lblerror.Visible = false;
             // 
             // lbl_calificar_usuario
             // 
@@ -953,27 +977,27 @@
             this.label10.TabIndex = 7;
             this.label10.Text = "CONTRASEÑA";
             // 
-            // lblerror
+            // cmb_tipo
             // 
-            this.lblerror.AutoSize = true;
-            this.lblerror.ForeColor = System.Drawing.Color.Red;
-            this.lblerror.Location = new System.Drawing.Point(586, 498);
-            this.lblerror.Name = "lblerror";
-            this.lblerror.Size = new System.Drawing.Size(60, 20);
-            this.lblerror.TabIndex = 23;
-            this.lblerror.Text = "label11";
-            this.lblerror.Visible = false;
+            this.cmb_tipo.FormattingEnabled = true;
+            this.cmb_tipo.Location = new System.Drawing.Point(590, 83);
+            this.cmb_tipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_tipo.Name = "cmb_tipo";
+            this.cmb_tipo.Size = new System.Drawing.Size(236, 28);
+            this.cmb_tipo.TabIndex = 24;
+            this.cmb_tipo.Visible = false;
+            this.cmb_tipo.SelectedIndexChanged += new System.EventHandler(this.cmb_tipo_SelectedIndexChanged);
             // 
-            // lblerror_o
+            // lable_tipo
             // 
-            this.lblerror_o.AutoSize = true;
-            this.lblerror_o.ForeColor = System.Drawing.Color.Red;
-            this.lblerror_o.Location = new System.Drawing.Point(203, 351);
-            this.lblerror_o.Name = "lblerror_o";
-            this.lblerror_o.Size = new System.Drawing.Size(60, 20);
-            this.lblerror_o.TabIndex = 24;
-            this.lblerror_o.Text = "label11";
-            this.lblerror_o.Visible = false;
+            this.lable_tipo.AutoSize = true;
+            this.lable_tipo.Location = new System.Drawing.Point(592, 58);
+            this.lable_tipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lable_tipo.Name = "lable_tipo";
+            this.lable_tipo.Size = new System.Drawing.Size(45, 20);
+            this.lable_tipo.TabIndex = 25;
+            this.lable_tipo.Text = "TIPO";
+            this.lable_tipo.Visible = false;
             // 
             // Menu
             // 
@@ -1084,5 +1108,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblerror;
         private System.Windows.Forms.Label lblerror_o;
+        private System.Windows.Forms.Label lable_tipo;
+        private System.Windows.Forms.ComboBox cmb_tipo;
     }
 }
