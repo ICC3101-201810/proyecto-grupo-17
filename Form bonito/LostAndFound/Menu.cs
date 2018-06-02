@@ -447,7 +447,7 @@ namespace LostAndFound
             }
             catch
             {
-                var culture = new CultureInfo("ES");
+                var culture = new CultureInfo("Es");
                 feedInbox.Text += mn + "\n";
                 feedInbox.Text += localDate.ToString(culture) + "\n";
                 lblMenu.Visible = false;
