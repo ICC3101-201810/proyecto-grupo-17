@@ -438,10 +438,21 @@ namespace LostAndFound
             textoInbox.Text = " \n";
             feedInbox.Text += "\n YO: \n";
             DateTime localDate = DateTime.Now;
-            var culture = new CultureInfo("en-US");
-            feedInbox.Text += mn + "\n";
-            feedInbox.Text += localDate.ToString(culture) + "\n";
-            lblMenu.Visible = false;
+            try
+            {
+                var culture = new CultureInfo("en-US");
+                feedInbox.Text += mn + "\n";
+                feedInbox.Text += localDate.ToString(culture) + "\n";
+                lblMenu.Visible = false;
+            }
+            catch
+            {
+                var culture = new CultureInfo("ES");
+                feedInbox.Text += mn + "\n";
+                feedInbox.Text += localDate.ToString(culture) + "\n";
+                lblMenu.Visible = false;
+            }
+            
         }
 
         private void SalirInbox_Click(object sender, EventArgs e)
